@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# --- DATOS ---
+# --- 20 PREGUNTAS ---
 preguntas = [
     {"q": "¿Quién era el sumo sacerdote cuando Jesús fue juzgado?", "op": ["Caifás", "Anás", "Gamaliel", "Nicodemo"], "r": "Caifás", "info": "Fue el sumo sacerdote al momento de la crucifixión."},
     {"q": "¿En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
@@ -28,6 +28,7 @@ preguntas = [
     {"q": "¿Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."}
 ]
 
+# --- 20 PERSONAJES ---
 personajes = [
     {"pista": "Fui arrojado a un foso con leones por orar a mi Dios.", "op": ["Daniel", "Noé", "David", "José"], "r": "Daniel"},
     {"pista": "Construí un arca gigante por mandato divino antes del diluvio.", "op": ["Moisés", "Noé", "Abraham", "Elías"], "r": "Noé"},
@@ -56,84 +57,87 @@ CSS_STYLE = """
 <style>
     body { background: #1a1a2e; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
     .card { background: #16213e; padding: 25px; border-radius: 20px; width: 90%; max-width: 450px; margin: auto; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
-    .info-box { background: #0f3460; padding: 20px; border-radius: 15px; margin-top: 25px; font-size: 18px; color: #ffffff; border: 1px solid #4ecca3; line-height: 1.4; }
-    button { width: 100%; padding: 18px; margin: 10px 0; border: none; border-radius: 12px; font-size: 18px; cursor: pointer; color: black; font-weight: bold; background: #4ecca3; }
+    .info-box { background: #0f3460; padding: 15px; border-radius: 10px; margin-top: 15px; font-size: 16px; border: 1px solid #4ecca3; }
+    button { width: 100%; padding: 15px; margin: 8px 0; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; color: black; font-weight: bold; background: #4ecca3; }
 </style>
 """
 
-# --- MENÚ ---
-@app.route('/')
+# --- RUTAS ---
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        session['nombre'] = request.form['nombre']
+        return redirect(url_for('menu'))
     return render_template_string(CSS_STYLE + """
-        <div class="card">
-            <h1>🎮 Centro de Juegos</h1>
-            <a href="/trivia"><button>Trivia Bíblica</button></a>
-            <a href="/personaje"><button>Adivina el Personaje</button></a>
-        </div>
+        <div class="card"><h1>🎮 Bienvenido</h1><form method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px" required>
+        <button type="submit">Entrar</button></form></div>
     """)
 
-# --- JUEGO PERSONAJE ---
-@app.route('/personaje')
-def juego_personaje():
-    p = random.choice(personajes)
-    session['r_personaje'] = p['r']
-    session['pista_actual'] = p['pista']
-    opciones = p['op'][:]
-    random.shuffle(opciones)
-    botones = "".join([f'<a href="/respuesta_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
+@app.route('/menu')
+def menu():
+    nombre = session.get('nombre', 'Jugador')
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>👤 ¿Quién soy?</h1><p style="font-size:20px">{p['pista']}</p>{botones}
-        <br><a href="/"><button style="background:#888">Volver al Menú</button></a></div>
-    """)
-
-@app.route('/respuesta_personaje')
-def respuesta_personaje():
-    opcion = request.args.get('op')
-    res = session.get('r_personaje')
-    msg = "¡Correcto!" if opcion == res else f"Incorrecto, era {res}"
-    return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>{msg}</h1><a href="/personaje"><button>Siguiente</button></a>
-        <a href="/"><button style="background:#888">Ir al Menú</button></a></div>
+        <div class="card"><h1>Hola, {nombre}</h1><p>Elige tu reto:</p>
+        <a href="/trivia_init"><button>Trivia Bíblica</button></a>
+        <a href="/personaje"><button>Adivina el Personaje</button></a>
+        <br><a href="/"><button style="background:#888">Cambiar nombre</button></a></div>
     """)
 
 # --- TRIVIA ---
-@app.route('/trivia', methods=['GET', 'POST'])
-def inicio_trivia():
-    if request.method == 'POST':
-        session['nombre'] = request.form['nombre']
-        session['idx'] = 0
-        session['puntos'] = 0
-        return redirect(url_for('juego'))
-    return render_template_string(CSS_STYLE + """
-        <div class="card"><h1>🎮 Trivia Bíblica</h1><form method="POST"><input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px" required><button type="submit">¡Empezar!</button></form>
-        <br><a href="/"><button style="background:#888">Volver al Menú</button></a></div>
-    """)
+@app.route('/trivia_init')
+def trivia_init():
+    session['idx'] = 0
+    session['puntos'] = 0
+    return redirect(url_for('juego_trivia'))
 
-@app.route('/juego')
-def juego():
+@app.route('/juego_trivia')
+def juego_trivia():
     idx = session.get('idx', 0)
     if idx >= len(preguntas):
         cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
         return render_template_string(CSS_STYLE + f"""
             <div class="card"><h1>🎉 ¡Terminado!</h1><h2>{session.get('nombre')}</h2>
             <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
-            <h1>Calificación: {cal}</h1>
-            <a href="/trivia"><button>Volver a jugar</button></a><a href="/"><button style="background:#888">Menú</button></a></div>
+            <h1>Calificación: {cal}</h1><a href="/menu"><button>Volver al Menú</button></a></div>
         """)
     p = preguntas[idx]
     opciones = p['op'][:]
     random.shuffle(opciones)
-    btns = "".join([f'<a href="/respuesta?op={o}"><button>{o}</button></a>' for o in opciones])
+    btns = "".join([f'<a href="/resp_trivia?op={o}"><button>{o}</button></a>' for o in opciones])
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><p>Pregunta {idx + 1} de {len(preguntas)}</p><h2>{p['q']}</h2>{btns}<div class="info-box">{p['info']}</div></div>
+        <div class="card"><p>Pregunta {idx + 1}</p><h2>{p['q']}</h2>{btns}<div class="info-box">{p['info']}</div></div>
     """)
 
-@app.route('/respuesta')
-def respuesta():
+@app.route('/resp_trivia')
+def resp_trivia():
     op = request.args.get('op')
     if op == preguntas[session.get('idx')]['r']: session['puntos'] += 1
     session['idx'] += 1
-    return redirect(url_for('juego'))
+    return redirect(url_for('juego_trivia'))
+
+# --- PERSONAJES ---
+@app.route('/personaje')
+def personaje():
+    p = random.choice(personajes)
+    session['r_p'] = p['r']
+    opciones = p['op'][:]
+    random.shuffle(opciones)
+    btns = "".join([f'<a href="/resp_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card"><h1>👤 ¿Quién soy?</h1><p>{p['pista']}</p>{btns}
+        <br><a href="/menu"><button style="background:#888">Menú</button></a></div>
+    """)
+
+@app.route('/resp_personaje')
+def resp_personaje():
+    op = request.args.get('op')
+    res = session.get('r_p')
+    msg = "¡Correcto!" if op == res else f"Incorrecto, era {res}"
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card"><h1>{msg}</h1><a href="/personaje"><button>Siguiente</button></a>
+        <a href="/menu"><button style="background:#888">Menú</button></a></div>
+    """)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
