@@ -55,23 +55,30 @@ personajes = [
 CSS_STYLE = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    body { background: #1a1a2e; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+    body { background: #1a1a2e; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 20px; }
     .card { background: #16213e; padding: 25px; border-radius: 20px; width: 90%; max-width: 450px; margin: auto; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
+    .cruz { font-size: 60px; color: #4ecca3; margin: 5px 0; }
+    .frase { font-style: italic; color: #e94560; margin-bottom: 20px; font-weight: bold; font-size: 18px; }
     .info-box { background: #0f3460; padding: 15px; border-radius: 10px; margin-top: 15px; font-size: 16px; border: 1px solid #4ecca3; }
     button { width: 100%; padding: 15px; margin: 8px 0; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; color: black; font-weight: bold; background: #4ecca3; }
 </style>
 """
 
-# --- INICIO ---
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         session['nombre'] = request.form['nombre']
         return redirect(url_for('menu'))
     return render_template_string(CSS_STYLE + """
-        <div class="card"><h1>🎮 Bienvenido</h1><form method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px" required>
-        <button type="submit">Entrar</button></form></div>
+        <div class="card">
+            <div class="cruz">†</div>
+            <h1>Bienvenido</h1>
+            <p class="frase">"Cristo te Ama"</p>
+            <form method="POST">
+                <input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px; border:none;" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
     """)
 
 @app.route('/menu')
@@ -83,20 +90,17 @@ def menu():
         <br><a href="/"><button style="background:#888">Cambiar nombre</button></a></div>
     """)
 
-# --- TRIVIA LOGIC ---
 @app.route('/trivia_init')
 def trivia_init():
     session['idx'] = 0; session['puntos'] = 0; session['tipo'] = 'trivia'
     return redirect(url_for('juego'))
 
-# --- PERSONAJE LOGIC ---
 @app.route('/personaje_init')
 def personaje_init():
     session['idx'] = 0; session['puntos'] = 0; session['tipo'] = 'personaje'
-    random.shuffle(personajes) # Orden aleatorio de personajes
+    random.shuffle(personajes)
     return redirect(url_for('juego'))
 
-# --- JUEGO UNIFICADO ---
 @app.route('/juego')
 def juego():
     idx = session.get('idx', 0)
@@ -115,7 +119,6 @@ def juego():
     opciones = item['op'][:]
     random.shuffle(opciones)
     btns = "".join([f'<a href="/resp?op={o}"><button>{o}</button></a>' for o in opciones])
-    
     pregunta_o_pista = item['q'] if tipo == 'trivia' else f"Pista: {item['pista']}"
     info = f'<div class="info-box">{item["info"]}</div>' if tipo == 'trivia' else ""
     
