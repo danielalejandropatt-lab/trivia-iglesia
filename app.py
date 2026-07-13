@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# --- DATOS ---
+# --- DATOS (Mismos que ya tenías) ---
 preguntas = [
     {"q": "¿Quién era el sumo sacerdote cuando Jesús fue juzgado?", "op": ["Caifás", "Anás", "Gamaliel", "Nicodemo"], "r": "Caifás", "info": "Fue el sumo sacerdote al momento de la crucifixión."},
     {"q": "¿En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
@@ -56,67 +56,74 @@ CSS_STYLE = """
 <style>
     body { background: #1a1a2e; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 20px; }
     .card { background: #16213e; padding: 25px; border-radius: 20px; width: 90%; max-width: 450px; margin: auto; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
-    .cruz { font-size: 60px; color: #4ecca3; margin: 5px 0; }
-    .frase { color: white; font-size: 20px; margin: 10px auto; width: 85%; padding-bottom: 10px; border-bottom: 1px solid #4ecca3; }
     .info-box { background: #0f3460; padding: 15px; border-radius: 10px; margin-top: 15px; font-size: 16px; border: 1px solid #4ecca3; }
     button { width: 100%; padding: 15px; margin: 8px 0; border: none; border-radius: 10px; font-size: 16px; cursor: pointer; color: black; font-weight: bold; background: #4ecca3; }
 </style>
 """
 
-# --- MENÚ ---
-@app.route('/')
+# --- 1. BIENVENIDA ---
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        session['nombre'] = request.form['nombre']
+        return redirect(url_for('menu'))
     return render_template_string(CSS_STYLE + """
         <div class="card">
-            <h1>🎮 Centro de Juegos</h1>
-            <a href="/trivia"><button>Trivia Bíblica</button></a>
-            <a href="/personaje"><button>Adivina el Personaje</button></a>
+            <h1 style="font-size: 50px;">✝️</h1>
+            <h1 style="color: white; margin-bottom: 5px;">Bienvenido</h1>
+            <p style="color: white; font-size: 1.2em; width: 85%; margin: 10px auto; border-bottom: 1px solid #4ecca3; padding-bottom: 10px;">
+                "Cristo te Ama"
+            </p>
+            <form method="POST">
+                <input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px; margin-bottom: 15px;" required>
+                <button type="submit">Entrar</button>
+            </form>
         </div>
     """)
 
-# --- JUEGO PERSONAJE ---
+# --- 2. MENÚ PRINCIPAL ---
+@app.route('/menu')
+def menu():
+    nombre = session.get('nombre', 'Amigo')
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card">
+            <h1>Hola, {nombre}</h1>
+            <p>Elige tu reto de hoy:</p>
+            <a href="/trivia"><button>Trivia Bíblica</button></a>
+            <a href="/personaje"><button>Adivina el Personaje</button></a>
+            <br><a href="/"><button style="background:#888">Cambiar nombre</button></a>
+        </div>
+    """)
+
+# --- JUEGO: PERSONAJE ---
 @app.route('/personaje')
 def juego_personaje():
     p = random.choice(personajes)
     session['r_personaje'] = p['r']
     opciones = p['op'][:]
     random.shuffle(opciones)
-    botones = "".join([f'<a href="/respuesta_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
+    btns = "".join([f'<a href="/respuesta_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>👤 ¿Quién soy?</h1><p style="font-size:20px">{p['pista']}</p>{botones}
-        <br><a href="/"><button style="background:#888">Volver al Menú</button></a></div>
+        <div class="card"><h1>👤 ¿Quién soy?</h1><p style="font-size:20px">{p['pista']}</p>{btns}
+        <br><a href="/menu"><button style="background:#888">Ir al Menú</button></a></div>
     """)
 
 @app.route('/respuesta_personaje')
 def respuesta_personaje():
-    opcion = request.args.get('op')
+    op = request.args.get('op')
     res = session.get('r_personaje')
-    msg = "¡Correcto!" if opcion == res else f"Incorrecto, era {res}"
+    msg = "¡Correcto!" if op == res else f"Incorrecto, era {res}"
     return render_template_string(CSS_STYLE + f"""
         <div class="card"><h1>{msg}</h1><a href="/personaje"><button>Siguiente</button></a>
-        <a href="/"><button style="background:#888">Ir al Menú</button></a></div>
+        <a href="/menu"><button style="background:#888">Ir al Menú</button></a></div>
     """)
 
-# --- TRIVIA ---
-@app.route('/trivia', methods=['GET', 'POST'])
-def inicio_trivia():
-    if request.method == 'POST':
-        session['nombre'] = request.form['nombre']
-        session['idx'] = 0
-        session['puntos'] = 0
-        return redirect(url_for('juego'))
-    return render_template_string(CSS_STYLE + """
-        <div class="card">
-            <div class="cruz">✝️</div>
-            <h1 style="color: white; margin-top: 0;">Bienvenido</h1>
-            <p class="frase">"Cristo te Ama"</p>
-            <form method="POST">
-                <input type="text" name="nombre" placeholder="Tu nombre" style="padding:15px; width:80%; border-radius:10px; font-size:18px; margin-bottom: 15px;" required>
-                <button type="submit">Entrar</button>
-            </form>
-            <a href="/"><button style="background:#888">Volver al Menú</button></a>
-        </div>
-    """)
+# --- JUEGO: TRIVIA ---
+@app.route('/trivia')
+def trivia():
+    session['idx'] = 0
+    session['puntos'] = 0
+    return redirect(url_for('juego'))
 
 @app.route('/juego')
 def juego():
@@ -124,10 +131,9 @@ def juego():
     if idx >= len(preguntas):
         cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
         return render_template_string(CSS_STYLE + f"""
-            <div class="card"><h1>🎉 ¡Terminado!</h1><h2>{session.get('nombre')}</h2>
-            <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
+            <div class="card"><h1>🎉 Terminaste!</h1><p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
             <h1>Calificación: {cal}</h1>
-            <a href="/trivia"><button>Volver a jugar</button></a><a href="/"><button style="background:#888">Menú</button></a></div>
+            <a href="/trivia"><button>Volver a jugar</button></a><a href="/menu"><button style="background:#888">Menú</button></a></div>
         """)
     p = preguntas[idx]
     opciones = p['op'][:]
