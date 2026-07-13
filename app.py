@@ -62,7 +62,7 @@ CSS_STYLE = """
 </style>
 """
 
-# --- RUTAS ---
+# --- INICIO ---
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -76,68 +76,62 @@ def index():
 
 @app.route('/menu')
 def menu():
-    nombre = session.get('nombre', 'Jugador')
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>Hola, {nombre}</h1><p>Elige tu reto:</p>
+        <div class="card"><h1>Hola, {session.get('nombre')}</h1><p>Elige tu reto:</p>
         <a href="/trivia_init"><button>Trivia Bíblica</button></a>
-        <a href="/personaje"><button>Adivina el Personaje</button></a>
+        <a href="/personaje_init"><button>Adivina el Personaje</button></a>
         <br><a href="/"><button style="background:#888">Cambiar nombre</button></a></div>
     """)
 
-# --- TRIVIA ---
+# --- TRIVIA LOGIC ---
 @app.route('/trivia_init')
 def trivia_init():
-    session['idx'] = 0
-    session['puntos'] = 0
-    return redirect(url_for('juego_trivia'))
+    session['idx'] = 0; session['puntos'] = 0; session['tipo'] = 'trivia'
+    return redirect(url_for('juego'))
 
-@app.route('/juego_trivia')
-def juego_trivia():
+# --- PERSONAJE LOGIC ---
+@app.route('/personaje_init')
+def personaje_init():
+    session['idx'] = 0; session['puntos'] = 0; session['tipo'] = 'personaje'
+    random.shuffle(personajes) # Orden aleatorio de personajes
+    return redirect(url_for('juego'))
+
+# --- JUEGO UNIFICADO ---
+@app.route('/juego')
+def juego():
     idx = session.get('idx', 0)
-    if idx >= len(preguntas):
-        cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
+    tipo = session.get('tipo')
+    items = preguntas if tipo == 'trivia' else personajes
+    
+    if idx >= len(items):
+        cal = round((session.get('puntos') / len(items)) * 10, 1)
         return render_template_string(CSS_STYLE + f"""
-            <div class="card"><h1>🎉 ¡Terminado!</h1><h2>{session.get('nombre')}</h2>
-            <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
+            <div class="card"><h1>🎉 ¡Completado!</h1><h2>{session.get('nombre')}</h2>
+            <p>Aciertos: {session.get('puntos')} de {len(items)}</p>
             <h1>Calificación: {cal}</h1><a href="/menu"><button>Volver al Menú</button></a></div>
         """)
-    p = preguntas[idx]
-    opciones = p['op'][:]
+    
+    item = items[idx]
+    opciones = item['op'][:]
     random.shuffle(opciones)
-    btns = "".join([f'<a href="/resp_trivia?op={o}"><button>{o}</button></a>' for o in opciones])
+    btns = "".join([f'<a href="/resp?op={o}"><button>{o}</button></a>' for o in opciones])
+    
+    pregunta_o_pista = item['q'] if tipo == 'trivia' else f"Pista: {item['pista']}"
+    info = f'<div class="info-box">{item["info"]}</div>' if tipo == 'trivia' else ""
+    
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><p>Pregunta {idx + 1}</p><h2>{p['q']}</h2>{btns}<div class="info-box">{p['info']}</div></div>
+        <div class="card"><p>{tipo.capitalize()} - Pregunta {idx + 1}</p><h2>{pregunta_o_pista}</h2>{btns}{info}</div>
     """)
 
-@app.route('/resp_trivia')
-def resp_trivia():
+@app.route('/resp')
+def resp():
     op = request.args.get('op')
-    if op == preguntas[session.get('idx')]['r']: session['puntos'] += 1
+    idx = session.get('idx')
+    tipo = session.get('tipo')
+    items = preguntas if tipo == 'trivia' else personajes
+    if op == items[idx]['r']: session['puntos'] += 1
     session['idx'] += 1
-    return redirect(url_for('juego_trivia'))
-
-# --- PERSONAJES ---
-@app.route('/personaje')
-def personaje():
-    p = random.choice(personajes)
-    session['r_p'] = p['r']
-    opciones = p['op'][:]
-    random.shuffle(opciones)
-    btns = "".join([f'<a href="/resp_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
-    return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>👤 ¿Quién soy?</h1><p>{p['pista']}</p>{btns}
-        <br><a href="/menu"><button style="background:#888">Menú</button></a></div>
-    """)
-
-@app.route('/resp_personaje')
-def resp_personaje():
-    op = request.args.get('op')
-    res = session.get('r_p')
-    msg = "¡Correcto!" if op == res else f"Incorrecto, era {res}"
-    return render_template_string(CSS_STYLE + f"""
-        <div class="card"><h1>{msg}</h1><a href="/personaje"><button>Siguiente</button></a>
-        <a href="/menu"><button style="background:#888">Menú</button></a></div>
-    """)
+    return redirect(url_for('juego'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
