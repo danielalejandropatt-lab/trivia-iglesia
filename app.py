@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# Tus preguntas se mantienen intactas
+# --- DATOS ---
 preguntas = [
     {"q": "¿Quién era el sumo sacerdote cuando Jesús fue juzgado?", "op": ["Caifás", "Anás", "Gamaliel", "Nicodemo"], "r": "Caifás", "info": "Fue el sumo sacerdote al momento de la crucifixión."},
     {"q": "¿En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
@@ -28,6 +28,29 @@ preguntas = [
     {"q": "¿Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."}
 ]
 
+personajes = [
+    {"pista": "Fui arrojado a un foso con leones por orar a mi Dios.", "op": ["Daniel", "Noé", "David", "José"], "r": "Daniel"},
+    {"pista": "Construí un arca gigante por mandato divino antes del diluvio.", "op": ["Moisés", "Noé", "Abraham", "Elías"], "r": "Noé"},
+    {"pista": "Fui vendido por mis hermanos y terminé siendo gobernador en Egipto.", "op": ["José", "Benjamín", "Judá", "Rubén"], "r": "José"},
+    {"pista": "Lideré al pueblo de Israel fuera de la esclavitud en Egipto.", "op": ["Josué", "Moisés", "Aarón", "Caleb"], "r": "Moisés"},
+    {"pista": "Derroté a un gigante filisteo usando solo una honda y una piedra.", "op": ["Sansón", "David", "Saúl", "Gedeón"], "r": "David"},
+    {"pista": "Fui el hombre más fuerte del mundo, pero mi fuerza estaba en mi cabello.", "op": ["Sansón", "Goliat", "Joab", "Nabucodonosor"], "r": "Sansón"},
+    {"pista": "Fui el primer hombre creado por Dios y viví en el Jardín del Edén.", "op": ["Caín", "Abel", "Adán", "Set"], "r": "Adán"},
+    {"pista": "Fui llamado el padre de la fe por obedecer a Dios al dejar mi tierra.", "op": ["Isaac", "Jacob", "Abraham", "Lot"], "r": "Abraham"},
+    {"pista": "Fui tragado por un gran pez por intentar huir de la misión de Dios.", "op": ["Jonás", "Pedro", "Pablo", "Esteban"], "r": "Jonás"},
+    {"pista": "Fui una reina que salvó a mi pueblo judío de la destrucción en Persia.", "op": ["Rut", "Ester", "Sara", "Raquel"], "r": "Ester"},
+    {"pista": "Tuve muchos problemas y enfermedades, pero nunca maldije a Dios.", "op": ["Salomón", "Job", "Isaías", "Jeremías"], "r": "Job"},
+    {"pista": "Fui el sucesor de Moisés y guié al pueblo a conquistar Jericó.", "op": ["Caleb", "Josué", "Aarón", "Samuel"], "r": "Josué"},
+    {"pista": "Conocido por mi gran sabiduría y por construir el primer Templo.", "op": ["David", "Salomón", "Roboam", "Ezequías"], "r": "Salomón"},
+    {"pista": "Fui la mujer que decidió quedarse con su suegra Noemí en Belén.", "op": ["Ester", "Rut", "Débora", "Ana"], "r": "Rut"},
+    {"pista": "Fui el último juez de Israel y ungí a los dos primeros reyes.", "op": ["Elías", "Samuel", "Eliseo", "Natán"], "r": "Samuel"},
+    {"pista": "Profeticé sobre la venida del Mesías siglos antes de que naciera.", "op": ["Isaías", "Amós", "Miqueas", "Joel"], "r": "Isaías"},
+    {"pista": "Fui un recaudador de impuestos que dejó todo para seguir a Jesús.", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Mateo"},
+    {"pista": "Fui el discípulo que caminó sobre las aguas hacia Jesús.", "op": ["Juan", "Pedro", "Andrés", "Felipe"], "r": "Pedro"},
+    {"pista": "Fui el apóstol de los gentiles y escribí gran parte del Nuevo Testamento.", "op": ["Bernabé", "Pablo", "Marcos", "Tomás"], "r": "Pablo"},
+    {"pista": "Preparé el camino para Jesús bautizando en el río Jordán.", "op": ["Juan el Bautista", "Elías", "Enoc", "Jeremías"], "r": "Juan el Bautista"}
+]
+
 CSS_STYLE = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -38,20 +61,42 @@ CSS_STYLE = """
 </style>
 """
 
-# --- CENTRO DE JUEGOS ---
+# --- MENÚ ---
 @app.route('/')
 def index():
     return render_template_string(CSS_STYLE + """
         <div class="card">
             <h1>🎮 Centro de Juegos</h1>
-            <p>Elige tu reto de hoy:</p>
             <a href="/trivia"><button>Trivia Bíblica</button></a>
-            <br><br>
-            <button style="background:#555">Próximamente...</button>
+            <a href="/personaje"><button>Adivina el Personaje</button></a>
         </div>
     """)
 
-# --- TRIVIA BÍBLICA ---
+# --- JUEGO PERSONAJE ---
+@app.route('/personaje')
+def juego_personaje():
+    p = random.choice(personajes)
+    session['r_personaje'] = p['r']
+    session['pista_actual'] = p['pista']
+    opciones = p['op'][:]
+    random.shuffle(opciones)
+    botones = "".join([f'<a href="/respuesta_personaje?op={o}"><button>{o}</button></a>' for o in opciones])
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card"><h1>👤 ¿Quién soy?</h1><p style="font-size:20px">{p['pista']}</p>{botones}
+        <br><a href="/"><button style="background:#888">Volver al Menú</button></a></div>
+    """)
+
+@app.route('/respuesta_personaje')
+def respuesta_personaje():
+    opcion = request.args.get('op')
+    res = session.get('r_personaje')
+    msg = "¡Correcto!" if opcion == res else f"Incorrecto, era {res}"
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card"><h1>{msg}</h1><a href="/personaje"><button>Siguiente</button></a>
+        <a href="/"><button style="background:#888">Ir al Menú</button></a></div>
+    """)
+
+# --- TRIVIA ---
 @app.route('/trivia', methods=['GET', 'POST'])
 def inicio_trivia():
     if request.method == 'POST':
@@ -68,35 +113,25 @@ def inicio_trivia():
 def juego():
     idx = session.get('idx', 0)
     if idx >= len(preguntas):
-        calificacion = round((session.get('puntos') / len(preguntas)) * 10, 1)
+        cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
         return render_template_string(CSS_STYLE + f"""
-            <div class="card"><h1>🎉 ¡Reto Completado!</h1><h2>{session.get('nombre')}</h2>
-            <p style="font-size:20px">Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
-            <h1 style="font-size:40px">Calificación: {calificacion}</h1>
-            <a href="/trivia"><button>Volver a jugar</button></a>
-            <a href="/"><button style="background:#888">Ir al Menú</button></a></div>
+            <div class="card"><h1>🎉 ¡Terminado!</h1><h2>{session.get('nombre')}</h2>
+            <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
+            <h1>Calificación: {cal}</h1>
+            <a href="/trivia"><button>Volver a jugar</button></a><a href="/"><button style="background:#888">Menú</button></a></div>
         """)
-    
     p = preguntas[idx]
     opciones = p['op'][:]
     random.shuffle(opciones)
-    
+    btns = "".join([f'<a href="/respuesta?op={o}"><button>{o}</button></a>' for o in opciones])
     return render_template_string(CSS_STYLE + f"""
-        <div class="card"><p style="font-size:18px">Pregunta {idx + 1} de {len(preguntas)}</p><h2 style="font-size:24px">{p['q']}</h2>
-            <a href="/respuesta?op={opciones[0]}"><button>{opciones[0]}</button></a>
-            <a href="/respuesta?op={opciones[1]}"><button>{opciones[1]}</button></a>
-            <a href="/respuesta?op={opciones[2]}"><button>{opciones[2]}</button></a>
-            <a href="/respuesta?op={opciones[3]}"><button>{opciones[3]}</button></a>
-            <div class="info-box">{p['info']}</div>
-        </div>
+        <div class="card"><p>Pregunta {idx + 1} de {len(preguntas)}</p><h2>{p['q']}</h2>{btns}<div class="info-box">{p['info']}</div></div>
     """)
 
 @app.route('/respuesta')
 def respuesta():
-    opcion_elegida = request.args.get('op')
-    idx = session.get('idx', 0)
-    if idx < len(preguntas) and opcion_elegida == preguntas[idx]['r']:
-        session['puntos'] += 1
+    op = request.args.get('op')
+    if op == preguntas[session.get('idx')]['r']: session['puntos'] += 1
     session['idx'] += 1
     return redirect(url_for('juego'))
 
