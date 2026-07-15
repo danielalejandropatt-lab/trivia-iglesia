@@ -1,10 +1,14 @@
-from flask import Flask, request, render_template_string, redirect, url_for, session
+from flask import Flask, request, render_template_string, redirect, url_for, session, Response
 import random
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# --- BANCO DE DATOS ACTUALIZADO: DIFICULTAD ELEVADA (10 preguntas por bloque) ---
+# --- MEMORIA VOLÁTIL PARA LAS MÉTRICAS DE LA IGLESIA ---
+HISTORIAL_CALIFICACIONES = []
+
+# --- BANCO DE DATOS: DIFICULTAD ELEVADA (10 preguntas por bloque) ---
 verdades_data = [
     {
         "nivel": 1,
@@ -38,8 +42,8 @@ verdades_data = [
             {"q": "¿Cuántas personas han pecado según el texto de Romanos 3:23?", "op": ["Todos, sin excepción.", "Únicamente aquellos que no conocen la Ley.", "La mayoría de la humanidad, exceptuando los santos."], "r": "Todos, sin excepción."},
             {"q": "¿Cuál es el estado del pecador respecto a la gloria de Dios?", "op": ["Está destituido de ella.", "Se encuentra bajo un velo de ignorancia remediable.", "Permanece en un estado de juicio en suspenso."], "r": "Está destituido de ella."},
             {"q": "¿Cuál es la consecuencia legal y espiritual del pecado según Romanos 6:23?", "op": ["La muerte.", "Una corrección pedagógica en el alma.", "La pérdida temporal del favor divino."], "r": "La muerte."},
-            {"q": "¿Por qué el pecado causa una separación?", "op": ["Porque crea una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilita el libre albedrío del individuo de forma natural."], "r": "Porque crea una barrera entre la santidad de Dios y la condición humana."},
-            {"q": "Según el análisis teológico de este bloque, ¿puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["No, el pecado nos mantiene separados por completo.", "Sí, si equilibra sus faltas mediante actos de caridad extrema.", "Sí, a través de la meditación y el arrepentimiento intelectual."], "r": "No, el pecado nos mantiene separados por completo."},
+            {"q": "¿Por qué el pecado causa una separación?", "op": ["Refleja una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilita el libre albedrío del individuo de forma natural."], "r": "Refleja una barrera entre la santidad de Dios y la condición humana."},
+            {"q": "¿Puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["No, el pecado nos mantiene separados por completo.", "Sí, si equilibra sus faltas mediante actos de caridad extrema.", "Sí, a través de la meditación y el arrepentimiento intelectual."], "r": "No, el pecado nos mantiene separados por completo."},
             {"q": "¿Qué tipo de 'muerte' se menciona en la segunda verdad?", "op": ["La muerte espiritual como paga por el pecado.", "La cesación absoluta de la existencia del alma.", "El deterioro físico progresivo del ser humano."], "r": "La muerte espiritual como paga por el pecado."},
             {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["Porque nos impide vivir la vida abundante que Él diseñó.", "Porque invalida los dones genéticos y talentos del hombre.", "Porque cancela de forma retroactiva el amor del Creador."], "r": "Porque nos impide vivir la vida abundante que Él diseñó."},
             {"q": "¿Es el pecado un problema individual o universal?", "op": ["Universal, pues todos pecaron.", "Individual, afectando únicamente a quienes cometen actos inmorales.", "Estructural, dependiente del entorno social del individuo."], "r": "Universal, pues todos pecaron."},
@@ -54,16 +58,16 @@ verdades_data = [
             "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. (Jn. 14:6)"
         ],
         "preguntas": [
-            {"q": "Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
-            {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["Haciendo que Cristo muriera por nosotros.", "Manifestando señales portentosas en el templo.", "Suspendiendo temporalmente los efectos directos de la Ley."], "r": "Haciendo que Cristo muriera por nosotros."},
+            {"q": "¿Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
+            {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["Haciendo que Cristo muriera por nosotros.", "Manifestando señales portentosas en el templo.", "Enviando bendiciones a través de emisarios celestiales."], "r": "Haciendo que Cristo muriera por nosotros."},
             {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["El precio completo de nuestra salvación.", "La deuda de los pecados cometidos en el pasado únicamente.", "La culpa original adquirida en el Edén."], "r": "El precio completo de nuestra salvación."},
             {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["Que Él es el camino, la verdad y la vida.", "Que es el ejemplo moral supremo a seguir.", "Que representa una de las puertas de acceso a la presencia de Dios."], "r": "Que Él es el camino, la verdad y la vida."},
             {"q": "¿Es posible llegar al Padre a través de alguien que no sea Jesús?", "op": ["No, nadie viene al Padre sino por Él.", "Sí, si se sigue la doctrina de los profetas antiguos.", "Sí, mediante una vida de perfecta contemplación ascética."], "r": "No, nadie viene al Padre sino por Él."},
-            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Porque tomó el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representación de los reyes terrenales."], "r": "Porque tomó el lugar del pecador y pagó su deuda de muerte."},
+            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Logró tomar el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representation de los reyes terrenales."], "r": "Logró tomar el lugar del pecador y pagó su deuda de muerte."},
             {"q": "¿Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
             {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["Que Él pagó el precio 'completo'.", "El respaldo y la validación de los líderes de la época.", "Que fue ratificado posteriormente por las buenas obras de la iglesia."], "r": "Que Él pagó el precio 'completo'."},
             {"q": "¿Cómo se relaciona la tercera verdad con el amor de Dios?", "op": ["Es la prueba máxima de su amor (Romanos 5:8).", "Evidencia que el amor requería un pago para seguir existiendo.", "Muestra que el amor divino es condicional al sacrificio."], "r": "Es la prueba máxima de su amor (Romanos 5:8)."},
-            {"q": "¿Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
+            {"q": "Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
         ]
     },
     {
@@ -77,7 +81,7 @@ verdades_data = [
             {"q": "¿Cuál es el beneficio directo del arrepentimiento?", "op": ["Que los pecados sean borrados.", "La inmunidad frente a futuras tentaciones.", "Un estado inmediato de prosperidad material."], "r": "Que los pecados sean borrados."},
             {"q": "¿Qué significa 'convertirse' tras el arrepentimiento?", "op": ["Cambiar de dirección hacia Dios.", "Adoptar una nueva identidad eclesiástica o rito.", "Modificar la conducta externa por temor."], "r": "Cambiar de dirección hacia Dios."},
             {"q": "¿Qué prometen las fuentes que viene tras el arrepentimiento?", "op": ["Tiempos de refrigerio de la presencia del Señor.", "La eliminación de los conflictos en la vida diaria.", "Una recompensa de honor entre los hombres."], "r": "Tiempos de refrigerio de la presencia del Señor."},
-            {"q": "¿Is el arrepentimiento solo sentir pena por el pecado?", "op": ["No, implica una decisión de volver a Dios.", "Sí, es el remordimiento emocional por las consecuencias del error.", "Sí, es el llanto sacramental requerido."], "r": "No, implica una decisión de volver a Dios."},
+            {"q": "¿Es el arrepentimiento solo sentir pena por el pecado?", "op": ["No, implica una decisión de volver a Dios.", "Sí, es el remordimiento emocional por las consecuencias del error.", "Sí, es el llanto sacramental requerido."], "r": "No, implica una decisión de volver a Dios."},
             {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "Debido a que es el requisito formal exigido por la ley eclesial.", "Porque convence al intelecto de sus propios errores morales."], "r": "Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
             {"q": "¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["Del Señor.", "Del esfuerzo interior del individuo.", "De la absolución comunitaria."], "r": "Del Señor."},
             {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
@@ -113,7 +117,7 @@ preguntas = [
     {"q": "¿En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
     {"q": "¿Cómo se llamaba el esclavo que Pablo envió de regreso a Filemón?", "op": ["Onésimo", "Tíquico", "Epafrodito", "Marcos"], "r": "Onésimo", "info": "Este hombre huyó de su amo pero se encontró con Pablo."},
     {"q": "¿Cuál es el libro que menciona a 'César' por primera vez?", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Lucas", "info": "Es el mismo libro que detalla el nacimiento de Jesús."},
-    {"q": "¿Quién fue el primer mártir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
+    {"q": "Quién fue el primer mártir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
     {"q": "¿A qué iglesia escribió Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Éfeso", "Galacia"], "r": "Éfeso", "info": "Esta carta aborda la lucha espiritual."},
     {"q": "¿Quién acompañó a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabé", "Timoteo", "Lucas"], "r": "Bernabé", "info": "Conocido como el 'hijo de consolación'."},
     {"q": "¿Cómo se llamaba la mujer que Pablo resucitó en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
@@ -125,7 +129,7 @@ preguntas = [
     {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
     {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
     {"q": "¿Cuántas personas fueron alimentadas con cinco panes y dos peces?", "op": ["2,000", "5,000", "7,000", "10,000"], "r": "5,000", "info": "El gran milagro de provisión."},
-    {"q": "Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
+    {"q": "¿Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
     {"q": "¿En qué ciudad se llamaron por primera vez 'cristianos'?", "op": ["Jerusalén", "Antioquía", "Roma", "Corinto"], "r": "Antioquía", "info": "Ciudad donde la comunidad se hizo notoria."},
     {"q": "¿Qué objeto se le cayó a Pablo de los ojos tras su conversión?", "op": ["Escamas", "Polvo", "Sangre", "Velo"], "r": "Escamas", "info": "Una señal física de que su ceguera terminó."},
     {"q": "¿Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
@@ -170,7 +174,7 @@ personajes = [
     {"pista": "Fui la mujer que escondió a los espías de Israel en Jericó para salvar a mi familia.", "op": ["Rahab", "Rut", "Débora", "Ester"], "r": "Rahab"},
     {"pista": "Me quedé mudo por no creer el mensaje del ángel que me anunciaba el nacimiento de mi hijo.", "op": ["Simeón", "Zacarías", "José", "Nicodemo"], "r": "Zacarías"},
     {"pista": "Fui el juez que venció a los madianitas usando solo a 300 hombres con trompetas y cántaros.", "op": ["Sansón", "Gedeón", "Barac", "Josué"], "r": "Gedeón"},
-    {"pista": "Fui el apóstol que tuvo dudas y necesitá tocar las heridas de Jesús para creer que había resucitado.", "op": ["Pedro", "Felipe", "Tomás", "Juan"], "r": "Tomás"},
+    {"pista": "Fui el apóstol que tuvo dudas y necesitó tocar las heridas de Jesús para creer que había resucitado.", "op": ["Pedro", "Felipe", "Tomás", "Juan"], "r": "Tomás"},
     {"pista": "Fui el profeta que tuvo que casarse con una mujer infiel como símbolo del amor de Dios por su pueblo.", "op": ["Amós", "Oseas", "Joel", "Malaquías"], "r": "Oseas"}
 ]
 
@@ -204,7 +208,7 @@ def menu():
         <a href="/verdades_init"><button style="background: #e94560; color: white;">El reto de las 5 Verdades</button></a></div>
     """)
 
-# --- TRIVIA ORIGINAL ---
+# --- TRIVIA ORIGINAL (CON BOTÓN DE NUEVO JUGADOR) ---
 @app.route('/trivia_init')
 def trivia_init():
     session['idx'] = 0; session['puntos'] = 0
@@ -215,7 +219,23 @@ def juego():
     idx = session.get('idx', 0)
     if idx >= len(preguntas):
         cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
-        return render_template_string(CSS_STYLE + f"""<div class="card"><h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1><p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p><h1>Calificación: {cal}</h1><a href="/trivia_init"><button>Volver a jugar</button></a><a href="/menu"><button style="background:#888">Menú</button></a></div>""")
+        HISTORIAL_CALIFICACIONES.append({
+            "nombre": session.get('nombre', 'Desconocido'),
+            "juego": "Trivia Bíblica",
+            "calificacion": cal,
+            "detalles": f"{session.get('puntos')} de {len(preguntas)}",
+            "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
+        return render_template_string(CSS_STYLE + f"""
+            <div class="card">
+                <h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1>
+                <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
+                <h1>Calificación: {cal}</h1>
+                <a href="/trivia_init"><button>Volver a jugar</button></a>
+                <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
+                <a href="/menu"><button style="background:#888">Menú</button></a>
+            </div>
+        """)
     p = preguntas[idx]
     ops = p['op'][:]; random.shuffle(ops)
     btns = "".join([f'<a href="/res?op={o}"><button>{o}</button></a>' for o in ops])
@@ -227,7 +247,7 @@ def res():
     session['idx'] += 1
     return redirect(url_for('juego'))
 
-# --- PERSONAJES ORIGINAL ---
+# --- PERSONAJES ORIGINAL (CON BOTÓN DE NUEVO JUGADOR) ---
 @app.route('/personaje_init')
 def personaje_init():
     session['idx_p'] = 0; session['puntos_p'] = 0
@@ -237,7 +257,24 @@ def personaje_init():
 def juego_personaje():
     idx = session.get('idx_p', 0)
     if idx >= len(personajes):
-        return render_template_string(CSS_STYLE + f"""<div class="card"><h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1><p>Aciertos: {session.get('puntos_p')} de {len(personajes)}</p><a href="/personaje_init"><button>Volver a jugar</button></a><a href="/menu"><button style="background:#888">Menú</button></a></div>""")
+        cal = round((session.get('puntos_p') / len(personajes)) * 10, 1)
+        HISTORIAL_CALIFICACIONES.append({
+            "nombre": session.get('nombre', 'Desconocido'),
+            "juego": "Adivina el Personaje",
+            "calificacion": cal,
+            "detalles": f"{session.get('puntos_p')} de {len(personajes)}",
+            "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
+        return render_template_string(CSS_STYLE + f"""
+            <div class="card">
+                <h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1>
+                <p>Aciertos: {session.get('puntos_p')} de {len(personajes)}</p>
+                <h1>Calificación: {cal}</h1>
+                <a href="/personaje_init"><button>Volver a jugar</button></a>
+                <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
+                <a href="/menu"><button style="background:#888">Menú</button></a>
+            </div>
+        """)
     p = personajes[idx]; session['r_p'] = p['r']; ops = p['op'][:]; random.shuffle(ops)
     btns = "".join([f'<a href="/res_p?op={o}"><button>{o}</button></a>' for o in ops])
     return render_template_string(CSS_STYLE + f"""<div class="card"><p>Personaje {idx + 1} de {len(personajes)}</p><h1>👤 ¿Quién soy?</h1><p style="font-size:20px">{p['pista']}</p>{btns}</div>""")
@@ -250,17 +287,16 @@ def res_p():
 
 
 # =====================================================================
-# --- NUEVA SECCIÓN: EL RETO DE LAS 5 VERDADES (BLOQUES COMPLETOS DE 10) ---
+# --- NUEVA SECCIÓN: EL RETO DE LAS 5 VERDADES ---
 # =====================================================================
 
 @app.route('/verdades_init')
 def verdades_init():
-    session['v_bloque'] = 0  # Bloque/Nivel actual (0 a 4)
-    session['v_pregunta_idx'] = 0  # Índice de pregunta interna del bloque (0 a 9)
-    session['v_fase'] = 'juego'  # 'juego' o 'repaso'
+    session['v_bloque'] = 0  
+    session['v_pregunta_idx'] = 0  
+    session['v_fase'] = 'juego'  
     session['v_intento_corregir'] = False
     
-    # Clonamos y mezclamos internamente las 10 preguntas de cada bloque para que aparezcan en distinto orden
     preguntas_ordenadas = []
     for b in verdades_data:
         pool = b['preguntas'][:]
@@ -268,9 +304,7 @@ def verdades_init():
         preguntas_ordenadas.append(pool)
         
     session['v_seleccionadas'] = preguntas_ordenadas
-    # Guardamos las respuestas del usuario para el bloque actual (10 elementos)
     session['v_respuestas_usuario'] = [None] * 10
-    # Guardamos cuáles preguntas del bloque actual estuvieron mal para la fase de repaso
     session['v_indices_erroneos'] = []
     return redirect(url_for('verdades_juego'))
 
@@ -278,8 +312,14 @@ def verdades_init():
 def verdades_juego():
     bloque_idx = session.get('v_bloque', 0)
     
-    # Final del juego: 5 bloques superados
     if bloque_idx >= len(verdades_data):
+        HISTORIAL_CALIFICACIONES.append({
+            "nombre": session.get('nombre', 'Desconocido'),
+            "juego": "El Reto de las 5 Verdades",
+            "calificacion": 10.0,
+            "detalles": "⭐⭐⭐⭐⭐ Reto Superado Completo",
+            "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
         return render_template_string(CSS_STYLE + f"""
             <div class="card" style="border: 2px solid #ffd700;">
                 <h1 style="color: #ffd700;">🏆 ¡RETO COMPLETADO! 🏆</h1>
@@ -289,7 +329,8 @@ def verdades_juego():
                     <p>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo."</p>
                 </div>
                 <p style="color: #4ecca3; font-weight: bold; font-size: 1.2em;">✨ Propósito: Oración de ACEPTACIÓN ✨</p>
-                <a href="/menu"><button style="background:#ffd700">Regresar al Menú</button></a>
+                <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
+                <a href="/menu"><button style="background:#888; color:white;">Ir al Menú</button></a>
             </div>
         """)
         
@@ -297,15 +338,11 @@ def verdades_juego():
     bloque_actual = verdades_data[bloque_idx]
     preguntas_bloque = session['v_seleccionadas'][bloque_idx]
     
-    # FASE 1: RESPONDIENDO EL BLOQUE NORMAL DE 10 PREGUNTAS
     if fase == 'juego':
         q_idx = session.get('v_pregunta_idx', 0)
         p = preguntas_bloque[q_idx]
-        
-        # Mezclamos las opciones de respuesta dinámicamente en pantalla
         ops = p['op'][:]
         random.shuffle(ops)
-        
         btns = "".join([f'<a href="/verdades_res?op={o}"><button>{o}</button></a>' for o in ops])
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
@@ -316,20 +353,15 @@ def verdades_juego():
             </div>
         """)
         
-    # FASE 2: REPASO Y CORRECCIÓN DE PREGUNTAS FALLADAS
     elif fase == 'repaso':
         indices_mal = session.get('v_indices_erroneos', [])
         if not indices_mal:
-            # Si ya corrigió todos los errores con éxito
             return redirect(url_for('verdades_completar_nivel'))
             
-        # Tomamos el primer error de la lista para corregir
         q_idx = indices_mal[0]
         p = preguntas_bloque[q_idx]
-        
         ops = p['op'][:]
         random.shuffle(ops)
-        
         btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
         return render_template_string(CSS_STYLE + f"""
             <div class="card" style="border: 2px solid #e94560;">
@@ -351,22 +383,18 @@ def verdades_res():
         q_idx = session['v_pregunta_idx']
         session['v_respuestas_usuario'][q_idx] = opcion_elegida
         
-        # Pasar a la siguiente pregunta del bloque
         if q_idx + 1 < 10:
             session['v_pregunta_idx'] += 1
             return redirect(url_for('verdades_juego'))
         else:
-            # Se terminaron las 10 preguntas, evaluar el bloque completo
             errores = []
             for i in range(10):
                 if session['v_respuestas_usuario'][i] != preguntas_bloque[i]['r']:
                     errores.append(i)
             
             if len(errores) == 0:
-                # Todo perfecto sin fallas
                 return redirect(url_for('verdades_completar_nivel'))
             else:
-                # Guardar errores y mandar a la pantalla de Strike/Repaso
                 session['v_indices_erroneos'] = errores
                 session['v_fase'] = 'repaso'
                 session['v_intento_corregir'] = True
@@ -385,14 +413,11 @@ def verdades_res():
         indices_mal = session['v_indices_erroneos']
         q_idx = indices_mal[0]
         
-        # Validar la corrección
         if opcion_elegida == preguntas_bloque[q_idx]['r']:
-            # Corrección exitosa: eliminar el índice de la lista de errores
             indices_mal.pop(0)
             session['v_indices_erroneos'] = indices_mal
             return redirect(url_for('verdades_juego'))
         else:
-            # Falló en la oportunidad de corregir: Muerte Súbita
             return redirect(url_for('verdades_gameover'))
 
 @app.route('/verdades_completar_nivel')
@@ -401,7 +426,6 @@ def verdades_completar_nivel():
     bloque_actual = verdades_data[bloque_idx]
     versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
     
-    # Determinar título de felicitación según si usó corrección o no
     titulo_pantalla = "⭐ ¡TE HAS SALVADO! ⭐" if session.get('v_intento_corregir') else "⭐ ¡NIVEL SUPERADO! ⭐"
     borde_color = "#4ecca3" if session.get('v_intento_corregir') else "#ffd700"
     
@@ -430,15 +454,120 @@ def verdades_avanzar():
 
 @app.route('/verdades_gameover')
 def verdades_gameover():
+    HISTORIAL_CALIFICACIONES.append({
+        "nombre": session.get('nombre', 'Desconocido'),
+        "juego": "El Reto de las 5 Verdades",
+        "calificacion": round((session.get('v_bloque', 0) / 5) * 10, 1),
+        "detalles": f"💀 Game Over en Nivel {session.get('v_bloque', 0) + 1}",
+        "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    })
     return render_template_string(CSS_STYLE + f"""
         <div class="card" style="border: 2px solid #e94560;">
             <h1 style="color: #e94560; font-size: 45px;">💀 GAME OVER 💀</h1>
             <p style="font-size: 1.2em;">Lo sentimos, <b>{session.get('nombre')}</b>. Fallaste en tu oportunidad de corrección.</p>
             <p>Debes conocer bien las verdades antes de avanzar.</p>
             <a href="/verdades_init"><button style="background: #e94560; color: white;">Reiniciar Reto</button></a>
+            <a href="/"><button style="background: #ffd700">Registrar nuevo jugador 👤</button></a>
             <a href="/menu"><button style="background: #888;">Volver al Menú</button></a>
         </div>
     """)
+
+
+# =====================================================================
+# --- EXCLUSIVO: PANEL SECRETO DE ADMINISTRACIÓN Y MÉTRICAS ---
+# =====================================================================
+
+@app.route('/admin_daniel', methods=['GET', 'POST'])
+def admin_daniel():
+    if request.method == 'POST':
+        if request.form.get('clave') == 'dpatt#admon2026':
+            session['es_admin'] = True
+        else:
+            return render_template_string(CSS_STYLE + """
+                <div class="card" style="border: 2px solid #e94560;">
+                    <h2 style="color:#e94560;">Clave Incorrecta</h2>
+                    <a href="/admin_daniel"><button>Intentar de nuevo</button></a>
+                </div>
+            """)
+
+    if not session.get('es_admin', False):
+        return render_template_string(CSS_STYLE + """
+            <div class="card">
+                <h2>🔐 Panel de Control de la Iglesia</h2>
+                <p>Por favor, introduce la clave secreta de acceso:</p>
+                <form method="POST">
+                    <input type="password" name="clave" placeholder="Contraseña de administrador" style="padding:15px; width:80%; border-radius:10px; font-size:18px; margin-bottom: 15px;" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+                <a href="/menu"><button style="background:#888">Volver al Juego</button></a>
+            </div>
+        """)
+
+    tabla_filas = ""
+    for idx, reg in enumerate(HISTORIAL_CALIFICACIONES):
+        tabla_filas += f"""
+            <tr style="border-bottom: 1px solid #454d66;">
+                <td style="padding:10px;">{reg['fecha']}</td>
+                <td style="padding:10px; font-weight:bold;">{reg['nombre']}</td>
+                <td style="padding:10px; color:#4ecca3;">{reg['juego']}</td>
+                <td style="padding:10px;">{reg['detalles']}</td>
+                <td style="padding:10px; font-weight:bold; color:#ffd700;">{reg['calificacion']}</td>
+            </tr>
+        """
+
+    return render_template_string("""
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body { background: #1a1a2e; color: white; font-family: sans-serif; padding: 20px; }
+            .container { width: 95%; max-width: 800px; margin: auto; background: #16213e; padding: 25px; border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
+            button { padding: 12px 20px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; background: #4ecca3; margin: 10px 5px; }
+            table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #0f3460; border-radius: 10px; overflow: hidden; }
+            th { background: #4ecca3; color: black; padding: 12px; }
+        </style>
+        <div class="container">
+            <h2>📊 Métricas y Calificaciones - "Cristo te Ama"</h2>
+            <p>Monitoreo de participación en la aplicación web.</p>
+            <a href="/admin_descargar"><button style="background: #ffd700; color: black;">📥 Descargar Reporte Excel (CSV)</button></a>
+            <a href="/admin_logout"><button style="background: #e94560; color: white;">Cerrar Sesión</button></a>
+            <a href="/menu"><button style="background: #888; color: white;">Ir al Menú principal</button></a>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Nombre</th>
+                        <th>Juego</th>
+                        <th>Progreso / Detalles</th>
+                        <th>Calificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    """ + (tabla_filas if tabla_filas else "<tr><td colspan='5' style='padding:20px; text-align:center; color:#888;'>Aún no hay registros de partidas completadas.</td></tr>") + """
+                </tbody>
+            </table>
+        </div>
+    """)
+
+@app.route('/admin_descargar')
+def admin_descargar():
+    if not session.get('es_admin', False):
+        return redirect(url_for('admin_daniel'))
+        
+    csv_data = "\uFEFFFecha,Nombre,Juego,Detalles,Calificacion\n"
+    for r in HISTORIAL_CALIFICACIONES:
+        csv_data += f"{r['fecha']},{r['nombre']},{r['juego']},{r['detalles']},{r['calificacion']}\n"
+        
+    return Response(
+        csv_data,
+        mimetype="text/csv",
+        headers={"Content-disposition": "attachment; filename=reporte_juegos_iglesia.csv"}
+    )
+
+@app.route('/admin_logout')
+def admin_logout():
+    session['es_admin'] = False
+    return redirect(url_for('admin_daniel'))
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
