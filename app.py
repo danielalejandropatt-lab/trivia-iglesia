@@ -23,7 +23,7 @@ verdades_data = [
             {"q": "¿Cuál es el regalo que Dios ofrece a quienes creen en su Hijo?", "op": ["La vida eterna.", "El perdón condicional y temporal.", "La exención de toda tribulación terrenal."], "r": "La vida eterna."},
             {"q": "Según Juan 10:10, ¿para qué vino Jesús al mundo?", "op": ["Para que tengamos vida en abundancia.", "Para instituir un nuevo orden de sacerdotes.", "Para abolir de manera inmediata la ley mosaica."], "r": "Para que tengamos vida en abundancia."},
             {"q": "¿Cómo se describe la naturaleza del amor de Dios en la primera verdad?", "op": ["Como un amor que da lo más preciado (a su Hijo) para salvarnos.", "Como un afecto pasivo que depende de la piedad humana.", "Como una recompensa destinada a los justos de la Tierra."], "r": "Como un amor que da lo más preciado (a su Hijo) para salvarnos."},
-            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["Vivir en plenitud y en relación con el propósito de Dios.", "Gozar de prosperidad financiera y ausencia de padecimientos.", "Alcanzar un estado de iluminación mental superior."], "r": "Vivir en plenitud y en relación con el propósito de Dios."},
+            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["Vivir en plenitud y en relación con el propósito de Dios.", "Gozar de prosperidad financiera y ausencia de padecimientos.", "Alcanzar un estado de iluminación mental superior."], "r": "Vivir en plenitud and en relación con el propósito de Dios."},
             {"q": "¿A quiénes incluye el amor de Dios mencionado en Juan 3:16?", "op": ["A todo el mundo ('de tal manera amó Dios al mundo').", "Exclusivamente a los remanentes elegidos de Israel.", "Únicamente a quienes guardan fielmente los mandamientos."], "r": "A todo el mundo ('de tal manera amó Dios al mundo')."},
             {"q": "¿Es la vida eterna algo que se gana o que se recibe por amor?", "op": ["Se recibe como resultado del plan amoroso de Dios.", "Se gana acumulando méritos espirituales y obras rectas.", "Se adquiere a través del conocimiento de misterios sagrados."], "r": "Se recibe como resultado del plan amoroso de Dios."},
             {"q": "¿Qué asegura Juan 3:16 que NO le pasará a quien cree?", "op": ["Que no se perderá.", "Que no experimentará la muerte física terrenal.", "Que no volverá a ser tentado por el pecado."], "r": "Que no se perderá."},
@@ -58,13 +58,13 @@ verdades_data = [
             "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. (Jn. 14:6)"
         ],
         "preguntas": [
-            {"q": "¿Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
+            {"q": "Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
             {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["Haciendo que Cristo muriera por nosotros.", "Manifestando señales portentosas en el templo.", "Enviando bendiciones a través de emisarios celestiales."], "r": "Haciendo que Cristo muriera por nosotros."},
             {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["El precio completo de nuestra salvación.", "La deuda de los pecados cometidos en el pasado únicamente.", "La culpa original adquirida en el Edén."], "r": "El precio completo de nuestra salvación."},
             {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["Que Él es el camino, la verdad y la vida.", "Que es el ejemplo moral supremo a seguir.", "Que representa una de las puertas de acceso a la presencia de Dios."], "r": "Que Él es el camino, la verdad y la vida."},
             {"q": "¿Es posible llegar al Padre a través de alguien que no sea Jesús?", "op": ["No, nadie viene al Padre sino por Él.", "Sí, si se sigue la doctrina de los profetas antiguos.", "Sí, mediante una vida de perfecta contemplación ascética."], "r": "No, nadie viene al Padre sino por Él."},
             {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Logró tomar el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representación de los reyes terrenales."], "r": "Logró tomar el lugar del pecador y pagó su deuda de muerte."},
-            {"q": "Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
+            {"q": "¿Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
             {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["Que Él pagó el precio completo.", "El respaldo y la validación de los líderes de la época.", "Que fue ratificado posteriormente por las buenas obras de la iglesia."], "r": "Que Él pagó el precio completo."},
             {"q": "¿Cómo se relaciona la tercera verdad con el amor de Dios?", "op": ["Es la prueba máxima de su amor (Romanos 5:8).", "Evidencia que el amor requería un pago para seguir existiendo.", "Muestra que el amor divino es condicional al sacrificio."], "r": "Es la prueba máxima de su amor (Romanos 5:8)."},
             {"q": "¿Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
@@ -84,7 +84,7 @@ verdades_data = [
             {"q": "¿Es el arrepentimiento solo sentir pena por el pecado?", "op": ["No, implica una decisión de volver a Dios.", "Sí, es el remordimiento emocional por las consecuencias del error.", "Sí, es el llanto sacramental requerido."], "r": "No, implica una decisión de volver a Dios."},
             {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "Debido a que es el requisito formal exigido por la ley eclesial.", "Porque convence al intelecto de sus propios errores morales."], "r": "Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
             {"q": "¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["Del Señor.", "Del esfuerzo interior del individuo.", "De la absolución comunitaria."], "r": "Del Señor."},
-            {"q": "Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
+            {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
             {"q": "¿Qué significa experimentar 'refrigerio' espiritual?", "op": ["Es el alivio y paz que Dios otorga al perdonar.", "La adquisición de un nuevo conocimiento teológico profundo.", "Un arrebato emocional místico."], "r": "Es el alivio y paz que Dios otorga al perdonar."},
             {"q": "¿Se puede ser salvo sin arrepentirse?", "op": ["No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados.", "Sí, siempre y cuando la persona mantenga una postura intelectual de fe.", "Sí, porque el amor de Dios cubre todo sin requerir cambios."], "r": "No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados."}
         ]
@@ -124,7 +124,7 @@ preguntas = [
     {"q": "¿Qué apóstol escribió más libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que más cartas escribió."},
     {"q": "¿En qué isla naufragó Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterráneo."},
     {"q": "¿Quién escribió el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabé"], "r": "Desconocido", "info": "Su autoría es uno de los temas más debatidos."},
-    {"q": "¿Qué significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
+    {"q": "What significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
     {"q": "¿A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
     {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
     {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
@@ -218,18 +218,18 @@ def trivia_init():
 def juego():
     idx = session.get('idx', 0)
     if idx >= len(preguntas):
-        cal = round((session.get('puntos') / len(preguntas)) * 10, 1)
+        cal = round((session.get('puntos', 0) / len(preguntas)) * 10, 1)
         HISTORIAL_CALIFICACIONES.append({
             "nombre": session.get('nombre', 'Desconocido'),
             "juego": "Trivia Bíblica",
             "calificacion": cal,
-            "detalles": f"{session.get('puntos')} de {len(preguntas)}",
+            "detalles": f"{session.get('puntos', 0)} de {len(preguntas)}",
             "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
                 <h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1>
-                <p>Aciertos: {session.get('puntos')} de {len(preguntas)}</p>
+                <p>Aciertos: {session.get('puntos', 0)} de {len(preguntas)}</p>
                 <h1>Calificación: {cal}</h1>
                 <a href="/trivia_init"><button>Volver a jugar</button></a>
                 <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
@@ -243,7 +243,8 @@ def juego():
 
 @app.route('/res')
 def res():
-    if request.args.get('op') == preguntas[session.get('idx', 0)]['r']: session['puntos'] += 1
+    if request.args.get('op') == preguntas[session.get('idx', 0)]['r']:
+        session['puntos'] = session.get('puntos', 0) + 1
     session['idx'] = session.get('idx', 0) + 1
     return redirect(url_for('juego'))
 
@@ -257,18 +258,18 @@ def personaje_init():
 def juego_personaje():
     idx = session.get('idx_p', 0)
     if idx >= len(personajes):
-        cal = round((session.get('puntos_p') / len(personajes)) * 10, 1)
+        cal = round((session.get('puntos_p', 0) / len(personajes)) * 10, 1)
         HISTORIAL_CALIFICACIONES.append({
             "nombre": session.get('nombre', 'Desconocido'),
             "juego": "Adivina el Personaje",
             "calificacion": cal,
-            "detalles": f"{session.get('puntos_p')} de {len(personajes)}",
+            "detalles": f"{session.get('puntos_p', 0)} de {len(personajes)}",
             "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
                 <h1>🎉 ¡Terminaste, {session.get('nombre')}!</h1>
-                <p>Aciertos: {session.get('puntos_p')} de {len(personajes)}</p>
+                <p>Aciertos: {session.get('puntos_p', 0)} de {len(personajes)}</p>
                 <h1>Calificación: {cal}</h1>
                 <a href="/personaje_init"><button>Volver a jugar</button></a>
                 <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
@@ -281,13 +282,14 @@ def juego_personaje():
 
 @app.route('/res_p')
 def res_p():
-    if request.args.get('op') == session.get('r_p'): session['puntos_p'] += 1
+    if request.args.get('op') == session.get('r_p'):
+        session['puntos_p'] = session.get('puntos_p', 0) + 1
     session['idx_p'] = session.get('idx_p', 0) + 1
     return redirect(url_for('juego_personaje'))
 
 
 # =====================================================================
-# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (BLINDADO CON VALORES POR DEFECTO) ---
+# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (OPTIMIZADO SIN REDIRECT LOOPS) ---
 # =====================================================================
 
 @app.route('/verdades_init')
@@ -296,24 +298,13 @@ def verdades_init():
     session['v_pregunta_idx'] = 0  
     session['v_fase'] = 'juego'  
     session['v_intento_corregir'] = False
-    
-    preguntas_ordenadas = []
-    for b in verdades_data:
-        pool = b['preguntas'][:]
-        random.shuffle(pool)
-        preguntas_ordenadas.append(pool)
-        
-    session['v_seleccionadas'] = preguntas_ordenadas
     session['v_respuestas_usuario'] = [None] * 10
     session['v_indices_erroneos'] = []
     return redirect(url_for('verdades_juego'))
 
 @app.route('/verdades_juego')
 def verdades_juego():
-    # Aseguramos valores por defecto si la sesión está vacía o limpia para evitar el error 500
-    if 'v_bloque' not in session or 'v_seleccionadas' not in session:
-        return redirect(url_for('verdades_init'))
-
+    # Si la sesión expiró, forzamos inicialización directa sin bucles
     bloque_idx = session.get('v_bloque', 0)
     
     if bloque_idx >= len(verdades_data):
@@ -340,13 +331,15 @@ def verdades_juego():
         
     fase = session.get('v_fase', 'juego')
     bloque_actual = verdades_data[bloque_idx]
-    preguntas_bloque = session['v_seleccionadas'][bloque_idx]
+    
+    # En lugar de guardar todas en sesión, usamos el banco directamente de forma fija por bloque
+    preguntas_bloque = bloque_actual['preguntas']
     
     if fase == 'juego':
         q_idx = session.get('v_pregunta_idx', 0)
         p = preguntas_bloque[q_idx]
         ops = p['op'][:]
-        random.shuffle(ops)
+        # Mantenemos las opciones en orden fijo para evitar desvaríos de sesión al recargar
         btns = "".join([f'<a href="/verdades_res?op={o}"><button>{o}</button></a>' for o in ops])
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
@@ -360,12 +353,15 @@ def verdades_juego():
     elif fase == 'repaso':
         indices_mal = session.get('v_indices_erroneos', [])
         if not indices_mal:
-            return redirect(url_for('verdades_completar_nivel'))
+            # Si mágicamente se vacía, avanzamos limpiamente
+            session['v_bloque'] = session.get('v_bloque', 0) + 1
+            session['v_pregunta_idx'] = 0
+            session['v_fase'] = 'juego'
+            return redirect(url_for('verdades_juego'))
             
         q_idx = indices_mal[0]
         p = preguntas_bloque[q_idx]
         ops = p['op'][:]
-        random.shuffle(ops)
         btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
         return render_template_string(CSS_STYLE + f"""
             <div class="card" style="border: 2px solid #e94560;">
@@ -378,17 +374,21 @@ def verdades_juego():
 
 @app.route('/verdades_res')
 def verdades_res():
-    if 'v_bloque' not in session or 'v_seleccionadas' not in session:
-        return redirect(url_for('verdades_init'))
-
-    bloque_idx = session['v_bloque']
-    fase = session['v_fase']
-    preguntas_bloque = session['v_seleccionadas'][bloque_idx]
+    bloque_idx = session.get('v_bloque', 0)
+    fase = session.get('v_fase', 'juego')
+    preguntas_bloque = verdades_data[bloque_idx]['preguntas']
     opcion_elegida = request.args.get('op')
     
     if fase == 'juego':
         q_idx = session.get('v_pregunta_idx', 0)
-        session['v_respuestas_usuario'][q_idx] = opcion_elegida
+        
+        # Inicializar respuestas si no existen
+        if 'v_respuestas_usuario' not in session or not session['v_respuestas_usuario']:
+            session['v_respuestas_usuario'] = [None] * 10
+            
+        respuestas = session['v_respuestas_usuario']
+        respuestas[q_idx] = opcion_elegida
+        session['v_respuestas_usuario'] = respuestas
         
         if q_idx + 1 < 10:
             session['v_pregunta_idx'] = q_idx + 1
@@ -426,16 +426,17 @@ def verdades_res():
         if opcion_elegida == preguntas_bloque[q_idx]['r']:
             indices_mal.pop(0)
             session['v_indices_erroneos'] = indices_mal
-            return redirect(url_for('verdades_juego'))
+            
+            if len(indices_mal) == 0:
+                return redirect(url_for('verdades_completar_nivel'))
+            else:
+                return redirect(url_for('verdades_juego'))
         else:
             return redirect(url_for('verdades_gameover'))
 
 @app.route('/verdades_completar_nivel')
 def verdades_completar_nivel():
-    if 'v_bloque' not in session:
-        return redirect(url_for('verdades_init'))
-
-    bloque_idx = session['v_bloque']
+    bloque_idx = session.get('v_bloque', 0)
     bloque_actual = verdades_data[bloque_idx]
     versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
     
@@ -457,9 +458,6 @@ def verdades_completar_nivel():
 
 @app.route('/verdades_avanzar')
 def verdades_avanzar():
-    if 'v_bloque' not in session:
-        return redirect(url_for('verdades_init'))
-        
     session['v_bloque'] = session.get('v_bloque', 0) + 1
     session['v_pregunta_idx'] = 0
     session['v_fase'] = 'juego'
