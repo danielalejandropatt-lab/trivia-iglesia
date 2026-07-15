@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# --- BANCO DE DATOS: 5 VERDADES (10 preguntas por bloque) ---
+# --- BANCO DE DATOS ACTUALIZADO: DIFICULTAD ELEVADA (10 preguntas por bloque) ---
 verdades_data = [
     {
         "nivel": 1,
@@ -14,16 +14,16 @@ verdades_data = [
             "... yo he venido para que tengan vida, y para que la tengan en abundancia. (Jn. 10:10b)"
         ],
         "preguntas": [
-            {"q": "¿Cuál es el propósito original de Dios para tu vida?", "op": ["A) Que tengas una vida abundante.", "B) Que consigas riquezas materiales y éxito terrenal.", "C) Que vivas sin ningún tipo de problema."], "r": "A) Que tengas una vida abundante."},
-            {"q": "¿Qué motivó a Dios a entregar a su Hijo según Juan 3:16?", "op": ["A) El cumplimiento de una ley antigua.", "B) Su inmenso amor por el mundo.", "C) La necesidad de juzgar a la humanidad."], "r": "B) Su inmenso amor por el mundo."},
-            {"q": "¿Cuál es el regalo que Dios ofrece a quienes creen en su Hijo?", "op": ["A) La vida eterna.", "B) Sabiduría y conocimiento humano.", "C) Prosperidad en todos tus negocios."], "r": "A) La vida eterna."},
-            {"q": "Según Juan 10:10, ¿para qué vino Jesús al mundo?", "op": ["A) Para fundar una nueva religión.", "B) Para abolir las escrituras del pasado.", "C) Para que tengamos vida en abundancia."], "r": "C) Para que tengamos vida en abundancia."},
-            {"q": "¿Cómo se describe la naturaleza del amor de Dios en la primera verdad?", "op": ["A) Como un amor condicionado a nuestro comportamiento.", "B) Como un amor que da lo más preciado (a su Hijo) para salvarnos.", "C) Como un amor distante que no interviene en la Tierra."], "r": "B) Como un amor que da lo más preciado (a su Hijo) para salvarnos."},
-            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["A) Vivir en plenitud y en relación con el propósito de Dios.", "B) Tener una vida libre de cualquier dolor físico.", "C) Acumular bienes para asegurar el futuro terrenal."], "r": "A) Vivir en plenitud y en relación con el propósito de Dios."},
-            {"q": "¿A quiénes incluye el amor de Dios mencionado en Juan 3:16?", "op": ["A) Exclusivamente a las personas del pueblo de Israel.", "B) A todo el mundo ('de tal manera amó Dios al mundo').", "C) Únicamente a aquellos que nunca han cometido errores."], "r": "B) A todo el mundo ('de tal manera amó Dios al mundo')."},
-            {"q": "¿Es la vida eterna algo que se gana o que se recibe por amor?", "op": ["A) Se gana acumulando buenas obras durante la vida.", "B) Se compra a través de sacrificios religiosos.", "C) Se recibe como resultado del plan amoroso de Dios."], "r": "C) Se recibe como resultado del plan amoroso de Dios."},
-            {"q": "¿Qué asegura Juan 3:16 que NO le pasará a quien cree?", "op": ["A) Que no se perderá.", "B) Que no tendrá ninguna tristeza en la Tierra.", "C) Que sus problemas económicos desaparecerán."], "r": "A) Que no se perderá."},
-            {"q": "¿Cuál es la base de toda la relación entre Dios y el hombre en esta primera ley?", "op": ["A) El miedo al castigo divino.", "B) El amor incondicional del Creador.", "C) El cumplimiento estricto de rituales."], "r": "B) El amor incondicional del Creador."}
+            {"q": "¿Cuál es el propósito original de Dios para tu vida?", "op": ["Que tengas una vida abundante.", "Que alcances la perfección moral absoluta.", "Que ganes la salvación por medio de sacrificios."], "r": "Que tengas una vida abundante."},
+            {"q": "¿Qué motivó a Dios a entregar a su Hijo según Juan 3:16?", "op": ["Su inmenso amor por el mundo.", "La necesidad de apaciguar su ira legal.", "El cumplimiento estricto del pacto abrahámico."], "r": "Su inmenso amor por el mundo."},
+            {"q": "¿Cuál es el regalo que Dios ofrece a quienes creen en su Hijo?", "op": ["La vida eterna.", "El perdón condicional y temporal.", "La exención de toda tribulación terrenal."], "r": "La vida eterna."},
+            {"q": "Según Juan 10:10, ¿para qué vino Jesús al mundo?", "op": ["Para que tengamos vida en abundancia.", "Para instituir un nuevo orden de sacerdotes.", "Para abolir de manera inmediata la ley mosaica."], "r": "Para que tengamos vida en abundancia."},
+            {"q": "¿Cómo se describe la naturaleza del amor de Dios en la primera verdad?", "op": ["Como un amor que da lo más preciado (a su Hijo) para salvarnos.", "Como un afecto pasivo que depende de la piedad humana.", "Como una recompensa destinada a los justos de la Tierra."], "r": "Como un amor que da lo más preciado (a su Hijo) para salvarnos."},
+            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["Vivir en plenitud y en relación con el propósito de Dios.", "Gozar de prosperidad financiera y ausencia de padecimientos.", "Alcanzar un estado de iluminación mental superior."], "r": "Vivir en plenitud y en relación con el propósito de Dios."},
+            {"q": "¿A quiénes incluye el amor de Dios mencionado en Juan 3:16?", "op": ["A todo el mundo ('de tal manera amó Dios al mundo').", "Exclusivamente a los remanentes elegidos de Israel.", "Únicamente a quienes guardan fielmente los mandamientos."], "r": "A todo el mundo ('de tal manera amó Dios al mundo')."},
+            {"q": "¿Es la vida eterna algo que se gana o que se recibe por amor?", "op": ["Se recibe como resultado del plan amoroso de Dios.", "Se gana acumulando méritos espirituales y obras rectas.", "Se adquiere a través del conocimiento de misterios sagrados."], "r": "Se recibe como resultado del plan amoroso de Dios."},
+            {"q": "¿Qué asegura Juan 3:16 que NO le pasará a quien cree?", "op": ["Que no se perderá.", "Que no experimentará la muerte física terrenal.", "Que no volverá a ser tentado por el pecado."], "r": "Que no se perderá."},
+            {"q": "¿Cuál es la base de toda la relación entre Dios y el hombre en esta primera ley?", "op": ["El amor incondicional del Creador.", "El temor reverente al juicio inminente.", "La observancia rigurosa de ordenanzas y ritos."], "r": "El amor incondicional del Creador."}
         ]
     },
     {
@@ -34,16 +34,16 @@ verdades_data = [
             "Porque la paga del pecado es muerte... (Rom. 6:23a)"
         ],
         "preguntas": [
-            {"q": "¿Qué es lo que impide al hombre experimentar el amor de Dios?", "op": ["A) La distancia física con el cielo.", "B) Las pocas buenas obras que realiza.", "C) El pecado."], "r": "C) El pecado."},
-            {"q": "¿Cuántas personas han pecado según el texto de Romanos 3:23?", "op": ["A) Todos, sin excepción.", "B) Solo aquellas que no asisten a la iglesia.", "C) Únicamente los criminales."], "r": "A) Todos, sin excepción."},
-            {"q": "¿Cuál es el estado del pecador respecto a la gloria de Dios?", "op": ["A) Está en constante evaluación.", "B) Está destituido de ella.", "C) Se mantiene neutral ante ella."], "r": "B) Está destituido de ella."},
-            {"q": "¿Cuál es la consecuencia legal y espiritual del pecado según Romanos 6:23?", "op": ["A) Una simple llamada de atención.", "B) La muerte.", "C) El olvido temporal."], "r": "B) La muerte."},
-            {"q": "¿Por qué el pecado causa una separación?", "op": ["A) Porque crea una barrera entre la santidad de Dios y la condición humana.", "B) Porque a Dios no le interesa la humanidad.", "C) Porque los hombres decidieron mudarse de planeta."], "r": "A) Porque crea una barrera entre la santidad de Dios y la condición humana."},
-            {"q": "¿Puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["A) Sí, mediante la meditación profunda.", "B) Sí, si se esfuerza lo suficiente en hacer el bien.", "C) No, el pecado nos mantiene separados por completo."], "r": "C) No, el pecado nos mantiene separados por completo."},
-            {"q": "¿Qué tipo de 'muerte' se menciona en la segunda verdad?", "op": ["A) La muerte física del cuerpo al final de los tiempos.", "B) La muerte espiritual como paga por el pecado.", "C) El cese total de la existencia humana."], "r": "B) La muerte espiritual como paga por el pecado."},
-            {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["A) Porque nos impide vivir la vida abundante que Él diseñó.", "B) Porque borra nuestros nombres de la historia humana.", "C) Porque detiene el reloj del tiempo divino."], "r": "A) Porque nos impide vivir la vida abundante que Él diseñó."},
-            {"q": "¿Es el pecado un problema individual o universal?", "op": ["A) Individual, pues afecta solo a unos pocos.", "B) Universal, pues todos pecaron.", "C) Temporal, porque desaparece con la edad."], "r": "B) Universal, pues todos pecaron."},
-            {"q": "¿Cuál es la función de la segunda verdad en el plan de salvación?", "op": ["A) Asustar a las personas para que sigan reglas.", "B) Servir como diagnóstico de la necesidad humana de un Salvador.", "C) Demostrar que no hay ninguna esperanza."], "r": "B) Servir como diagnóstico de la necesidad humana de un Salvador."}
+            {"q": "¿Qué es lo que impide al hombre experimentar el amor de Dios?", "op": ["El pecado.", "La falta de iluminación teológica.", "Las debilidades físicas y la naturaleza finita."], "r": "El pecado."},
+            {"q": "¿Cuántas personas han pecado según el texto de Romanos 3:23?", "op": ["Todos, sin excepción.", "Únicamente aquellos que no conocen la Ley.", "La mayoría de la humanidad, exceptuando los santos."], "r": "Todos, sin excepción."},
+            {"q": "¿Cuál es el estado del pecador respecto a la gloria de Dios?", "op": ["Está destituido de ella.", "Se encuentra bajo un velo de ignorancia remediable.", "Permanece en un estado de juicio en suspenso."], "r": "Está destituido de ella."},
+            {"q": "¿Cuál es la consecuencia legal y espiritual del pecado según Romanos 6:23?", "op": ["La muerte.", "Una corrección pedagógica en el alma.", "La pérdida temporal del favor divino."], "r": "La muerte."},
+            {"q": "¿Por qué el pecado causa una separación?", "op": ["Porque crea una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilita el libre albedrío del individuo de forma natural."], "r": "Porque crea una barrera entre la santidad de Dios y la condición humana."},
+            {"q": "Según el análisis teológico de este bloque, ¿puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["No, el pecado nos mantiene separados por completo.", "Sí, si equilibra sus faltas mediante actos de caridad extrema.", "Sí, a través de la meditación y el arrepentimiento intelectual."], "r": "No, el pecado nos mantiene separados por completo."},
+            {"q": "¿Qué tipo de 'muerte' se menciona en la segunda verdad?", "op": ["La muerte espiritual como paga por el pecado.", "La cesación absoluta de la existencia del alma.", "El deterioro físico progresivo del ser humano."], "r": "La muerte espiritual como paga por el pecado."},
+            {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["Porque nos impide vivir la vida abundante que Él diseñó.", "Porque invalida los dones genéticos y talentos del hombre.", "Porque cancela de forma retroactiva el amor del Creador."], "r": "Porque nos impide vivir la vida abundante que Él diseñó."},
+            {"q": "¿Es el pecado un problema individual o universal?", "op": ["Universal, pues todos pecaron.", "Individual, afectando únicamente a quienes cometen actos inmorales.", "Estructural, dependiente del entorno social del individuo."], "r": "Universal, pues todos pecaron."},
+            {"q": "¿Cuál es la función de la segunda verdad en el plan de salvación?", "op": ["Servir como diagnóstico de la necesidad humana de un Salvador.", "Establecer las normas de conducta para evitar el infierno.", "Demostrar que la raza humana carece de valor intrínseco."], "r": "Servir como diagnóstico de la necesidad humana de un Salvador."}
         ]
     },
     {
@@ -54,16 +54,16 @@ verdades_data = [
             "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. (Jn. 14:6)"
         ],
         "preguntas": [
-            {"q": "¿Quién es el sustituto que Dios proveyó para el hombre?", "op": ["A) Un ángel celestial.", "B) Jesucristo.", "C) Los profetas del Antiguo Testamento."], "r": "B) Jesucristo."},
-            {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["A) Haciendo que Cristo muriera por nosotros.", "B) Enviando bendiciones materiales a la Tierra.", "C) Ignorando por completo nuestras faltas."], "r": "A) Haciendo que Cristo muriera por nosotros."},
-            {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["A) Una parte de las deudas del pueblo.", "B) El precio completo de nuestra salvación.", "C) El permiso para construir nuevos templos."], "r": "B) El precio completo de nuestra salvación."},
-            {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["A) Que Él es uno de los tantos maestros espirituales.", "B) Que Él vino a aprender de la humanidad.", "C) Que Él es el camino, la verdad y la vida."], "r": "C) Que Él es el camino, la verdad y la vida."},
-            {"q": "¿Es posible llegar al Padre a través de alguien que no sea Jesús?", "op": ["A) Sí, haciendo suficientes obras buenas.", "B) No, nadie viene al Padre sino por Él.", "C) Sí, a través de otros líderes religiosos."], "r": "B) No, nadie viene al Padre sino por Él."},
-            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["A) Porque vino a cambiar las leyes políticas.", "B) Porque tomó el lugar del pecador y pagó su deuda de muerte.", "C) Porque reemplazó a los reyes de la Tierra."], "r": "B) Porque tomó el lugar del pecador y pagó su deuda de muerte."},
-            {"q": "¿Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["A) Una tragedy sin explicación.", "B) Un ejemplo moral de buena conducta.", "C) La solución divina al problema del pecado."], "r": "C) La solución divina al problema del pecado."},
-            {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["A) Que Él pagó el precio 'completo'.", "B) Que se repite todos los años.", "C) Que dependía del esfuerzo del hombre."], "r": "A) Que Él pagó el precio 'completo'."},
-            {"q": "¿Cómo se relaciona la tercera verdad con el amor de Dios?", "op": ["A) Es la prueba máxima de su amor (Romanos 5:8).", "B) Muestra que el amor se había terminado.", "C) No guarda ninguna relación directa."], "r": "A) Es la prueba máxima de su amor (Romanos 5:8)."},
-            {"q": "¿Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["A) El de un observador distante.", "B) El de único puente o mediador.", "C) El de un juez implacable."], "r": "B) El de único puente o mediador."}
+            {"q": "Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
+            {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["Haciendo que Cristo muriera por nosotros.", "Manifestando señales portentosas en el templo.", "Suspendiendo temporalmente los efectos directos de la Ley."], "r": "Haciendo que Cristo muriera por nosotros."},
+            {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["El precio completo de nuestra salvación.", "La deuda de los pecados cometidos en el pasado únicamente.", "La culpa original adquirida en el Edén."], "r": "El precio completo de nuestra salvación."},
+            {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["Que Él es el camino, la verdad y la vida.", "Que es el ejemplo moral supremo a seguir.", "Que representa una de las puertas de acceso a la presencia de Dios."], "r": "Que Él es el camino, la verdad y la vida."},
+            {"q": "¿Es posible llegar al Padre a través de alguien que no sea Jesús?", "op": ["No, nadie viene al Padre sino por Él.", "Sí, si se sigue la doctrina de los profetas antiguos.", "Sí, mediante una vida de perfecta contemplación ascética."], "r": "No, nadie viene al Padre sino por Él."},
+            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Porque tomó el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representación de los reyes terrenales."], "r": "Porque tomó el lugar del pecador y pagó su deuda de muerte."},
+            {"q": "¿Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
+            {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["Que Él pagó el precio 'completo'.", "El respaldo y la validación de los líderes de la época.", "Que fue ratificado posteriormente por las buenas obras de la iglesia."], "r": "Que Él pagó el precio 'completo'."},
+            {"q": "¿Cómo se relaciona la tercera verdad con el amor de Dios?", "op": ["Es la prueba máxima de su amor (Romanos 5:8).", "Evidencia que el amor requería un pago para seguir existiendo.", "Muestra que el amor divino es condicional al sacrificio."], "r": "Es la prueba máxima de su amor (Romanos 5:8)."},
+            {"q": "¿Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
         ]
     },
     {
@@ -73,16 +73,16 @@ verdades_data = [
             "Así que, arrepentíos y convertíos, para que sean borrados vuestros pecados; para que vengan de la presencia del Señor tiempos de refrigerio, (Hechos 3:19)"
         ],
         "preguntas": [
-            {"q": "¿Qué mandato se da en Hechos 3:19 para recibir el perdón?", "op": ["A) Cumplir con penitencias severas.", "B) Arrepentirse y convertirse.", "C) Memorizar todas las leyes antiguas."], "r": "B) Arrepentirse y convertirse."},
-            {"q": "¿Cuál es el beneficio directo del arrepentimiento?", "op": ["A) Que los pecados sean borrados.", "B) Conseguir fama y reconocimiento.", "C) Evitar cualquier malentendido humano."], "r": "A) Que los pecados sean borrados."},
-            {"q": "¿Qué significa 'convertirse' tras el arrepentimiento?", "op": ["A) Cambiar de religión o de costumbres culturales.", "B) Cambiar de dirección hacia Dios.", "C) Modificar el aspecto físico."], "r": "B) Cambiar de dirección hacia Dios."},
-            {"q": "¿Qué prometen las fuentes que viene tras el arrepentimiento?", "op": ["A) Tiempos de refrigerio de la presencia del Señor.", "B) Riquezas y posesiones en la Tierra.", "C) Una vida sin ningún tipo de esfuerzo."], "r": "A) Tiempos de refrigerio de la presencia del Señor."},
-            {"q": "¿Es el arrepentimiento solo sentir pena por el pecado?", "op": ["A) Sí, es llorar y lamentarse por lo hecho.", "B) No, implica una decisión de volver a Dios.", "C) Sí, es un sentimiento puramente emocional."], "r": "B) No, implica una decisión de volver a Dios."},
-            {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["A) Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "B) Porque es una regla impuesta por los reyes.", "C) Porque nos hace lucir mejores ante la sociedad."], "r": "A) Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
-            {"q": "Organizaciones divinas: ¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["A) De nuestras propias fuerzas.", "B) Del Señor.", "C) De la aprobación de los demás."], "r": "B) Del Señor."},
-            {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["A) Los pecados son eliminados o 'borrados'.", "B) Se oculta temporalmente.", "C) Se mantiene exactamente igual."], "r": "A) Los pecados son eliminados o 'borrados'."},
-            {"q": "¿Qué significa experimentar 'refrigerio' espiritual?", "op": ["A) Una sensación física de frío.", "B) Es el alivio y paz que Dios otorga al perdonar.", "C) El olvido absoluto del pasado."], "r": "B) Es el alivio y paz que Dios otorga al perdonar."},
-            {"q": "¿Se puede ser salvo sin arrepentirse?", "op": ["A) Sí, la salvación no requiere ningún cambio.", "B) No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados.", "C) Sí, con que la persona crea que es buena es suficiente."], "r": "B) No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados."}
+            {"q": "¿Qué mandato se da en Hechos 3:19 para recibir el perdón?", "op": ["Arrepentirse y convertirse.", "Confesar públicamente cada falta cometida.", "Ofrecer restituciones materiales a los afectados."], "r": "Arrepentirse y convertirse."},
+            {"q": "¿Cuál es el beneficio directo del arrepentimiento?", "op": ["Que los pecados sean borrados.", "La inmunidad frente a futuras tentaciones.", "Un estado inmediato de prosperidad material."], "r": "Que los pecados sean borrados."},
+            {"q": "¿Qué significa 'convertirse' tras el arrepentimiento?", "op": ["Cambiar de dirección hacia Dios.", "Adoptar una nueva identidad eclesiástica o rito.", "Modificar la conducta externa por temor."], "r": "Cambiar de dirección hacia Dios."},
+            {"q": "¿Qué prometen las fuentes que viene tras el arrepentimiento?", "op": ["Tiempos de refrigerio de la presencia del Señor.", "La eliminación de los conflictos en la vida diaria.", "Una recompensa de honor entre los hombres."], "r": "Tiempos de refrigerio de la presencia del Señor."},
+            {"q": "¿Is el arrepentimiento solo sentir pena por el pecado?", "op": ["No, implica una decisión de volver a Dios.", "Sí, es el remordimiento emocional por las consecuencias del error.", "Sí, es el llanto sacramental requerido."], "r": "No, implica una decisión de volver a Dios."},
+            {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "Debido a que es el requisito formal exigido por la ley eclesial.", "Porque convence al intelecto de sus propios errores morales."], "r": "Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
+            {"q": "¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["Del Señor.", "Del esfuerzo interior del individuo.", "De la absolución comunitaria."], "r": "Del Señor."},
+            {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
+            {"q": "¿Qué significa experimentar 'refrigerio' espiritual?", "op": ["Es el alivio y paz que Dios otorga al perdonar.", "La adquisición de un nuevo conocimiento teológico profundo.", "Un arrebato emocional místico."], "r": "Es el alivio y paz que Dios otorga al perdonar."},
+            {"q": "¿Se puede ser salvo sin arrepentirse?", "op": ["No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados.", "Sí, siempre y cuando la persona mantenga una postura intelectual de fe.", "Sí, porque el amor de Dios cubre todo sin requerir cambios."], "r": "No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados."}
         ]
     },
     {
@@ -94,16 +94,16 @@ verdades_data = [
             "De cierto, de cierto os digo: El que oye mi palabra, y cree al que me envió, tiene vida eterna; y no vendrá a condenación, mas ha pasado de muerte a vida. (Jn. 5:24)"
         ],
         "preguntas": [
-            {"q": "¿Cómo describe Romanos 6:23 a la vida eterna?", "op": ["A) Como una dádiva (regalo) de Dios.", "B) Como una recompensa por cumplir la ley.", "C) Como un beneficio exclusivo para unos pocos."], "r": "A) Como una dádiva (regalo) de Dios."},
-            {"q": "¿Cuál es el nombre de la action de aceptar a Jesús por fe?", "op": ["A) Estudiarlo.", "B) Recibirlo.", "C) Imitarlo."], "r": "B) Recibirlo."},
-            {"q": "¿Qué derecho adquieren quienes reciben a Jesús según Juan 1:12?", "op": ["A) La potestad de ser hechos hijos de Dios.", "B) La capacidad de no volver a fallar.", "C) El derecho a gobernar naciones terrenales."], "r": "A) La potestad de ser hechos hijos de Dios."},
-            {"q": "¿Qué promete Jesús a quien oye su palabra y cree en Dios en Juan 5:24?", "op": ["A) Que tendrá éxito material garantizado.", "B) Que su vida en la Tierra será perfecta.", "C) Que tiene vida eterna y no vendrá a condenación."], "r": "C) Que tiene vida eterna y no vendrá a condenación."},
-            {"q": "¿Cuál es el paso final que Jesús pide en Apocalipsis 3:20?", "op": ["A) Que se le construya un altar físico.", "B) Que se le abra la puerta de la vida.", "C) Que se sigan estrictas penitencias."], "r": "B) Que se le abra la puerta de la vida."},
-            {"q": "¿Qué sucede si alguien abre la puerta de su corazón a Jesús?", "op": ["A) Él entrará y tendrá comunión íntima con esa persona.", "B) Él observará desde lejos el comportamiento.", "C) Él cambiará instantáneamente sus bienes terrenales."], "r": "A) Él entrará y tendrá comunión íntima con esa persona."},
-            {"q": "¿La fe es un sentimiento o una decisión personal?", "op": ["A) Es una emoción pasajera del momento.", "B) Es una decisión de creer y recibir a Cristo como Salvador.", "C) Es un pensamiento puramente intelectual."], "r": "B) Es una decisión de creer y recibir a Cristo como Salvador."},
-            {"q": "¿Qué seguridad tiene el creyente respecto a su pasado?", "op": ["A) Que ha pasado de muerte a vida.", "B) Que tendrá que pagar por sus errores anteriores.", "C) Que sus recuerdos serán completamente borrados."], "r": "A) Que ha pasado de muerte a vida."},
-            {"q": "¿Por qué la salvación se considera una 'dádiva'?", "op": ["A) Porque se puede comprar si se tiene suficiente dinero.", "B) Porque no se compra ni se merece, se recibe por fe en Cristo Jesús.", "C) Porque exige un intercambio de bienes espirituales."], "r": "B) Porque no se compra ni se merece, se recibe por fe en Cristo Jesús."},
-            {"q": "Qué significa ser hecho 'hijo de Dios' mediante la fe?", "op": ["A) Adquirir un estatus de superioridad social.", "B) Entrar en una nueva identidad y relación familiar con el Creador.", "C) Olvidar las responsabilidades humanas."], "r": "B) Entrar en una nueva identidad y relación familiar con el Creador."}
+            {"q": "¿Cómo describe Romanos 6:23 a la vida eterna?", "op": ["Como una dádiva (regalo) de Dios.", "Como un premio al esfuerzo del creyente.", "Como una herencia natural de la raza humana."], "r": "Como una dádiva (regalo) de Dios."},
+            {"q": "¿Cuál es el nombre de la acción de aceptar a Jesús por fe?", "op": ["Recibirlo.", "Comprenderlo teológicamente.", "Imitar de manera exacta sus obras."], "r": "Recibirlo."},
+            {"q": "¿Qué derecho adquieren quienes reciben a Jesús según Juan 1:12?", "op": ["La potestad de ser hechos hijos de Dios.", "La garantía de infalibilidad espiritual.", "El señorío sobre potestades terrenales."], "r": "La potestad de ser hechos hijos de Dios."},
+            {"q": "¿Qué promete Jesús a quien oye su palabra y cree en Dios en Juan 5:24?", "op": ["Que tiene vida eterna y no vendrá a condenación.", "Que será librado de toda tentación carnal.", "Que sus méritos pasados quedarán validados ante el cielo."], "r": "Que tiene vida eterna y no vendrá a condenación."},
+            {"q": "¿Cuál es el paso final que Jesús pide en Apocalipsis 3:20?", "op": ["Que se le abra la puerta de la vida.", "Que se realice una confesión eclesiástica formal.", "Que se cumpla un ciclo de oraciones rituales."], "r": "Que se le abra la puerta de la vida."},
+            {"q": "¿Qué sucede si alguien abre la puerta de su corazón a Jesús?", "op": ["Él entrará y tendrá comunión íntima con esa persona.", "Él enviará su espíritu guardián a custodiar el hogar.", "Él reescribirá el destino temporal del individuo."], "r": "Él entrará y tendrá comunión íntima con esa persona."},
+            {"q": "¿La fe es un sentimiento o una decisión personal?", "op": ["Es una decisión de creer y recibir a Cristo como Salvador.", "Es un estado emocional generado por el ambiente litúrgico.", "Es una convicción intelectual puramente teórica."], "r": "Es una decisión de creer y recibir a Cristo como Salvador."},
+            {"q": "¿Qué seguridad tiene el creyente respecto a su pasado?", "op": ["Que ha pasado de muerte a vida.", "Que sus consecuencias terrenales quedarán completamente anuladas.", "Que será pesado en una balanza al final de los días."], "r": "Que ha pasado de muerte a vida."},
+            {"q": "¿Por qué la salvación se considera una 'dádiva'?", "op": ["Porque no se compra ni se merece, se recibe por fe en Cristo Jesús.", "Debido a que representa una oferta temporal del Creador.", "Porque requiere un intercambio simétrico de devoción."], "r": "Porque no se compra ni se merece, se recibe por fe en Cristo Jesús."},
+            {"q": "¿Qué significa ser hecho 'hijo de Dios' mediante la fe?", "op": ["Entrar en una nueva identidad y relación familiar con el Creador.", "Adquirir inmunidad frente a las leyes de la Tierra.", "Lograr una condición angelical superior."], "r": "Entrar en una nueva identidad y relación familiar con el Creador."}
         ]
     }
 ]
@@ -121,11 +121,11 @@ preguntas = [
     {"q": "¿En qué isla naufragó Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterráneo."},
     {"q": "¿Quién escribió el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabé"], "r": "Desconocido", "info": "Su autoría es uno de los temas más debatidos."},
     {"q": "¿Qué significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
-    {"q": "¿A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Ciudad a la que Saulo iba con autoridad."},
+    {"q": "¿A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
     {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
     {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
     {"q": "¿Cuántas personas fueron alimentadas con cinco panes y dos peces?", "op": ["2,000", "5,000", "7,000", "10,000"], "r": "5,000", "info": "El gran milagro de provisión."},
-    {"q": "¿Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
+    {"q": "Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
     {"q": "¿En qué ciudad se llamaron por primera vez 'cristianos'?", "op": ["Jerusalén", "Antioquía", "Roma", "Corinto"], "r": "Antioquía", "info": "Ciudad donde la comunidad se hizo notoria."},
     {"q": "¿Qué objeto se le cayó a Pablo de los ojos tras su conversión?", "op": ["Escamas", "Polvo", "Sangre", "Velo"], "r": "Escamas", "info": "Una señal física de que su ceguera terminó."},
     {"q": "¿Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
@@ -166,11 +166,11 @@ personajes = [
     {"pista": "Fui el profeta que desafió a los 450 profetas de Baal en el Monte Carmelo.", "op": ["Eliseo", "Elías", "Isaías", "Jeremías"], "r": "Elías"},
     {"pista": "Fui el único que permaneció fiel al rey David cuando su propio hijo Absalón intentó robarle el trono.", "op": ["Joab", "Itai", "Natán", "Mefiboset"], "r": "Itai"},
     {"pista": "Fui el personaje que, siendo un niño, escuchó la voz de Dios llamándole en el templo mientras dormía.", "op": ["Samuel", "David", "José", "Benjamín"], "r": "Samuel"},
-    {"pista": "Fui el rey que ordenó la construction de un muro alrededor de Jerusalén en tiempo récord.", "op": ["Salomón", "Ezequías", "Nehemías", "Josías"], "r": "Nehemías"},
+    {"pista": "Fui el rey que ordenó la construcción de un muro alrededor de Jerusalén en tiempo récord.", "op": ["Salomón", "Ezequías", "Nehemías", "Josías"], "r": "Nehemías"},
     {"pista": "Fui la mujer que escondió a los espías de Israel en Jericó para salvar a mi familia.", "op": ["Rahab", "Rut", "Débora", "Ester"], "r": "Rahab"},
     {"pista": "Me quedé mudo por no creer el mensaje del ángel que me anunciaba el nacimiento de mi hijo.", "op": ["Simeón", "Zacarías", "José", "Nicodemo"], "r": "Zacarías"},
     {"pista": "Fui el juez que venció a los madianitas usando solo a 300 hombres con trompetas y cántaros.", "op": ["Sansón", "Gedeón", "Barac", "Josué"], "r": "Gedeón"},
-    {"pista": "Fui el apóstol que tuvo dudas y necesitó tocar las heridas de Jesús para creer que había resucitado.", "op": ["Pedro", "Felipe", "Tomás", "Juan"], "r": "Tomás"},
+    {"pista": "Fui el apóstol que tuvo dudas y necesitá tocar las heridas de Jesús para creer que había resucitado.", "op": ["Pedro", "Felipe", "Tomás", "Juan"], "r": "Tomás"},
     {"pista": "Fui el profeta que tuvo que casarse con una mujer infiel como símbolo del amor de Dios por su pueblo.", "op": ["Amós", "Oseas", "Joel", "Malaquías"], "r": "Oseas"}
 ]
 
@@ -200,7 +200,7 @@ def menu():
     return render_template_string(CSS_STYLE + f"""
         <div class="card"><h1>Hola, {session.get('nombre', 'Amigo')}</h1><p>Elige tu reto:</p>
         <a href="/trivia_init"><button>Trivia Bíblica</button></a>
-        <a href="/personaje_init"><button>Adivina el Personaje</button></a>
+        <a href="/personaje_init"><button style="background: #0f3460; color: white; border: 1px solid #4ecca3;">Adivina el Personaje</button></a>
         <a href="/verdades_init"><button style="background: #e94560; color: white;">El reto de las 5 Verdades</button></a></div>
     """)
 
@@ -250,31 +250,35 @@ def res_p():
 
 
 # =====================================================================
-# --- NUEVA SECCIÓN: EL RETO DE LAS 5 VERDADES ---
+# --- NUEVA SECCIÓN: EL RETO DE LAS 5 VERDADES (BLOQUES COMPLETOS DE 10) ---
 # =====================================================================
 
 @app.route('/verdades_init')
 def verdades_init():
     session['v_bloque'] = 0  # Bloque/Nivel actual (0 a 4)
-    session['v_fase'] = 'pregunta1'  # 'pregunta1', 'pregunta2', 'evaluacion', 'repaso'
-    session['v_intento_corregir'] = False  # Si está en su segunda oportunidad
+    session['v_pregunta_idx'] = 0  # Índice de pregunta interna del bloque (0 a 9)
+    session['v_fase'] = 'juego'  # 'juego' o 'repaso'
+    session['v_intento_corregir'] = False
     
-    # Seleccionar 2 preguntas al azar para cada uno de los 5 bloques
-    preguntas_seleccionadas = []
+    # Clonamos y mezclamos internamente las 10 preguntas de cada bloque para que aparezcan en distinto orden
+    preguntas_ordenadas = []
     for b in verdades_data:
         pool = b['preguntas'][:]
-        elegidas = random.sample(pool, 2)
-        preguntas_seleccionadas.append(elegidas)
-    
-    session['v_seleccionadas'] = preguntas_seleccionadas
-    session['v_respuestas_usuario'] = [None, None]  # Guardar las 2 respuestas
+        random.shuffle(pool)
+        preguntas_ordenadas.append(pool)
+        
+    session['v_seleccionadas'] = preguntas_ordenadas
+    # Guardamos las respuestas del usuario para el bloque actual (10 elementos)
+    session['v_respuestas_usuario'] = [None] * 10
+    # Guardamos cuáles preguntas del bloque actual estuvieron mal para la fase de repaso
+    session['v_indices_erroneos'] = []
     return redirect(url_for('verdades_juego'))
 
 @app.route('/verdades_juego')
 def verdades_juego():
     bloque_idx = session.get('v_bloque', 0)
     
-    # Pantalla final de Aceptación (Apocalipsis 3:20)
+    # Final del juego: 5 bloques superados
     if bloque_idx >= len(verdades_data):
         return render_template_string(CSS_STYLE + f"""
             <div class="card" style="border: 2px solid #ffd700;">
@@ -289,69 +293,52 @@ def verdades_juego():
             </div>
         """)
         
-    fase = session.get('v_fase', 'pregunta1')
+    fase = session.get('v_fase', 'juego')
     bloque_actual = verdades_data[bloque_idx]
     preguntas_bloque = session['v_seleccionadas'][bloque_idx]
     
-    # FASE: PREGUNTA 1
-    if fase == 'pregunta1':
-        p = preguntas_bloque[0]
+    # FASE 1: RESPONDIENDO EL BLOQUE NORMAL DE 10 PREGUNTAS
+    if fase == 'juego':
+        q_idx = session.get('v_pregunta_idx', 0)
+        p = preguntas_bloque[q_idx]
+        
+        # Mezclamos las opciones de respuesta dinámicamente en pantalla
         ops = p['op'][:]
+        random.shuffle(ops)
+        
         btns = "".join([f'<a href="/verdades_res?op={o}"><button>{o}</button></a>' for o in ops])
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
                 <p style="color: #4ecca3; font-weight: bold;">Nivel {bloque_idx + 1}: {bloque_actual['titulo']}</p>
-                <p>Pregunta 1 de 2</p>
+                <p>Pregunta {q_idx + 1} de 10</p>
                 <h2>{p['q']}</h2>
                 {btns}
             </div>
         """)
         
-    # FASE: PREGUNTA 2
-    elif fase == 'pregunta2':
-        p = preguntas_bloque[1]
-        ops = p['op'][:]
-        btns = "".join([f'<a href="/verdades_res?op={o}"><button>{o}</button></a>' for o in ops])
-        return render_template_string(CSS_STYLE + f"""
-            <div class="card">
-                <p style="color: #4ecca3; font-weight: bold;">Nivel {bloque_idx + 1}: {bloque_actual['titulo']}</p>
-                <p>Pregunta 2 de 2</p>
-                <h2>{p['q']}</h2>
-                {btns}
-            </div>
-        """)
-
-    # FASE: REPASO / CORRECCIÓN DE ERRORES CORRESPONDIENTES
+    # FASE 2: REPASO Y CORRECCIÓN DE PREGUNTAS FALLADAS
     elif fase == 'repaso':
-        p1_correcta = session['v_respuestas_usuario'][0] == preguntas_bloque[0]['r']
-        p2_correcta = session['v_respuestas_usuario'][1] == preguntas_bloque[1]['r']
+        indices_mal = session.get('v_indices_erroneos', [])
+        if not indices_mal:
+            # Si ya corrigió todos los errores con éxito
+            return redirect(url_for('verdades_completar_nivel'))
+            
+        # Tomamos el primer error de la lista para corregir
+        q_idx = indices_mal[0]
+        p = preguntas_bloque[q_idx]
         
-        # Si falló la primera y aún no se corrige
-        if not p1_correcta:
-            p = preguntas_bloque[0]
-            ops = p['op'][:]
-            btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
-            return render_template_string(CSS_STYLE + f"""
-                <div class="card" style="border: 2px solid #e94560;">
-                    <p style="color: #e94560; font-weight: bold;">⚠️ ¡CORRECCIÓN DE STRIKE! ❌</p>
-                    <p>Corrige la Pregunta 1 (Última Oportunidad)</p>
-                    <h2>{p['q']}</h2>
-                    {btns}
-                </div>
-            """)
-        # Si la primera estuvo bien pero falló la segunda
-        elif not p2_correcta:
-            p = preguntas_bloque[1]
-            ops = p['op'][:]
-            btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
-            return render_template_string(CSS_STYLE + f"""
-                <div class="card" style="border: 2px solid #e94560;">
-                    <p style="color: #e94560; font-weight: bold;">⚠️ ¡CORRECCIÓN DE STRIKE! ❌</p>
-                    <p>Corrige la Pregunta 2 (Última Oportunidad)</p>
-                    <h2>{p['q']}</h2>
-                    {btns}
-                </div>
-            """)
+        ops = p['op'][:]
+        random.shuffle(ops)
+        
+        btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
+        return render_template_string(CSS_STYLE + f"""
+            <div class="card" style="border: 2px solid #e94560;">
+                <p style="color: #e94560; font-weight: bold;">⚠️ ¡CORRECCIÓN DE STRIKE! ❌</p>
+                <p>Corrija un error cometido en el bloque (Última Oportunidad)</p>
+                <h2>{p['q']}</h2>
+                {btns}
+            </div>
+        """)
 
 @app.route('/verdades_res')
 def verdades_res():
@@ -360,92 +347,85 @@ def verdades_res():
     preguntas_bloque = session['v_seleccionadas'][bloque_idx]
     opcion_elegida = request.args.get('op')
     
-    if fase == 'pregunta1':
-        session['v_respuestas_usuario'][0] = opcion_elegida
-        session['v_fase'] = 'pregunta2'
-        return redirect(url_for('verdades_juego'))
+    if fase == 'juego':
+        q_idx = session['v_pregunta_idx']
+        session['v_respuestas_usuario'][q_idx] = opcion_elegida
         
-    elif fase == 'pregunta2':
-        session['v_respuestas_usuario'][1] = opcion_elegida
-        
-        # Evaluar ambas respuestas
-        p1_correcta = session['v_respuestas_usuario'][0] == preguntas_bloque[0]['r']
-        p2_correcta = session['v_respuestas_usuario'][1] == preguntas_bloque[1]['r']
-        
-        if p1_correcta and p2_correcta:
-            # CASO PERFECTO: Ambas bien -> Pantalla de Desbloqueo y Estrella
-            bloque_actual = verdades_data[bloque_idx]
-            versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
-            
-            html_exito = CSS_STYLE + f"""
-                <div class="card" style="border: 2px solid #ffd700;">
-                    <h1 style="color: #ffd700; margin-bottom: 0;">⭐ ¡NIVEL SUPERADO! ⭐</h1>
-                    <p style="color: #4ecca3; font-weight: bold; font-size: 1.2em; margin-top:5;">¡Recibiste una Estrella!</p>
-                    <div class="info-box">
-                        <h3 style="margin-top: 0; color: #4ecca3;">📖 Versículos Desbloqueados:</h3>
-                        {versiculos_html}
-                    </div>
-                    <a href="/verdades_avanzar"><button>Avanzar al Siguiente Nivel</button></a>
-                </div>
-            """
-            return render_template_string(html_exito)
+        # Pasar a la siguiente pregunta del bloque
+        if q_idx + 1 < 10:
+            session['v_pregunta_idx'] += 1
+            return redirect(url_for('verdades_juego'))
         else:
-            # CASO ERROR: Strike y redirección a corregir
-            session['v_fase'] = 'repaso'
-            session['v_intento_corregir'] = True
+            # Se terminaron las 10 preguntas, evaluar el bloque completo
+            errores = []
+            for i in range(10):
+                if session['v_respuestas_usuario'][i] != preguntas_bloque[i]['r']:
+                    errores.append(i)
             
-            html_error = CSS_STYLE + f"""
-                <div class="card" style="border: 2px solid #e94560;">
-                    <h1 style="color: #e94560; margin-bottom: 0;">❌ STRIKE ❌</h1>
-                    <p style="font-size: 1.2em;">Una o ambas respuestas fueron incorrectas.</p>
-                    <p>El juego te regresará a la(s) pregunta(s) fallida(s). ¡Tienes <b>una sola oportunidad</b> para corregir o será Fin del Juego!</p>
-                    <a href="/verdades_juego"><button style="background: #e94560; color: white;">Corregir Errores</button></a>
-                </div>
-            """
-            return render_template_string(html_error)
-            
-    elif fase == 'repaso':
-        # Procesando el intento de corrección
-        p1_correcta = session['v_respuestas_usuario'][0] == preguntas_bloque[0]['r']
-        
-        if not p1_correcta:
-            # Corrigiendo la primera
-            if opcion_elegida == preguntas_bloque[0]['r']:
-                session['v_respuestas_usuario'][0] = opcion_elegida
-                # Verificar si la segunda también estaba mal
-                if session['v_respuestas_usuario'][1] != preguntas_bloque[1]['r']:
-                    return redirect(url_for('verdades_juego')) # Va a corregir la segunda
+            if len(errores) == 0:
+                # Todo perfecto sin fallas
+                return redirect(url_for('verdades_completar_nivel'))
             else:
-                return redirect(url_for('verdades_gameover')) # Volvió a fallar -> Fin del juego
-        else:
-            # Corrigiendo la segunda
-            if opcion_elegida == preguntas_bloque[1]['r']:
-                session['v_respuestas_usuario'][1] = opcion_elegida
-            else:
-                return redirect(url_for('verdades_gameover')) # Volvió a fallar -> Fin del juego
+                # Guardar errores y mandar a la pantalla de Strike/Repaso
+                session['v_indices_erroneos'] = errores
+                session['v_fase'] = 'repaso'
+                session['v_intento_corregir'] = True
                 
-        # Si llega aquí es porque ya corrigió todo con éxito
-        bloque_actual = verdades_data[bloque_idx]
-        versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
-        html_salvado = CSS_STYLE + f"""
-            <div class="card" style="border: 2px solid #4ecca3;">
-                <h1 style="color: #4ecca3; margin-bottom: 0;">⭐ ¡TE HAS SALVADO! ⭐</h1>
-                <p>Corregiste con éxito y desbloqueaste el nivel.</p>
-                <div class="info-box">
-                    <h3 style="margin-top: 0; color: #4ecca3;">📖 Versículos Desbloqueados:</h3>
-                    {versiculos_html}
-                </div>
-                <a href="/verdades_avanzar"><button>Avanzar al Siguiente Nivel</button></a>
+                html_error = CSS_STYLE + f"""
+                    <div class="card" style="border: 2px solid #e94560;">
+                        <h1 style="color: #e94560; margin-bottom: 0;">❌ STRIKE EN EL BLOQUE ❌</h1>
+                        <p style="font-size: 1.2em;">Has tenido {len(errores)} respuesta(s) incorrecta(s) de las 10.</p>
+                        <p>El sistema te presentará únicamente las preguntas fallidas. ¡Tienes <b>una sola oportunidad</b> para corregir cada una o será Fin del Juego!</p>
+                        <a href="/verdades_juego"><button style="background: #e94560; color: white;">Iniciar Corrección</button></a>
+                    </div>
+                """
+                return render_template_string(html_error)
+                
+    elif fase == 'repaso':
+        indices_mal = session['v_indices_erroneos']
+        q_idx = indices_mal[0]
+        
+        # Validar la corrección
+        if opcion_elegida == preguntas_bloque[q_idx]['r']:
+            # Corrección exitosa: eliminar el índice de la lista de errores
+            indices_mal.pop(0)
+            session['v_indices_erroneos'] = indices_mal
+            return redirect(url_for('verdades_juego'))
+        else:
+            # Falló en la oportunidad de corregir: Muerte Súbita
+            return redirect(url_for('verdades_gameover'))
+
+@app.route('/verdades_completar_nivel')
+def verdades_completar_nivel():
+    bloque_idx = session['v_bloque']
+    bloque_actual = verdades_data[bloque_idx]
+    versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
+    
+    # Determinar título de felicitación según si usó corrección o no
+    titulo_pantalla = "⭐ ¡TE HAS SALVADO! ⭐" if session.get('v_intento_corregir') else "⭐ ¡NIVEL SUPERADO! ⭐"
+    borde_color = "#4ecca3" if session.get('v_intento_corregir') else "#ffd700"
+    
+    html_exito = CSS_STYLE + f"""
+        <div class="card" style="border: 2px solid {borde_color};">
+            <h1 style="color: {borde_color}; margin-bottom: 0;">{titulo_pantalla}</h1>
+            <p style="color: #4ecca3; font-weight: bold; font-size: 1.2em; margin-top:5;">¡Recibiste una Estrella por completar las 10 preguntas!</p>
+            <div class="info-box">
+                <h3 style="margin-top: 0; color: #4ecca3;">📖 Versículos Desbloqueados:</h3>
+                {versiculos_html}
             </div>
-        """
-        return render_template_string(html_salvado)
+            <a href="/verdades_avanzar"><button>Avanzar al Siguiente Nivel</button></a>
+        </div>
+    """
+    return render_template_string(html_exito)
 
 @app.route('/verdades_avanzar')
 def verdades_avanzar():
     session['v_bloque'] += 1
-    session['v_fase'] = 'pregunta1'
+    session['v_pregunta_idx'] = 0
+    session['v_fase'] = 'juego'
     session['v_intento_corregir'] = False
-    session['v_respuestas_usuario'] = [None, None]
+    session['v_respuestas_usuario'] = [None] * 10
+    session['v_indices_erroneos'] = []
     return redirect(url_for('verdades_juego'))
 
 @app.route('/verdades_gameover')
