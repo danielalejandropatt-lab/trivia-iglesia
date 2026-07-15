@@ -45,7 +45,7 @@ verdades_data = [
             {"q": "¿Por qué el pecado causa una separación?", "op": ["Refleja una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilita el libre albedrío del individuo de forma natural."], "r": "Refleja una barrera entre la santidad de Dios y la condición humana."},
             {"q": "¿Puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["No, el pecado nos mantiene separados por completo.", "Sí, si equilibra sus faltas mediante actos de caridad extrema.", "Sí, a través de la meditación y el arrepentimiento intelectual."], "r": "No, el pecado nos mantiene separados por completo."},
             {"q": "¿Qué tipo de 'muerte' se menciona en la segunda verdad?", "op": ["La muerte espiritual como paga por el pecado.", "La cesación absoluta de la existencia del alma.", "El deterioro físico progresivo del ser humano."], "r": "La muerte espiritual como paga por el pecado."},
-            {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["Porque nos impide vivir la vida abundante que Él diseñó.", "Porque invalida los dones genéticos y talentos del hombre.", "Porque cancela de forma retroactiva el amor del Creador."], "r": "Porque nos impide vivir la vida abundante que Él diseñó."},
+            {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["Refleja una barrera que impide la vida abundante.", "Porque invalida los dones genéticos del hombre.", "Porque cancela de forma retroactiva el amor del Creador."], "r": "Refleja una barrera que impide la vida abundante."},
             {"q": "¿Es el pecado un problema individual o universal?", "op": ["Universal, pues todos pecaron.", "Individual, afectando únicamente a quienes cometen actos inmorales.", "Estructural, dependiente del entorno social del individuo."], "r": "Universal, pues todos pecaron."},
             {"q": "¿Cuál es la función de la segunda verdad en el plan de salvación?", "op": ["Servir como diagnóstico de la necesidad humana de un Salvador.", "Establecer las normas de conducta para evitar el infierno.", "Demostrar que la raza humana carece de valor intrínseco."], "r": "Servir como diagnóstico de la necesidad humana de un Salvador."}
         ]
@@ -63,11 +63,11 @@ verdades_data = [
             {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["El precio completo de nuestra salvación.", "La deuda de los pecados cometidos en el pasado únicamente.", "La culpa original adquirida en el Edén."], "r": "El precio completo de nuestra salvación."},
             {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["Que Él es el camino, la verdad y la vida.", "Que es el ejemplo moral supremo a seguir.", "Que representa una de las puertas de acceso a la presencia de Dios."], "r": "Que Él es el camino, la verdad y la vida."},
             {"q": "¿Es posible llegar al Padre a través de alguien que no sea Jesús?", "op": ["No, nadie viene al Padre sino por Él.", "Sí, si se sigue la doctrina de los profetas antiguos.", "Sí, mediante una vida de perfecta contemplación ascética."], "r": "No, nadie viene al Padre sino por Él."},
-            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Logró tomar el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representation de los reyes terrenales."], "r": "Logró tomar el lugar del pecador y pagó su deuda de muerte."},
-            {"q": "¿Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
-            {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["Que Él pagó el precio 'completo'.", "El respaldo y la validación de los líderes de la época.", "Que fue ratificado posteriormente por las buenas obras de la iglesia."], "r": "Que Él pagó el precio 'completo'."},
+            {"q": "¿Por qué se llama a Jesús el 'Substituto'?", "op": ["Logró tomar el lugar del pecador y pagó su deuda de muerte.", "A causa de que reemplazó las antiguas figuras del sacerdocio humano.", "Debido a que actuó en representación de los reyes terrenales."], "r": "Logró tomar el lugar del pecador y pagó su deuda de muerte."},
+            {"q": "Qué representa la muerte de Cristo en el esquema de las cinco verdades?", "op": ["La solución divina al problema del pecado.", "El final trágico de un mensajero de paz.", "Una demostración simbólica del juicio histórico."], "r": "La solución divina al problema del pecado."},
+            {"q": "¿Qué garantiza que el sacrificio de Jesús fue suficiente?", "op": ["Que Él pagó el precio completo.", "El respaldo y la validación de los líderes de la época.", "Que fue ratificado posteriormente por las buenas obras de la iglesia."], "r": "Que Él pagó el precio completo."},
             {"q": "¿Cómo se relaciona la tercera verdad con el amor de Dios?", "op": ["Es la prueba máxima de su amor (Romanos 5:8).", "Evidencia que el amor requería un pago para seguir existiendo.", "Muestra que el amor divino es condicional al sacrificio."], "r": "Es la prueba máxima de su amor (Romanos 5:8)."},
-            {"q": "Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
+            {"q": "¿Qué papel juega Jesús entre el hombre pecador y el Dios santo?", "op": ["El de único puente o mediador.", "El de un testigo imparcial del desarrollo humano.", "El de un juez ejecutor de la sentencia divina."], "r": "El de único puente o mediador."}
         ]
     },
     {
@@ -84,7 +84,7 @@ verdades_data = [
             {"q": "¿Es el arrepentimiento solo sentir pena por el pecado?", "op": ["No, implica una decisión de volver a Dios.", "Sí, es el remordimiento emocional por las consecuencias del error.", "Sí, es el llanto sacramental requerido."], "r": "No, implica una decisión de volver a Dios."},
             {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "Debido a que es el requisito formal exigido por la ley eclesial.", "Porque convence al intelecto de sus propios errores morales."], "r": "Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
             {"q": "¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["Del Señor.", "Del esfuerzo interior del individuo.", "De la absolución comunitaria."], "r": "Del Señor."},
-            {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
+            {"q": "Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
             {"q": "¿Qué significa experimentar 'refrigerio' espiritual?", "op": ["Es el alivio y paz que Dios otorga al perdonar.", "La adquisición de un nuevo conocimiento teológico profundo.", "Un arrebato emocional místico."], "r": "Es el alivio y paz que Dios otorga al perdonar."},
             {"q": "¿Se puede ser salvo sin arrepentirse?", "op": ["No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados.", "Sí, siempre y cuando la persona mantenga una postura intelectual de fe.", "Sí, porque el amor de Dios cubre todo sin requerir cambios."], "r": "No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados."}
         ]
@@ -106,7 +106,7 @@ verdades_data = [
             {"q": "¿Qué sucede si alguien abre la puerta de su corazón a Jesús?", "op": ["Él entrará y tendrá comunión íntima con esa persona.", "Él enviará su espíritu guardián a custodiar el hogar.", "Él reescribirá el destino temporal del individuo."], "r": "Él entrará y tendrá comunión íntima con esa persona."},
             {"q": "¿La fe es un sentimiento o una decisión personal?", "op": ["Es una decisión de creer y recibir a Cristo como Salvador.", "Es un estado emocional generado por el ambiente litúrgico.", "Es una convicción intelectual puramente teórica."], "r": "Es una decisión de creer y recibir a Cristo como Salvador."},
             {"q": "¿Qué seguridad tiene el creyente respecto a su pasado?", "op": ["Que ha pasado de muerte a vida.", "Que sus consecuencias terrenales quedarán completamente anuladas.", "Que será pesado en una balanza al final de los días."], "r": "Que ha pasado de muerte a vida."},
-            {"q": "¿Por qué la salvación se considera una 'dádiva'?", "op": ["Porque no se compra ni se merece, se recibe por fe en Cristo Jesús.", "Debido a que representa una oferta temporal del Creador.", "Porque requiere un intercambio simétrico de devoción."], "r": "Porque no se compra ni se merece, se recibe por fe en Cristo Jesús."},
+            {"q": "¿Por qué la salvación se considera una 'dádiva'?", "op": ["Refleja un regalo recibido por fe en Cristo Jesús.", "Debido a que representa una oferta temporal del Creador.", "Porque requiere un intercambio simétrico de devoción."], "r": "Refleja un regalo recibido por fe en Cristo Jesús."},
             {"q": "¿Qué significa ser hecho 'hijo de Dios' mediante la fe?", "op": ["Entrar en una nueva identidad y relación familiar con el Creador.", "Adquirir inmunidad frente a las leyes de la Tierra.", "Lograr una condición angelical superior."], "r": "Entrar en una nueva identidad y relación familiar con el Creador."}
         ]
     }
@@ -117,7 +117,7 @@ preguntas = [
     {"q": "¿En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
     {"q": "¿Cómo se llamaba el esclavo que Pablo envió de regreso a Filemón?", "op": ["Onésimo", "Tíquico", "Epafrodito", "Marcos"], "r": "Onésimo", "info": "Este hombre huyó de su amo pero se encontró con Pablo."},
     {"q": "¿Cuál es el libro que menciona a 'César' por primera vez?", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Lucas", "info": "Es el mismo libro que detalla el nacimiento de Jesús."},
-    {"q": "Quién fue el primer mártir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
+    {"q": "¿Quién fue el primer mártir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
     {"q": "¿A qué iglesia escribió Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Éfeso", "Galacia"], "r": "Éfeso", "info": "Esta carta aborda la lucha espiritual."},
     {"q": "¿Quién acompañó a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabé", "Timoteo", "Lucas"], "r": "Bernabé", "info": "Conocido como el 'hijo de consolación'."},
     {"q": "¿Cómo se llamaba la mujer que Pablo resucitó en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
@@ -208,7 +208,7 @@ def menu():
         <a href="/verdades_init"><button style="background: #e94560; color: white;">El reto de las 5 Verdades</button></a></div>
     """)
 
-# --- TRIVIA ORIGINAL (CON BOTÓN DE NUEVO JUGADOR) ---
+# --- TRIVIA BÍBLICA ---
 @app.route('/trivia_init')
 def trivia_init():
     session['idx'] = 0; session['puntos'] = 0
@@ -243,17 +243,17 @@ def juego():
 
 @app.route('/res')
 def res():
-    if request.args.get('op') == preguntas[session.get('idx')]['r']: session['puntos'] += 1
-    session['idx'] += 1
+    if request.args.get('op') == preguntas[session.get('idx', 0)]['r']: session['puntos'] += 1
+    session['idx'] = session.get('idx', 0) + 1
     return redirect(url_for('juego'))
 
-# --- PERSONAJES ORIGINAL (CON BOTÓN DE NUEVO JUGADOR) ---
+# --- ADIVINA EL PERSONAJE ---
 @app.route('/personaje_init')
 def personaje_init():
     session['idx_p'] = 0; session['puntos_p'] = 0
     return redirect(url_for('juego_personaje'))
 
-@app.route('/personaje')
+@app.route('/juego_personaje')
 def juego_personaje():
     idx = session.get('idx_p', 0)
     if idx >= len(personajes):
@@ -282,12 +282,12 @@ def juego_personaje():
 @app.route('/res_p')
 def res_p():
     if request.args.get('op') == session.get('r_p'): session['puntos_p'] += 1
-    session['idx_p'] += 1
+    session['idx_p'] = session.get('idx_p', 0) + 1
     return redirect(url_for('juego_personaje'))
 
 
 # =====================================================================
-# --- NUEVA SECCIÓN: EL RETO DE LAS 5 VERDADES ---
+# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (BLINDADO CON VALORES POR DEFECTO) ---
 # =====================================================================
 
 @app.route('/verdades_init')
@@ -310,6 +310,10 @@ def verdades_init():
 
 @app.route('/verdades_juego')
 def verdades_juego():
+    # Aseguramos valores por defecto si la sesión está vacía o limpia para evitar el error 500
+    if 'v_bloque' not in session or 'v_seleccionadas' not in session:
+        return redirect(url_for('verdades_init'))
+
     bloque_idx = session.get('v_bloque', 0)
     
     if bloque_idx >= len(verdades_data):
@@ -374,17 +378,20 @@ def verdades_juego():
 
 @app.route('/verdades_res')
 def verdades_res():
+    if 'v_bloque' not in session or 'v_seleccionadas' not in session:
+        return redirect(url_for('verdades_init'))
+
     bloque_idx = session['v_bloque']
     fase = session['v_fase']
     preguntas_bloque = session['v_seleccionadas'][bloque_idx]
     opcion_elegida = request.args.get('op')
     
     if fase == 'juego':
-        q_idx = session['v_pregunta_idx']
+        q_idx = session.get('v_pregunta_idx', 0)
         session['v_respuestas_usuario'][q_idx] = opcion_elegida
         
         if q_idx + 1 < 10:
-            session['v_pregunta_idx'] += 1
+            session['v_pregunta_idx'] = q_idx + 1
             return redirect(url_for('verdades_juego'))
         else:
             errores = []
@@ -410,7 +417,10 @@ def verdades_res():
                 return render_template_string(html_error)
                 
     elif fase == 'repaso':
-        indices_mal = session['v_indices_erroneos']
+        indices_mal = session.get('v_indices_erroneos', [])
+        if not indices_mal:
+            return redirect(url_for('verdades_completar_nivel'))
+            
         q_idx = indices_mal[0]
         
         if opcion_elegida == preguntas_bloque[q_idx]['r']:
@@ -422,6 +432,9 @@ def verdades_res():
 
 @app.route('/verdades_completar_nivel')
 def verdades_completar_nivel():
+    if 'v_bloque' not in session:
+        return redirect(url_for('verdades_init'))
+
     bloque_idx = session['v_bloque']
     bloque_actual = verdades_data[bloque_idx]
     versiculos_html = "".join([f"<p><i>\"{v}\"</i></p>" for v in bloque_actual['versiculos']])
@@ -444,7 +457,10 @@ def verdades_completar_nivel():
 
 @app.route('/verdades_avanzar')
 def verdades_avanzar():
-    session['v_bloque'] += 1
+    if 'v_bloque' not in session:
+        return redirect(url_for('verdades_init'))
+        
+    session['v_bloque'] = session.get('v_bloque', 0) + 1
     session['v_pregunta_idx'] = 0
     session['v_fase'] = 'juego'
     session['v_intento_corregir'] = False
@@ -474,7 +490,7 @@ def verdades_gameover():
 
 
 # =====================================================================
-# --- EXCLUSIVO: PANEL SECRETO DE ADMINISTRACIÓN Y MÉTRICAS ---
+# --- PANEL SECRETO DE ADMINISTRACIÓN Y MÉTRICAS ---
 # =====================================================================
 
 @app.route('/admin_daniel', methods=['GET', 'POST'])
