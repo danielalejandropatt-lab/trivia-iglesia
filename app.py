@@ -20,7 +20,7 @@ verdades_data = [
         ],
         "preguntas": [
             {
-                "q": "Cual es el proposito central e inicial de Dios para la existencia del ser humano segun la primera verdad?",
+                "q": "Cual es el proposito central e inicial de Dios para la existence del ser humano segun la primera verdad?",
                 "op": [
                     "Que el hombre experimente una vida abundante, definida por la comunion plena con el Creador y el desarrollo de Su diseno eterno.",
                     "La exigencia de una perfeccion moral absoluta e impecabilidad intrinseca previa a cualquier manifestation de Su favor.",
@@ -35,7 +35,7 @@ verdades_data = [
                     "La necesidad urgente de apaciguar Su ira santa mediante un acto reactivo de justicia punitiva ajeno a la compasion.",
                     "El cumplimiento formal y exclusivo de las clausulas legales estipuladas de manera restrictiva en el pacto abrahamico."
                 ],
-                "r": "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservación espiritual."
+                "r": "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservacion espiritual."
             },
             {
                 "q": "Cual es el don o regalo escatologico que Dios garantiza de manera inmediata a aquellos que ejercen fe en Su Hijo?",
@@ -56,7 +56,7 @@ verdades_data = [
                 "r": "Para que tengan vida, y para que la tengan en abundancia, definiendo el proposito en los terminos textuales declarados por el Redentor."
             },
             {
-                "q": "Como se describe la naturaleza operativa del amor de Dios en el marco de esta primera verdad?",
+                "q": "Como se describe la naturaleza operativa del amor de Dios in el marco de esta primera verdad?",
                 "op": [
                     "Como un amor sacrificial y proactivo que entrega voluntariamente lo mas preciado con el proposito directo de salvar.",
                     "Como una disposicion afectiva pasiva que otorga misericordia unicamente motivada por la piedad o lastima ante la miseria humana.",
@@ -74,7 +74,7 @@ verdades_data = [
                 "r": "Vivir en plenitud, experimentando de forma integral la comunion, el gozo y la alineacion directa con el proposito soberano de Dios."
             },
             {
-                "q": Cual es el alcance del amor divino y la oferta de redencion explicitada en el texto de Juan 3:16?",
+                "q": "Cual es el alcance del amor divino y la oferta de redencion explicitada en el texto de Juan 3:16?",
                 "op": [
                     "Incluye de manera universal a todo el mundo, rompiendo barreras etnicas, temporales o de merito previo para el acceso a la gracia.",
                     "Se limita restrictivamente a los patriarcas, profetas y guardianes historicos de los oraculos sagrados.",
@@ -87,7 +87,7 @@ verdades_data = [
                 "op": [
                     "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia.",
                     "Se gana de manera meritoria como retribucion justa por el volumen acumulado de obras de piedad, filantropia y sacrificios personales.",
-                    "Se adquiere mediante un proceso iniciatico basado en el conocimiento intelectual de misterios sagrados e informacion esoterica."
+                    "Se adquiere mediante un process iniciatico basado en el conocimiento intelectual de misterios sagrados e informacion esoterica."
                 ],
                 "r": "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia."
             },
@@ -101,13 +101,13 @@ verdades_data = [
                 "r": "Que no se perdera, garantizando la preservacion judicial del creyente frente a la ruina y la condenacion del alma."
             },
             {
-                "q": "Cual constituye el cimiento y la base inamovible de toda la relacion entre Dios y el hombre propuesto en esta primera verdad?",
+                "q": "Cual constituye el cimiento y la base inamovible de toda la relación entre Dios y el hombre propuesto en esta primera verdad?",
                 "op": [
                     "El amor incondicional y la iniciativa del Creador, quien define el vinculo desde Su propia esencia y caracter santo.",
                     "El temor reverente y la sumision psicologica del ser humano ante la disparidad de poder con el Absoluto.",
                     "El pacto bilateral basado en el cumplimiento riguroso y milimetrico de estatutos, ordenanzas y codigos liturgicos."
                 ],
-                "r": "El amor incondicional and la iniciativa del Creador, quien define el vinculo desde Su propia esencia y caracter santo."
+                "r": "El amor incondicional y la iniciativa del Creador, quien define el vinculo desde Su propia esencia y caracter santo."
             }
         ]
     },
@@ -116,7 +116,7 @@ verdades_data = [
         "titulo": "La Verdad del Pecado",
         "versiculos": [
             "Por cuanto todos pecaron, y estan destituidos de la gloria de Dios, (Rom 3:23)",
-            "Porque la paga del pecado es muerte... (Rom. 6:23a)"
+            "Buffer la paga del pecado es muerte... (Rom. 6:23a)"
         ],
         "preguntas": [
             {
@@ -158,11 +158,11 @@ verdades_data = [
             {
                 "q": "Por que el pecado produce intrinsecamente una separacion entre Dios y el hombre?",
                 "op": [
-                    "Porque la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano.",
+                    "Because la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano.",
                     "Porque la soberania divina decide replegarse y apartarse ante la escasez de adoradores calificados en la Tierra.",
                     "Porque debilita las facultades del libre albedrio de tal manera que el hombre olvida de forma natural el camino de regreso a su Creador."
                 ],
-                "r": "Porque la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano."
+                "r": "Because la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano."
             },
             {
                 "q": "Posee el ser humano la capacidad inherente para cruzar por su cuenta el abisco generado por el pecado?",
@@ -223,7 +223,7 @@ verdades_data = [
                 "q": "Quien es el unico substituto calificado que Dios proveyo legal y espiritualmente para redimir al hombre?",
                 "op": [
                     "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiacion perfecta.",
-                    "El sistema sacrificial levitico, cuyos ritos y ofrendas de sangre poseian eficacia intrinseca y permanente para quitar el pecado.",
+                    "El sistema sacrificial levitico, cuyos ritos y ofrendas de sangre poseians eficacia intrinseca y permanente para quitar el pecado.",
                     "La intercesion sumaria de los arcangeles y huestes celestiales, operando como mediadores cosmicos ante el trono de Dios."
                 ],
                 "r": "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiacion perfecta."
@@ -280,7 +280,7 @@ verdades_data = [
                     "El desenlace tragico y circunstancial de un reformador social cuya doctrina fue incomprendida por los poderes de su epoca.",
                     "Una escenificacion simbolica disenada para ilustrar de forma pedagogica la fragilidad de la condicion humana ante la historia."
                 ],
-                "r": "La provision y solucion legal divina al problema de la separacion y la destitución humana causadas por el pecado."
+                "r": "La provision y solucion legal divina al problema de la separacion y la destitucion humana causadas por el pecado."
             },
             {
                 "q": "Que criterio teologico e intrinseco garantiza que el sacrificio de Jesus en la cruz posee una suficiencia absoluta?",
@@ -364,7 +364,7 @@ verdades_data = [
                 "r": "No, puesto que el concepto trasciende la emocion e involucra una decision voluntaria y consciente de volverse activamente a Dios."
             },
             {
-                "q": "Porque opera como el mecanismo indispensable para abandonar la condicion de pecado y posibilitar la reconciliacion con el Creador.",
+                "q": "¿Por qué el arrepentimiento se erige como una condición indispensable y vital en la dinámica de la salvación?",
                 "op": [
                     "Porque opera como el mecanismo indispensable para abandonar la condicion de pecado y posibilitar la reconciliacion con el Creador.",
                     "Debido a que constituye un formalismo protocolar y una norma estatutaria impuesta de manera arbitraria por la ley eclesial.",
@@ -433,7 +433,7 @@ verdades_data = [
                 "op": [
                     "Recibirlo, implicando un acto voluntario de acogida, apropiacion personal y sumision a Su soberania.",
                     "Comprenderlo teologicamente, limitando el encuentro al asentimiento intelectual y a la asimilacion del dogma eclesiastico.",
-                    "Imitar de manera exacta sus obras, pretendiendo reproducir de forma autónoma Su conducta sin antes experimentar la regeneración."
+                    "Imitar de manera exactas sus obras, pretendiendo reproducir de forma autónoma Su conducta sin antes experimentar la regeneración."
                 ],
                 "r": "Recibirlo, implicando un acto voluntario de acogida, apropiación personal y sumisión a Su soberanía."
             },
@@ -494,7 +494,7 @@ verdades_data = [
             {
                 "q": "Por que la teologia de esta quinta verdad insiste en catalogar categoricamente a la salvacion bajo la rubrica de una 'dadiva'?",
                 "op": [
-                    "Porque representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesus.",
+                    "Because representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesus.",
                     "Debido a que constituye una oferta comercial temporal y revocable sujeta a las fluctuaciones del mercado espiritual.",
                     "Porque exige del ser humano un intercambio perfectamente simetrico de devocion y sacrificios equivalentes al valor del regalo."
                 ],
@@ -705,7 +705,7 @@ def res_p():
 
 
 # =====================================================================
-# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (CON NUEVO BARAJAO DINÁMICO) ---
+# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (CON BARAJADO DINÁMICO FIABLE) ---
 # =====================================================================
 
 @app.route('/verdades_init')
@@ -736,7 +736,7 @@ def verdades_juego():
                 <p style="font-size: 1.1em;">Felicidades <b>{session.get('nombre')}</b>, has superado las 5 Verdades Espirituales ganando tus 5 Estrellas ⭐⭐⭐⭐⭐</p>
                 <div class="info-box" style="background: #1b4332; border-color: #ffd700;">
                     <h3 style="margin-top:0;">📖 Apocalipsis 3:20</h3>
-                    <p>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenará con él, y él conmigo."</p>
+                    <p>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entreré a él, y cenaré con él, y él conmigo."</p>
                 </div>
                 <p style="color: #4ecca3; font-weight: bold; font-size: 1.2em;">✨ Propósito: Oración de ACEPTACIÓN ✨</p>
                 <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
