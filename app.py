@@ -23,7 +23,7 @@ verdades_data = [
             {"q": "¿Cuál es el regalo que Dios ofrece a quienes creen en su Hijo?", "op": ["La vida eterna.", "El perdón condicional y temporal.", "La exención de toda tribulación terrenal."], "r": "La vida eterna."},
             {"q": "Según Juan 10:10, ¿para qué vino Jesús al mundo?", "op": ["Para que tengamos vida en abundancia.", "Para instituir un nuevo orden de sacerdotes.", "Para abolir de manera inmediata la ley mosaica."], "r": "Para que tengamos vida en abundancia."},
             {"q": "¿Cómo se describe la naturaleza del amor de Dios en la primera verdad?", "op": ["Como un amor que da lo más preciado (a su Hijo) para salvarnos.", "Como un afecto pasivo que depende de la piedad humana.", "Como una recompensa destinada a los justos de la Tierra."], "r": "Como un amor que da lo más preciado (a su Hijo) para salvarnos."},
-            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["Vivir en plenitud y en relación con el propósito de Dios.", "Gozar de prosperidad financiera y ausencia de padecimientos.", "Alcanzar un estado de iluminación mental superior."], "r": "Vivir en plenitud and en relación con el propósito de Dios."},
+            {"q": "¿Qué significa tener 'vida abundante' en el contexto espiritual?", "op": ["Vivir en plenitud y en relación con el propósito de Dios.", "Gozar de prosperidad financiera y ausencia de padecimientos.", "Alcanzar un estado de iluminación mental superior."], "r": "Vivir en plenitud y en relación con el propósito de Dios."},
             {"q": "¿A quiénes incluye el amor de Dios mencionado en Juan 3:16?", "op": ["A todo el mundo ('de tal manera amó Dios al mundo').", "Exclusivamente a los remanentes elegidos de Israel.", "Únicamente a quienes guardan fielmente los mandamientos."], "r": "A todo el mundo ('de tal manera amó Dios al mundo')."},
             {"q": "¿Es la vida eterna algo que se gana o que se recibe por amor?", "op": ["Se recibe como resultado del plan amoroso de Dios.", "Se gana acumulando méritos espirituales y obras rectas.", "Se adquiere a través del conocimiento de misterios sagrados."], "r": "Se recibe como resultado del plan amoroso de Dios."},
             {"q": "¿Qué asegura Juan 3:16 que NO le pasará a quien cree?", "op": ["Que no se perderá.", "Que no experimentará la muerte física terrenal.", "Que no volverá a ser tentado por el pecado."], "r": "Que no se perderá."},
@@ -42,12 +42,12 @@ verdades_data = [
             {"q": "¿Cuántas personas han pecado según el texto de Romanos 3:23?", "op": ["Todos, sin excepción.", "Únicamente aquellos que no conocen la Ley.", "La mayoría de la humanidad, exceptuando los santos."], "r": "Todos, sin excepción."},
             {"q": "¿Cuál es el estado del pecador respecto a la gloria de Dios?", "op": ["Está destituido de ella.", "Se encuentra bajo un velo de ignorancia remediable.", "Permanece en un estado de juicio en suspenso."], "r": "Está destituido de ella."},
             {"q": "¿Cuál es la consecuencia legal y espiritual del pecado según Romanos 6:23?", "op": ["La muerte.", "Una corrección pedagógica en el alma.", "La pérdida temporal del favor divino."], "r": "La muerte."},
-            {"q": "¿Por qué el pecado causa una separación?", "op": ["Refleja una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilita el libre albedrío del individuo de forma natural."], "r": "Refleja una barrera entre la santidad de Dios y la condición humana."},
+            {"q": "¿Por qué el pecado causa una separación?", "op": ["Refleja una barrera entre la santidad de Dios y la condición humana.", "Porque Dios decide apartarse por falta de adoradores.", "Porque debilitar el libre albedrío del individuo de forma natural."], "r": "Refleja una barrera entre la santidad de Dios y la condición humana."},
             {"q": "¿Puede el hombre por su cuenta cruzar el abismo del pecado?", "op": ["No, el pecado nos mantiene separados por completo.", "Sí, si equilibra sus faltas mediante actos de caridad extrema.", "Sí, a través de la meditación y el arrepentimiento intelectual."], "r": "No, el pecado nos mantiene separados por completo."},
             {"q": "¿Qué tipo de 'muerte' se menciona en la segunda verdad?", "op": ["La muerte espiritual como paga por el pecado.", "La cesación absoluta de la existencia del alma.", "El deterioro físico progresivo del ser humano."], "r": "La muerte espiritual como paga por el pecado."},
             {"q": "¿Por qué se dice que el pecado nos priva del plan de Dios?", "op": ["Refleja una barrera que impide la vida abundante.", "Porque invalida los dones genéticos del hombre.", "Porque cancela de forma retroactiva el amor del Creador."], "r": "Refleja una barrera que impide la vida abundante."},
             {"q": "¿Es el pecado un problema individual o universal?", "op": ["Universal, pues todos pecaron.", "Individual, afectando únicamente a quienes cometen actos inmorales.", "Estructural, dependiente del entorno social del individuo."], "r": "Universal, pues todos pecaron."},
-            {"q": "¿Cuál es la función de la segunda verdad en el plan de salvación?", "op": ["Servir como diagnóstico de la necesidad humana de un Salvador.", "Establecer las normas de conducta para evitar el infierno.", "Demostrar que la raza humana carece de valor intrínseco."], "r": "Servir como diagnóstico de la necesidad humana de un Salvador."}
+            {"q": "Cuál es la función de la segunda verdad en el plan de salvación?", "op": ["Servir como diagnóstico de la necesidad humana de un Salvador.", "Establecer las normas de conducta para evitar el infierno.", "Demostrar que la raza humana carece de valor intrínseco."], "r": "Servir como diagnóstico de la necesidad humana de un Salvador."}
         ]
     },
     {
@@ -58,7 +58,7 @@ verdades_data = [
             "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. (Jn. 14:6)"
         ],
         "preguntas": [
-            {"q": "Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
+            {"q": "¿Quién es el sustituto que Dios proveyó para el hombre?", "op": ["Jesucristo.", "El sistema de sacrificios levíticos.", "La intercesión de los arcángeles."], "r": "Jesucristo."},
             {"q": "¿Cómo demostró Dios su amor mientras aún éramos pecadores?", "op": ["Haciendo que Cristo muriera por nosotros.", "Manifestando señales portentosas en el templo.", "Enviando bendiciones a través de emisarios celestiales."], "r": "Haciendo que Cristo muriera por nosotros."},
             {"q": "¿Qué pagó Jesús específicamente en la cruz?", "op": ["El precio completo de nuestra salvación.", "La deuda de los pecados cometidos en el pasado únicamente.", "La culpa original adquirida en el Edén."], "r": "El precio completo de nuestra salvación."},
             {"q": "¿Qué afirma Jesús sobre sí mismo en Juan 14:6?", "op": ["Que Él es el camino, la verdad y la vida.", "Que es el ejemplo moral supremo a seguir.", "Que representa una de las puertas de acceso a la presencia de Dios."], "r": "Que Él es el camino, la verdad y la vida."},
@@ -85,7 +85,7 @@ verdades_data = [
             {"q": "¿Por qué el arrepentimiento es vital para la salvación?", "op": ["Porque permite abandonar la vida de pecado y reconciliarse con el Creador.", "Debido a que es el requisito formal exigido por la ley eclesial.", "Porque convence al intelecto de sus propios errores morales."], "r": "Porque permite abandonar la vida de pecado y reconciliarse con el Creador."},
             {"q": "¿De quién proviene el perdón una vez que nos arrepentimos?", "op": ["Del Señor.", "Del esfuerzo interior del individuo.", "De la absolución comunitaria."], "r": "Del Señor."},
             {"q": "¿Qué le sucede a la barrera del pecado cuando hay arrepentimiento genuino?", "op": ["Los pecados son eliminados o 'borrados'.", "Se debilita gradualmente con el paso del tiempo.", "Queda archivada hasta el juicio final."], "r": "Los pecados son eliminados o 'borrados'."},
-            {"q": "¿Qué significa experimentar 'refrigerio' espiritual?", "op": ["Es el alivio y paz que Dios otorga al perdonar.", "La adquisición de un nuevo conocimiento teológico profundo.", "Un arrebato emocional místico."], "r": "Es el alivio y paz que Dios otorga al perdonar."},
+            {"q": "What significa experimentar 'refrigerio' espiritual?", "op": ["Es el alivio y paz que Dios otorga al perdonar.", "La adquisición de un nuevo conocimiento teológico profundo.", "Un arrebato emocional místico."], "r": "Es el alivio y paz que Dios otorga al perdonar."},
             {"q": "¿Se puede ser salvo sin arrepentirse?", "op": ["No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados.", "Sí, siempre y cuando la persona mantenga una postura intelectual de fe.", "Sí, porque el amor de Dios cubre todo sin requerir cambios."], "r": "No, según las fuentes, el arrepentimiento es el paso esencial para que los pecados sean borrados."}
         ]
     },
@@ -105,7 +105,7 @@ verdades_data = [
             {"q": "¿Cuál es el paso final que Jesús pide en Apocalipsis 3:20?", "op": ["Que se le abra la puerta de la vida.", "Que se realice una confesión eclesiástica formal.", "Que se cumpla un ciclo de oraciones rituales."], "r": "Que se le abra la puerta de la vida."},
             {"q": "¿Qué sucede si alguien abre la puerta de su corazón a Jesús?", "op": ["Él entrará y tendrá comunión íntima con esa persona.", "Él enviará su espíritu guardián a custodiar el hogar.", "Él reescribirá el destino temporal del individuo."], "r": "Él entrará y tendrá comunión íntima con esa persona."},
             {"q": "¿La fe es un sentimiento o una decisión personal?", "op": ["Es una decisión de creer y recibir a Cristo como Salvador.", "Es un estado emocional generado por el ambiente litúrgico.", "Es una convicción intelectual puramente teórica."], "r": "Es una decisión de creer y recibir a Cristo como Salvador."},
-            {"q": "¿Qué seguridad tiene el creyente respecto a su pasado?", "op": ["Que ha pasado de muerte a vida.", "Que sus consecuencias terrenales quedarán completamente anuladas.", "Que será pesado en una balanza al final de los días."], "r": "Que ha pasado de muerte a vida."},
+            {"q": "¿Qué seguridad tiene el creyente respecto a su pasado?", "op": ["Que ha pasado de muerte a vida.", "Que sus consecuencias terrenales quedarán completamente annuladas.", "Que será pesado en una balanza al final de los días."], "r": "Que ha pasado de muerte a vida."},
             {"q": "¿Por qué la salvación se considera una 'dádiva'?", "op": ["Refleja un regalo recibido por fe en Cristo Jesús.", "Debido a que representa una oferta temporal del Creador.", "Porque requiere un intercambio simétrico de devoción."], "r": "Refleja un regalo recibido por fe en Cristo Jesús."},
             {"q": "¿Qué significa ser hecho 'hijo de Dios' mediante la fe?", "op": ["Entrar en una nueva identidad y relación familiar con el Creador.", "Adquirir inmunidad frente a las leyes de la Tierra.", "Lograr una condición angelical superior."], "r": "Entrar en una nueva identidad y relación familiar con el Creador."}
         ]
@@ -121,10 +121,10 @@ preguntas = [
     {"q": "¿A qué iglesia escribió Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Éfeso", "Galacia"], "r": "Éfeso", "info": "Esta carta aborda la lucha espiritual."},
     {"q": "¿Quién acompañó a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabé", "Timoteo", "Lucas"], "r": "Bernabé", "info": "Conocido como el 'hijo de consolación'."},
     {"q": "¿Cómo se llamaba la mujer que Pablo resucitó en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
-    {"q": "¿Qué apóstol escribió más libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que más cartas escribió."},
+    {"q": "What apóstol escribió más libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que más cartas escribió."},
     {"q": "¿En qué isla naufragó Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterráneo."},
     {"q": "¿Quién escribió el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabé"], "r": "Desconocido", "info": "Su autoría es uno de los temas más debatidos."},
-    {"q": "What significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
+    {"q": "¿Qué significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
     {"q": "¿A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
     {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
     {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
@@ -289,7 +289,7 @@ def res_p():
 
 
 # =====================================================================
-# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (OPTIMIZADO SIN REDIRECT LOOPS) ---
+# --- SECCIÓN: EL RETO DE LAS 5 VERDADES (TOTALMENTE CORREGIDO E INFALIBLE) ---
 # =====================================================================
 
 @app.route('/verdades_init')
@@ -304,7 +304,6 @@ def verdades_init():
 
 @app.route('/verdades_juego')
 def verdades_juego():
-    # Si la sesión expiró, forzamos inicialización directa sin bucles
     bloque_idx = session.get('v_bloque', 0)
     
     if bloque_idx >= len(verdades_data):
@@ -331,16 +330,15 @@ def verdades_juego():
         
     fase = session.get('v_fase', 'juego')
     bloque_actual = verdades_data[bloque_idx]
-    
-    # En lugar de guardar todas en sesión, usamos el banco directamente de forma fija por bloque
     preguntas_bloque = bloque_actual['preguntas']
     
     if fase == 'juego':
         q_idx = session.get('v_pregunta_idx', 0)
         p = preguntas_bloque[q_idx]
         ops = p['op'][:]
-        # Mantenemos las opciones en orden fijo para evitar desvaríos de sesión al recargar
-        btns = "".join([f'<a href="/verdades_res?op={o}"><button>{o}</button></a>' for o in ops])
+        
+        # Validamos por índice en la URL en lugar de texto plano largo para asegurar exactitud total
+        btns = "".join([f'<a href="/verdades_res?ans_idx={i}"><button>{o}</button></a>' for i, o in enumerate(ops)])
         return render_template_string(CSS_STYLE + f"""
             <div class="card">
                 <p style="color: #4ecca3; font-weight: bold;">Nivel {bloque_idx + 1}: {bloque_actual['titulo']}</p>
@@ -353,7 +351,6 @@ def verdades_juego():
     elif fase == 'repaso':
         indices_mal = session.get('v_indices_erroneos', [])
         if not indices_mal:
-            # Si mágicamente se vacía, avanzamos limpiamente
             session['v_bloque'] = session.get('v_bloque', 0) + 1
             session['v_pregunta_idx'] = 0
             session['v_fase'] = 'juego'
@@ -362,7 +359,7 @@ def verdades_juego():
         q_idx = indices_mal[0]
         p = preguntas_bloque[q_idx]
         ops = p['op'][:]
-        btns = "".join([f'<a href="/verdades_res?op={o}"><button style="background:#e94560; color:white;">{o}</button></a>' for o in ops])
+        btns = "".join([f'<a href="/verdades_res?ans_idx={i}"><button style="background:#e94560; color:white;">{o}</button></a>' for i, o in enumerate(ops)])
         return render_template_string(CSS_STYLE + f"""
             <div class="card" style="border: 2px solid #e94560;">
                 <p style="color: #e94560; font-weight: bold;">⚠️ ¡CORRECCIÓN DE STRIKE! ❌</p>
@@ -377,12 +374,14 @@ def verdades_res():
     bloque_idx = session.get('v_bloque', 0)
     fase = session.get('v_fase', 'juego')
     preguntas_bloque = verdades_data[bloque_idx]['preguntas']
-    opcion_elegida = request.args.get('op')
+    
+    # Leemos la opción elegida mediante su índice numérico
+    ans_idx = int(request.args.get('ans_idx', 0))
+    opcion_elegida = preguntas_bloque[session.get('v_pregunta_idx', 0) if fase == 'juego' else session.get('v_indices_erroneos', [0])[0]]['op'][ans_idx]
     
     if fase == 'juego':
         q_idx = session.get('v_pregunta_idx', 0)
         
-        # Inicializar respuestas si no existen
         if 'v_respuestas_usuario' not in session or not session['v_respuestas_usuario']:
             session['v_respuestas_usuario'] = [None] * 10
             
