@@ -30,11 +30,11 @@ verdades_data = [
             {
                 "q": "¿Qué motivó de forma primaria a Dios a entregar voluntariamente a Su Hijo unigénito según la declaración de Juan 3:16?",
                 "op": [
-                    "Su inmenso e incondicional amor por el mundo, manifestado en una acción proactiva de rescate y preservación espiritual.",
+                    "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservación espiritual.",
                     "La necesidad urgente de apaciguar Su ira santa mediante un acto reactivo de justicia punitiva ajeno a la compasión.",
                     "El cumplimiento formal y exclusivo de las cláusulas legales estipuladas de manera restrictiva en el pacto abrahámico."
                 ],
-                "r": "Su inmenso e incondicional amor por el mundo, manifestado en una acción proactiva de rescate y preservación espiritual."
+                "r": "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservación espiritual."
             },
             {
                 "q": "¿Cuál es el don o regalo escatológico que Dios garantiza de manera inmediata a aquellos que ejercen fe en Su Hijo?",
@@ -82,7 +82,7 @@ verdades_data = [
                 "r": "Incluye de manera universal a todo el mundo, rompiendo barreras étnicas, temporales o de mérito previo para el acceso a la gracia."
             },
             {
-                "q": "Respecto a la adquisición de la vida eterna, ¿cuál es la dinámica teológica correcta según se desprende de esta ley del amor?",
+                "q": Respecto a la adquisición de la vida eterna, ¿cuál es la dinámica teológica correcta según se desprende de esta ley del amor?",
                 "op": [
                     "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia.",
                     "Se gana de manera meritoria como retribución justa por el volumen acumulado de obras de piedad, filantropía y sacrificios personales.",
@@ -255,7 +255,7 @@ verdades_data = [
                 "r": "Que Él es el camino, y la verdad, y la vida; constituyéndose como la única vía ontológica de acceso al Padre."
             },
             {
-                "q": "De acuerdo con el absoluto establecido por Cristo en Juan 14:6, ¿existe alguna vía alternativa para acceder a la comunión con el Padre?",
+                "q": De acuerdo con el absoluto establecido por Cristo en Juan 14:6, ¿existe alguna vía alternativa para acceder a la comunión con el Padre?",
                 "op": [
                     "No, puesto que el texto dictamina categóricamente que nadie viene al Padre sino estrictamente por medio de Su persona.",
                     "Sí, siempre y cuando se sinteticen y sigan con rigurosidad las directrices éticas de los antiguos códigos proféticos de Oriente.",
@@ -273,7 +273,7 @@ verdades_data = [
                 "r": "Porque tomó de forma vicaria el lugar del pecador en la cruz, absorbiendo la ira divina y pagando la deuda de muerte que la ley exigía."
             },
             {
-                "q": "En la arquitectura sistemática de las cinco verdades, ¿qué representa formalmente la muerte de Cristo?",
+                "q": En la arquitectura sistemática de las cinco verdades, ¿qué representa formalmente la muerte de Cristo?",
                 "op": [
                     "La provisión y solución legal divina al problema de la separación y la destitución humana causadas por el pecado.",
                     "El desenlace trágico y circunstancial de un reformador social cuya doctrina fue incomprendida por los poderes de su época.",
@@ -300,7 +300,7 @@ verdades_data = [
                 "r": "La cruz constituye la demostración histórica e irrefutable del amor de Dios, donde Su justicia y Su misericordia se juntan."
             },
             {
-                "q": "¿Cuál es la función mediadora exclusiva que ejerce Jesucristo entre la santidad del Dios trino y la condición del hombre caído?",
+                "q": "¿Cuál constituye la función mediadora exclusiva que ejerce Jesucristo entre la santidad del Dios trino y la condición del hombre caído?",
                 "op": [
                     "El papel de único puente viable y eterno, quien reconcilia ambas partes eliminando la barrera de la culpabilidad.",
                     "El de un observador neutral y testigo imparcial que registra el progreso ético de las civilizaciones a lo largo de las eras.",
@@ -578,6 +578,20 @@ personajes = [
     {"pista": "Fui el profeta que tuvo que casarse con una mujer infiel como símbolo del amor de Dios por su pueblo.", "op": ["Amós", "Oseas", "Joel", "Malaquías"], "r": "Oseas"}
 ]
 
+# --- BANCO DE VERSÍCULOS RVR1960 PARA EL JUEGO DE MEMORIZAR ---
+versiculos_memoria = [
+    {"cita": "Juan 3:16", "texto": "Porque de tal manera amó Dios al mundo que ha dado a su Hijo unigénito para que todo aquel que en él cree no se pierda mas tenga vida eterna"},
+    {"cita": "Salmos 23:1", "texto": "Jehová es mi pastor nada me faltará"},
+    {"cita": "Filipenses 4:13", "texto": "Todo lo puedo en Cristo que me fortalece"},
+    {"cita": "Romanos 8:28", "texto": "Y sabemos que a los que aman a Dios todas las cosas les ayudan a bien"},
+    {"cita": "Proverbios 3:5", "texto": "Fíate de Jehová de todo tu corazón y no te apoyes en tu propia prudencia"},
+    {"cita": "Isaías 41:10", "texto": "No temas porque yo estoy contigo no desmayes porque yo soy tu Dios que te esfuerzo siempre te ayudaré siempre te sustentaré con la diestra de mi justicia"},
+    {"cita": "Josué 1:9", "texto": "Mira que te mando que te esfuerces y seas valiente no temas ni desmayes porque Jehová tu Dios estará contigo en dondequiera que vayas"},
+    {"cita": "Salmos 119:105", "texto": "Lámpara es a mis pies tu palabra y lumbrera a mi camino"},
+    {"cita": "Gálatas 2:20", "texto": "Con Cristo estoy juntamente crucificado y ya no vivo yo mas vive Cristo en mí"},
+    {"cita": "Mateo 6:33", "texto": "Mas buscad primeramente el reino de Dios y su justicia y todas estas cosas os serán añadidas"}
+]
+
 CSS_STYLE = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -605,7 +619,8 @@ def menu():
         <div class="card"><h1>Hola, {session.get('nombre', 'Amigo')}</h1><p>Elige tu reto:</p>
         <a href="/trivia_init"><button>Trivia Bíblica</button></a>
         <a href="/personaje_init"><button style="background: #0f3460; color: white; border: 1px solid #4ecca3;">Adivina el Personaje</button></a>
-        <a href="/verdades_init"><button style="background: #e94560; color: white;">El reto de las 5 Verdades</button></a></div>
+        <a href="/verdades_init"><button style="background: #e94560; color: white;">El reto de las 5 Verdades</button></a>
+        <a href="/memoriza_menu"><button style="background: #2b2d42; color: #4ecca3; border: 2px solid #4ecca3;">🧠 Memoriza el Versículo</button></a></div>
     """)
 
 # --- TRIVIA BÍBLICA ---
@@ -720,7 +735,7 @@ def verdades_juego():
                 <p style="font-size: 1.1em;">Felicidades <b>{session.get('nombre')}</b>, has superado las 5 Verdades Espirituales ganando tus 5 Estrellas ⭐⭐⭐⭐⭐</p>
                 <div class="info-box" style="background: #1b4332; border-color: #ffd700;">
                     <h3 style="margin-top:0;">📖 Apocalipsis 3:20</h3>
-                    <p>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo."</p>
+                    <p>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenará con él, y él conmigo."</p>
                 </div>
                 <p style="color: #4ecca3; font-weight: bold; font-size: 1.2em;">✨ Propósito: Oración de ACEPTACIÓN ✨</p>
                 <a href="/"><button style="background:#ffd700">Registrar nuevo jugador 👤</button></a>
@@ -895,7 +910,174 @@ def verdades_gameover():
             <p>Debes conocer bien las verdades antes de avanzar.</p>
             <a href="/verdades_init"><button style="background: #e94560; color: white;">Reiniciar Reto</button></a>
             <a href="/"><button style="background: #ffd700">Registrar nuevo jugador 👤</button></a>
-            <a href="/menu"><button style="background: #88 snowy-888;">Volver al Menú</button></a>
+            <a href="/menu"><button style="background: #888;">Volver al Menú</button></a>
+        </div>
+    """)
+
+
+# =====================================================================
+# --- JUEGO 4: MEMORIZA EL VERSÍCULO (INTERACTIVO RVR1960) ---
+# =====================================================================
+
+@app.route('/memoriza_menu')
+def memoriza_menu():
+    return render_template_string(CSS_STYLE + """
+        <div class="card">
+            <h2>🧠 Memoriza el Versículo</h2>
+            <p>Selecciona la modalidad de juego:</p>
+            <a href="/memoriza_init/dia"><button style="background: #4ecca3; color: black;">📆 Versículo del Día</button></a>
+            <a href="/memoriza_init/random"><button style="background: #0f3460; color: white; border: 1px solid #4ecca3;">🎲 Versículo Random</button></a>
+            <a href="/menu"><button style="background: #888; color: white;">Volver al Menú</button></a>
+        </div>
+    """)
+
+@app.route('/memoriza_init/<modo>')
+def memoriza_init(modo):
+    if modo == 'dia':
+        indice_dia = datetime.now().timetuple().tm_yday % len(versiculos_memoria)
+        v_seleccionado = versiculos_memoria[indice_dia]
+        session['mem_modo'] = "Versículo del Día"
+    else:
+        v_seleccionado = random.choice(versiculos_memoria)
+        session['mem_modo'] = "Versículo Random"
+        
+    session['mem_cita'] = v_seleccionado['cita']
+    session['mem_texto'] = v_seleccionado['texto']
+    return redirect(url_for('memoriza_juego'))
+
+@app.route('/memoriza_juego')
+def memoriza_juego():
+    cita = session.get('mem_cita', '')
+    texto_original = session.get('mem_texto', '')
+    modo = session.get('mem_modo', 'Juego')
+    
+    palabras_originales = texto_original.split()
+    palabras_barajadas = palabras_originales[:]
+    
+    seed = random.randint(1, 1000)
+    random.Random(seed).shuffle(palabras_barajadas)
+    
+    html_memoriza = """
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #1a1a2e; color: white; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .card { background: #16213e; padding: 25px; border-radius: 20px; width: 90%; max-width: 500px; margin: auto; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
+        .area-construccion { min-height: 80px; background: #0f3460; border: 2px dashed #4ecca3; border-radius: 12px; margin: 20px 0; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-content: center; }
+        .contenedor-palabras { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; background: #1a1a2e; padding: 15px; border-radius: 12px; }
+        .palabra-btn { padding: 10px 16px; background: #e94560; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.2s; }
+        .palabra-btn.usada { opacity: 0.3; pointer-events: none; background: #555; }
+        .palabra-construida { padding: 10px 16px; background: #4ecca3; color: black; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .mensaje-error { color: #e94560; font-weight: bold; margin-top: 10px; min-height: 20px; }
+        .btn-accion { width: 48%; padding: 12px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 15px; }
+    </style>
+    
+    <div class="card">
+        <p style="color: #4ecca3; font-weight: bold; margin-bottom: 5px;">🧠 Modo: """ + modo + """</p>
+        <h2 style="margin-top: 5px;">📖 """ + cita + """</h2>
+        <p style="font-size: 0.9em; color: #ccc;">Haz clic en las palabras de abajo en el orden correcto para reconstruir el versículo:</p>
+        
+        <div class="area-construccion" id="areaConstruccion"></div>
+        <div class="mensaje-error" id="mensajeError"></div>
+        <div class="contenedor-palabras" id="bloqueOpciones"></div>
+        
+        <div style="display: flex; justify-content: space-between;">
+            <button class="btn-accion" style="background: #888; color: white;" onclick="reiniciarOrden()">Borrar todo ↩️</button>
+            <button class="btn-accion" style="background: #4ecca3; color: black;" id="btnVerificar" onclick="verificarResultado()" disabled>Comprobar ✔️</button>
+        </div>
+    </div>
+
+    <script>
+        const textoCorrecto = """ + str(palabras_originales) + """;
+        const palabrasDesordenadas = """ + str(palabras_barajadas) + """;
+        let respuestasUsuario = [];
+
+        const areaConstruccion = document.getElementById('areaConstruccion');
+        const bloqueOpciones = document.getElementById('bloqueOpciones');
+        const mensajeError = document.getElementById('mensajeError');
+        const btnVerificar = document.getElementById('btnVerificar');
+
+        function inicializarBotones() {
+            bloqueOpciones.innerHTML = '';
+            palabrasDesordenadas.forEach((palabra, index) => {
+                let btn = document.createElement('button');
+                btn.className = 'palabra-btn';
+                btn.innerText = palabra;
+                btn.id = 'opcion-' + index;
+                btn.onclick = () => seleccionarPalabra(palabra, index);
+                bloqueOpciones.appendChild(btn);
+            });
+        }
+
+        function seleccionarPalabra(palabra, index) {
+            mensajeError.innerText = '';
+            respuestasUsuario.push({ palabra: palabra, origIndex: index });
+            document.getElementById('opcion-' + index).classList.add('usada');
+            renderizarConstruccion();
+            
+            if (respuestasUsuario.length === textoCorrecto.length) {
+                btnVerificar.disabled = false;
+            }
+        }
+
+        function renderizarConstruccion() {
+            areaConstruccion.innerHTML = '';
+            respuestasUsuario.forEach((item, pos) => {
+                let span = document.createElement('span');
+                span.className = 'palabra-construida';
+                span.innerText = item.palabra;
+                areaConstruccion.appendChild(span);
+            });
+        }
+
+        function reiniciarOrden() {
+            respuestasUsuario = [];
+            mensajeError.innerText = '';
+            btnVerificar.disabled = true;
+            areaConstruccion.innerHTML = '';
+            inicializarBotones();
+        }
+
+        function verificarResultado() {
+            let esCorrecto = true;
+            for(let i = 0; i < textoCorrecto.length; i++) {
+                if (respuestasUsuario[i].palabra !== textoCorrecto[i]) {
+                    esCorrecto = false;
+                    break;
+                }
+            }
+
+            if (esCorrecto) {
+                window.location.href = "/memoriza_ganado";
+            } else {
+                mensajeError.innerText = "❌ El orden no es correcto. Por favor, inténtalo de nuevo.";
+            }
+        }
+
+        inicializarBotones();
+    </script>
+    """
+    return html_memoriza
+
+@app.route('/memoriza_ganado')
+def memoriza_ganado():
+    modo = session.get('mem_modo', 'Memoriza el Versículo')
+    cita = session.get('mem_cita', 'Cita')
+    
+    HISTORIAL_CALIFICACIONES.append({
+        "nombre": session.get('nombre', 'Desconocido'),
+        "juego": modo,
+        "calificacion": 10.0,
+        "detalles": f"Memorizó con éxito {cita}",
+        "fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    })
+    
+    return render_template_string(CSS_STYLE + f"""
+        <div class="card" style="border: 2px solid #4ecca3;">
+            <h1 style="color: #4ecca3;">🎉 ¡EXCELENTE MEMORIA! 🎉</h1>
+            <p>Has ordenado correctamente el texto de <b>{cita}</b>.</p>
+            <p style="color: #ffd700; font-weight: bold;">¡Palabra guardada en el corazón!</p>
+            <a href="/memoriza_menu"><button>Jugar otra vez</button></a>
+            <a href="/menu"><button style="background: #888; color: white;">Ir al Menú principal</button></a>
         </div>
     """)
 
