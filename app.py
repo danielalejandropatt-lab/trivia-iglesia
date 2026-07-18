@@ -193,7 +193,7 @@ verdades_data = [
             {
                 "q": "Al analizar el alcance del pecado según Romanos 3:23, ¿cuál es su dimensión correcta?",
                 "op": [
-                    "Es strictly universal, afectando la raíz de la naturaleza humana de todo individuo que entra al mundo.",
+                    "Es estrictamente universal, afectando la raíz de la naturaleza humana de todo individuo que entra al mundo.",
                     "Es meramente individual, aplicando de forma restrictiva y aislada solo sobre aquellos que ejecutan actos flagrantemente inmorales.",
                     "Es un fenómeno sistémico-estructural, condicionado de manera exclusiva por las fallas del entorno socioeconómico del sujeto."
                 ],
