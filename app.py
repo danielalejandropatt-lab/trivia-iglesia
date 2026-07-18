@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, request, render_template_string, redirect, url_for, session, Response
 import random
 from datetime import datetime
@@ -5,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = 'clave_secreta_daniel'
 
-# --- MEMORIA VOLÁTIL PARA LAS MÉTRICAS DE LA IGLESIA ---
+# --- MEMORIA VOLATIL PARA LAS METRICAS DE LA IGLESIA ---
 HISTORIAL_CALIFICACIONES = []
 
 # --- BANCO DE DATOS: DIFICULTAD REFORMULADA Y COMPLEJA (10 preguntas por bloque) ---
@@ -14,99 +15,99 @@ verdades_data = [
         "nivel": 1,
         "titulo": "La Verdad del Amor",
         "versiculos": [
-            "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna. (Jn. 3:16)",
+            "Porque de tal manera amo Dios al mundo, que ha dado a su Hijo unigenito, para que todo aquel que en el cree, no se pierda, mas tenga vida eterna. (Jn. 3:16)",
             "... yo he venido para que tengan vida, y para que la tengan en abundancia. (Jn. 10:10b)"
         ],
         "preguntas": [
             {
-                "q": "¿Cuál es el propósito central e inicial de Dios para la existencia del ser humano según la primera verdad?",
+                "q": "Cual es el proposito central e inicial de Dios para la existencia del ser humano segun la primera verdad?",
                 "op": [
-                    "Que el hombre experimente una vida abundante, definida por la comunión plena con el Creador y el desarrollo de Su diseño eterno.",
-                    "La exigencia de una perfección moral absoluta e impecabilidad intrínseca previa a cualquier manifestation de Su favor.",
-                    "Demandas un sacrificio perpetuo de privación existencial como único mecanismo para aplacar la distancia con la Deidad."
+                    "Que el hombre experimente una vida abundante, definida por la comunion plena con el Creador y el desarrollo de Su diseno eterno.",
+                    "La exigencia de una perfeccion moral absoluta e impecabilidad intrinseca previa a cualquier manifestation de Su favor.",
+                    "Demandas un sacrificio perpetuo de privacion existencial como unico mecanismo para aplacar la distancia con la Deidad."
                 ],
-                "r": "Que el hombre experimente una vida abundante, definida por la comunión plena con el Creador y el desarrollo de Su diseño eterno."
+                "r": "Que el hombre experimente una vida abundante, definida por la comunion plena con el Creador y el desarrollo de Su diseno eterno."
             },
             {
-                "q": "¿Qué motivó de forma primaria a Dios a entregar voluntariamente a Su Hijo unigénito según la declaración de Juan 3:16?",
+                "q": "Que motivo de forma primaria a Dios a entregar voluntariamente a Su Hijo unigenito segun la declaracion de Juan 3:16?",
                 "op": [
-                    "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservación espiritual.",
-                    "La necesidad urgente de apaciguar Su ira santa mediante un acto reactivo de justicia punitiva ajeno a la compasión.",
-                    "El cumplimiento formal y exclusivo de las cláusulas legales estipuladas de manera restrictiva en el pacto abrahámico."
+                    "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservacion espiritual.",
+                    "La necesidad urgente de apaciguar Su ira santa mediante un acto reactivo de justicia punitiva ajeno a la compasion.",
+                    "El cumplimiento formal y exclusivo de las clausulas legales estipuladas de manera restrictiva en el pacto abrahamico."
                 ],
                 "r": "Su inmenso e incondicional amor por el mundo, manifestado en una action proactiva de rescate y preservación espiritual."
             },
             {
-                "q": "¿Cuál es el don o regalo escatológico que Dios garantiza de manera inmediata a aquellos que ejercen fe en Su Hijo?",
+                "q": "Cual es el don o regalo escatologico que Dios garantiza de manera inmediata a aquellos que ejercen fe en Su Hijo?",
                 "op": [
-                    "La vida eterna, caracterizada por la cualidad y permanencia de una comunión ininterrumpida con el Dios vivo.",
-                    "Un perdón condicional y mutable, sujeto a auditorías periódicas basadas en el rendimiento moral del creyente.",
-                    "La exención soberana e inmunidad civil ante cualquier tipo de tribulación, padecimiento físico o crisis terrenal."
+                    "La vida eterna, caracterizada por la cualidad y permanencia de una comunion ininterrumpida con el Dios vivo.",
+                    "Un perdòn condicional y mutable, sujeto a auditorias periodicas basadas en el rendimiento moral del creyente.",
+                    "La exencion soberana e inmunidad civil ante cualquier tipo de tribulacion, padecimiento fisico o crisis terrenal."
                 ],
-                "r": "La vida eterna, caracterizada por la cualidad y permanencia de una comunión ininterrumpida con el Dios vivo."
+                "r": "La vida eterna, caracterizada por la cualidad y permanencia de una comunion ininterrumpida con el Dios vivo."
             },
             {
-                "q": "De acuerdo con la declaración explícita de Jesús en Juan 10:10b, ¿cuál es el objetivo preciso de Su encarnación y venida al mundo?",
+                "q": "De acuerdo con la declaracion explicita de Jesus en Juan 10:10b, cual es el objetivo preciso de Su encarnacion y venida al mundo?",
                 "op": [
-                    "Para que tengan vida, y para que la tengan en abundancia, definiendo el propósito en los términos textuales declarados por el Redentor.",
-                    "Para que alcancen una vida plenamente autorrealizada en abundancia, modificando la centralidad de la vida dada por Cristo hacia la autogestión.",
-                    "Para que posean vida y paz en abundancia, añadiendo conceptos conceptualmente válidos pero ajenos a la precisión exacta de la cita bíblica."
+                    "Para que tengan vida, y para que la tengan en abundancia, definiendo el proposito en los terminos textuales declarados por el Redentor.",
+                    "Para que alcancen una vida plenamente autorrealizada en abundancia, modificando la centralidad de la vida dada por Cristo hacia la autogestion.",
+                    "Para que posean vida y paz en abundancia, anadiendo conceptos conceptualmente validos pero ajenos a la precision exacta de la cita biblica."
                 ],
-                "r": "Para que tengan vida, y para que la tengan en abundancia, definiendo el propósito en los términos textuales declarados por el Redentor."
+                "r": "Para que tengan vida, y para que la tengan en abundancia, definiendo el proposito en los terminos textuales declarados por el Redentor."
             },
             {
-                "q": "¿Cómo se describe la naturaleza operativa del amor de Dios en el marco de esta primera verdad?",
+                "q": "Como se describe la naturaleza operativa del amor de Dios en el marco de esta primera verdad?",
                 "op": [
-                    "Como un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar.",
-                    "Como una disposición afectiva pasiva que otorga misericordia únicamente motivada por la piedad o lástima ante la miseria humana.",
-                    "Como un sistema asistencial de recompensas y privilegios cósmicos destinado de forma exclusiva a los ya declarados justos en la Tierra."
+                    "Como un amor sacrificial y proactivo que entrega voluntariamente lo mas preciado con el proposito directo de salvar.",
+                    "Como una disposicion afectiva pasiva que otorga misericordia unicamente motivada por la piedad o lastima ante la miseria humana.",
+                    "Como un sistema asistencial de recompensas y privilegios cosmicos destinado de forma exclusiva a los ya declarados justos en la Tierra."
                 ],
-                "r": "Como un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar."
+                "r": "Como un amor sacrificial y proactivo que entrega voluntariamente lo mas preciado con el proposito directo de salvar."
             },
             {
-                "q": "¿Qué significa poseer una 'vida abundante' en el estricto contexto espiritual y relacional de esta verdad?",
+                "q": "Que significa poseer una 'vida abundante' en el estricto contexto espiritual y relacional de esta verdad?",
                 "op": [
-                    "Vivir en plenitud, experimentando de forma integral la comunión, el gozo y la alineación directa con el propósito soberano de Dios.",
-                    "Gozar de una garantía de prosperidad financiera, acumulación material y estatus socioeconómico elevado mediante decretos de fe.",
-                    "Alcanzar un estado metafísico de iluminación mental superior que permite trascender las limitaciones de la realidad física."
+                    "Vivir en plenitud, experimentando de forma integral la comunion, el gozo y la alineacion directa con el proposito soberano de Dios.",
+                    "Gozar de una garantia de prosperidad financiera, acumulacion material y estatus socioeconomico elevado mediante decretos de fe.",
+                    "Alcanzar un estado metafisico de iluminacion mental superior que permite trascender las limitaciones de la realidad fisica."
                 ],
-                "r": "Vivir en plenitud, experimentando de forma integral la comunión, el gozo y la alineación directa con el propósito soberano de Dios."
+                "r": "Vivir en plenitud, experimentando de forma integral la comunion, el gozo y la alineacion directa con el proposito soberano de Dios."
             },
             {
-                "q": "¿Cuál es el alcance del amor divino y la oferta de redención explicitada en el texto de Juan 3:16?",
+                "q": Cual es el alcance del amor divino y la oferta de redencion explicitada en el texto de Juan 3:16?",
                 "op": [
-                    "Incluye de manera universal a todo el mundo, rompiendo barreras étnicas, temporales o de mérito previo para el acceso a la gracia.",
-                    "Se limita restrictivamente a los patriarcas, profetas y guardianes históricos de los oráculos sagrados.",
-                    "Aplica única y selectivamente sobre aquellos individuos que logran guardar de antemano la totalidad de los mandamientos."
+                    "Incluye de manera universal a todo el mundo, rompiendo barreras etnicas, temporales o de merito previo para el acceso a la gracia.",
+                    "Se limita restrictivamente a los patriarcas, profetas y guardianes historicos de los oraculos sagrados.",
+                    "Aplica unica y selectivamente sobre aquellos individuos que logran guardar de antemano la totalidad de los mandamientos."
                 ],
-                "r": "Incluye de manera universal a todo el mundo, rompiendo barreras étnicas, temporales o de mérito previo para el acceso a la gracia."
+                "r": "Incluye de manera universal a todo el mundo, rompiendo barreras etnicas, temporales o de merito previo para el acceso a la gracia."
             },
             {
-                "q": "Respecto a la adquisición de la vida eterna, ¿cuál es la dinámica teológica correcta según se desprende de esta ley del amor?",
+                "q": "Respecto a la adquisicion de la vida eterna, cual es la dinamica teologica correcta segun se desprende de esta ley del amor?",
                 "op": [
                     "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia.",
-                    "Se gana de manera meritoria como retribución justa por el volumen acumulado de obras de piedad, filantropía y sacrificios personales.",
-                    "Se adquiere mediante un proceso iniciático basado en el conocimiento intelectual de misterios sagrados e información esotérica."
+                    "Se gana de manera meritoria como retribucion justa por el volumen acumulado de obras de piedad, filantropia y sacrificios personales.",
+                    "Se adquiere mediante un proceso iniciatico basado en el conocimiento intelectual de misterios sagrados e informacion esoterica."
                 ],
                 "r": "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia."
             },
             {
-                "q": "¿Qué condición de vulnerabilidad eterna asegura de forma categórica Juan 3:16 que NO padecerá el individuo que deposita su confianza en Cristo?",
+                "q": "Que condicion de vulnerabilidad eterna asegura de forma categorica Juan 3:16 que NO padecera el individuo que deposita su confianza en Cristo?",
                 "op": [
-                    "Que no se perderá, garantizando la preservación judicial del creyente frente a la ruina y la condenación del alma.",
-                    "Que no experimentará la muerte física ni los efectos biológicos del envejecimiento en el plano terrenal.",
-                    "Que quedará completamente inhabilitado para volver a cometer cualquier error o falta moral de manera absoluta."
+                    "Que no se perdera, garantizando la preservacion judicial del creyente frente a la ruina y la condenacion del alma.",
+                    "Que no experimentara la muerte fisica ni los efectos biologicos del envejecimiento en el plano terrenal.",
+                    "Que quedara completamente inhabilitado para volver a cometer cualquier error o falta moral de manera absoluta."
                 ],
-                "r": "Que no se perderá, garantizando la preservación judicial del creyente frente a la ruina y la condenación del alma."
+                "r": "Que no se perdera, garantizando la preservacion judicial del creyente frente a la ruina y la condenacion del alma."
             },
             {
-                "q": "¿Cuál constituye el cimiento y la base inamovible de toda la relación entre Dios y el hombre propuesto en esta primera verdad?",
+                "q": "Cual constituye el cimiento y la base inamovible de toda la relacion entre Dios y el hombre propuesto en esta primera verdad?",
                 "op": [
-                    "El amor incondicional y la iniciativa del Creador, quien define el vínculo desde Su propia esencia y carácter santo.",
-                    "El temor reverente y la sumisión psicológica del ser humano ante la disparidad de poder con el Absoluto.",
-                    "El pacto bilateral basado en el cumplimiento riguroso y milimétrico de estatutos, ordenanzas y códigos litúrgicos."
+                    "El amor incondicional y la iniciativa del Creador, quien define el vinculo desde Su propia esencia y caracter santo.",
+                    "El temor reverente y la sumision psicologica del ser humano ante la disparidad de poder con el Absoluto.",
+                    "El pacto bilateral basado en el cumplimiento riguroso y milimetrico de estatutos, ordenanzas y codigos liturgicos."
                 ],
-                "r": "El amor incondicional and la iniciativa del Creador, quien define el vínculo desde Su propia esencia y carácter santo."
+                "r": "El amor incondicional and la iniciativa del Creador, quien define el vinculo desde Su propia esencia y caracter santo."
             }
         ]
     },
@@ -114,99 +115,99 @@ verdades_data = [
         "nivel": 2,
         "titulo": "La Verdad del Pecado",
         "versiculos": [
-            "Por cuanto todos pecaron, y están destituidos de la gloria de Dios, (Rom 3:23)",
+            "Por cuanto todos pecaron, y estan destituidos de la gloria de Dios, (Rom 3:23)",
             "Porque la paga del pecado es muerte... (Rom. 6:23a)"
         ],
         "preguntas": [
             {
-                "q": "¿Qué es lo que impide al hombre experimentar el amor de Dios?",
+                "q": "Que es lo que impide al hombre experimentar el amor de Dios?",
                 "op": [
-                    "El pecado en sí mismo, operando como una condición activa de transgresión que interrumpe la comunión vital con el Creador.",
+                    "El pecado en si mismo, operando como una condicion activa de transgresion que interrumpe la comunion vital con el Creador.",
                     "La falta de un conocimiento intelectual o de una conciencia moral desarrollada respecto a las leyes divinas.",
-                    "La condición ontológica de ser una criatura finita, limitada y propensa a debilidades naturales e involuntarias."
+                    "La condicion ontologica de ser una criatura finita, limitada y propensa a debilidades naturales e involuntarias."
                 ],
-                "r": "El pecado en sí mismo, operando como una condición activa de transgresión que interrumpe la comunión vital con el Creador."
+                "r": "El pecado en si mismo, operando como una condicion activa de transgresion que interrumpe la comunion vital con el Creador."
             },
             {
-                "q": "¿Cuántas personas han pecado según el axioma teológico de Romanos 3:23?",
+                "q": "Cuantas personas han pecado segun el axioma teologico de Romanos 3:23?",
                 "op": [
-                    "La totalidad de la raza humana sin excepción alguna, estableciendo una condición de culpabilidad universal.",
-                    "Aquellos individuos que, teniendo pleno uso de razón, rechazan deliberadamente los mandatos expresos de la ley.",
+                    "La totalidad de la raza humana sin excepcion alguna, estableciendo una condicion de culpabilidad universal.",
+                    "Aquellos individuos que, teniendo pleno uso de razon, rechazan deliberadamente los mandatos expresos de la ley.",
                     "La humanidad en general, exceptuando a quienes han sido predestinados o adoptados soberanamente como hijos de Dios."
                 ],
-                "r": "La totalidad de la raza humana sin excepción alguna, estableciendo una condición de culpabilidad universal."
+                "r": "La totalidad de la raza humana sin excepcion alguna, estableciendo una condicion de culpabilidad universal."
             },
             {
-                "q": "¿Cuál es el estado del pecador respecto a la gloria de Dios según la declaración paulina?",
+                "q": "Cual es el estado del pecador respecto a la gloria de Dios segun la declaracion paulina?",
                 "op": [
-                    "Está destituido de ella, implicando una carencia absoluta del estándar santo requerido para la comunión.",
-                    "Se encuentra bajo un estado de suspensión y observación jurídica, a la espera de una evaluación final de sus obras.",
-                    "Permanece en una posición de distanciamiento geográfico o cósmico que se resuelve mediante la iluminación intelectual."
+                    "Esta destituido de ella, implicando una carencia absoluta del estandar santo requerido para la comunion.",
+                    "Se encuentra bajo un estado de suspension y observacion juridica, a la espera de una evaluacion final de sus obras.",
+                    "Permanece en una posicion de distanciamiento geografico o cosmico que se resuelve mediante la iluminacion intelectual."
                 ],
-                "r": "Está destituido de ella, implicando una carencia absoluta del estándar santo requerido para la comunión."
+                "r": "Esta destituido de ella, implicando una carencia absoluta del estandar santo requerido para la comunion."
             },
             {
-                "q": "¿Cuál es la consecuencia espiritual y legal que establece Romanos 6:23a como retribución del pecado?",
+                "q": "Cual es la consecuencia espiritual y legal que establece Romanos 6:23a como retribucion del pecado?",
                 "op": [
                     "La muerte, entendida como la paga judicial y el salario irreversible que el pecado devenga por su propia naturaleza.",
-                    "Un estado crónico de alienación psicológica manifestado a través de la ansiedad existencial y la angustia mental.",
-                    "Una degradación moral progresiva que debilita temporalmente la posición del hombre dentro del orden de la creación."
+                    "Un estado cronico de alienacion psicologica manifestado a traves de la ansiedad existencial y la angustia mental.",
+                    "Una degradacion moral progresiva que debilita temporalmente la posicion del hombre dentro del orden de la creacion."
                 ],
                 "r": "La muerte, entendida como la paga judicial y el salario irreversible que el pecado devenga por su propia naturaleza."
             },
             {
-                "q": "¿Por qué el pecado produce intrínsecamente una separación entre Dios y el hombre?",
+                "q": "Por que el pecado produce intrinsecamente una separacion entre Dios y el hombre?",
                 "op": [
                     "Porque la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano.",
-                    "Porque la soberanía divina decide replegarse y apartarse ante la escasez de adoradores calificados en la Tierra.",
-                    "Porque debilita las facultades del libre albedrío de tal manera que el hombre olvida de forma natural el camino de regreso a su Creador."
+                    "Porque la soberania divina decide replegarse y apartarse ante la escasez de adoradores calificados en la Tierra.",
+                    "Porque debilita las facultades del libre albedrio de tal manera que el hombre olvida de forma natural el camino de regreso a su Creador."
                 ],
                 "r": "Porque la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano."
             },
             {
-                "q": "¿Posee el ser humano la capacidad inherente para cruzar por su cuenta el abisco generado por el pecado?",
+                "q": "Posee el ser humano la capacidad inherente para cruzar por su cuenta el abisco generado por el pecado?",
                 "op": [
-                    "No, puesto que el pecado establece una condición de total incapacidad espiritual que anula cualquier esfuerzo autónomo de reconciliación.",
-                    "Sí, siempre y cuando aplique un sistema riguroso de compensación moral mediante obras de justicia y caridad que equilibren su balanza ante Dios.",
-                    "Sí, a través de una metanoia puramente racional combinada con disciplinas místicas y ejercicios de meditación profunda."
+                    "No, puesto que el pecado establece una condicion de total incapacidad espiritual que anula cualquier esfuerzo autonomo de reconciliacion.",
+                    "Sí, siempre y cuando aplique un sistema riguroso de compensacion moral mediante obras de justicia y caridad que equilibren su balanza ante Dios.",
+                    "Sí, a traves de una metanoia puramente racional combinada con disciplinas misticas y ejercicios de meditacion profunda."
                 ],
-                "r": "No, puesto que el pecado establece una condición de total incapacidad espiritual que anula cualquier esfuerzo autónomo de reconciliación."
+                "r": "No, puesto que el pecado establece una condicion de total incapacidad espiritual que anula cualquier esfuerzo autonomo de reconciliacion."
             },
             {
-                "q": "¿Qué naturaleza define a la 'muerte' dictaminada en la segunda verdad?",
+                "q": "Que naturaleza define a la 'muerte' dictaminada en la segunda verdad?",
                 "op": [
-                    "Una muerte espiritual y judicial que se traduce en la separación total, absoluta y eterna de la fuente de la vida.",
-                    "Un estado de letargo espiritual transitorio y reversible que se suspende automáticamente con cualquier acto de remordimiento humano.",
-                    "La extinción ontológica definitiva de la conciencia, provocando que el individuo cese de existir por completo en el cosmos."
+                    "Una muerte espiritual y judicial que se traduce en la separacion total, absoluta y eterna de la fuente de la vida.",
+                    "Un estado de letargo espiritual transitorio y reversible que se suspende automaticamente con cualquier acto de remordimiento humano.",
+                    "La extincion ontologica definitiva de la conciencia, provocando que el individuo cese de existir por completo en el cosmos."
                 ],
-                "r": "Una muerte espiritual y judicial que se traduce en la separación total, absoluta y eterna de la fuente de la vida."
+                "r": "Una muerte espiritual y judicial que se traduce en la separacion total, absoluta y eterna de la fuente de la vida."
             },
             {
-                "q": "¿Por qué se afirma categóricamente que el pecado nos priva del plan de Dios?",
+                "q": "Por que se afirma categoricamente que el pecado nos priva del plan de Dios?",
                 "op": [
-                    "Porque actúa como una barrera que bloquea el acceso al diseño original de comunión, imposibilitando el desarrollo de la vida abundante.",
-                    "Porque altera permanentemente la estructura genética y los talentos naturales que el Creador depositó originalmente en el individuo.",
-                    "Porque invalida y cancela de manera retroactiva los decretos eternos del amor del Omnipotente hacia Su creación."
+                    "Porque actua como una barrera que bloquea el acceso al diseno original de comunion, imposibilitando el desarrollo de la vida abundante.",
+                    "Porque altera permanentemente la estructura genetica y los talentos naturales que el Creador deposito originalmente en el individuo.",
+                    "Porque invalida y cancela de manera retroactiva los decretos eternos del amor del Omnipotente hacia Su creacion."
                 ],
-                "r": "Porque actúa como una barrera que bloquea el acceso al diseño original de comunión, imposibilitando el desarrollo de la vida abundante."
+                "r": "Porque actua como una barrera que bloquea el acceso al diseno original de comunion, imposibilitando el desarrollo de la vida abundante."
             },
             {
-                "q": "Al analizar el alcance del pecado según Romanos 3:23, ¿cuál es su dimensión correcta?",
+                "q": "Al analizar el alcance del pecado segun Romanos 3:23, cual es su dimension correcta?",
                 "op": [
-                    "Es estrictamente universal, afectando la raíz de la naturaleza humana de todo individuo que entra al mundo.",
+                    "Es estrictamente universal, afectando la raiz de la naturaleza humana de todo individuo que entra al mundo.",
                     "Es meramente individual, aplicando de forma restrictiva y aislada solo sobre aquellos que ejecutan actos flagrantemente inmorales.",
-                    "Es un fenómeno sistémico-estructural, condicionado de manera exclusiva por las fallas del entorno socioeconómico del sujeto."
+                    "Es un fenomeno sistemico-estructural, condicionado de manera exclusiva por las fallas del entorno socioeconomico del sujeto."
                 ],
-                "r": "Es estrictamente universal, afectando la raíz de la naturaleza humana de todo individuo que entra al mundo."
+                "r": "Es estrictamente universal, afectando la raiz de la naturaleza humana de todo individuo que entra al mundo."
             },
             {
-                "q": "¿Cuál es el propósito pedagógico e introductorio de la segunda verdad en la arquitectura del plan de salvación?",
+                "q": "Cual es el proposito pedagogico e introductorio de la segunda verdad en la arquitectura del plan de salvacion?",
                 "op": [
-                    "Operar como un diagnóstico espiritual crítico que expone la ruina absoluta del hombre, revelando su urgente necesidad de un Salvador.",
-                    "Codificar un manual ético normativo con el propósito de regular la conducta humana y evitar mecánicamente la condenación.",
-                    "Evidenciar que la raza humana carece por completo de dignidad o valor intrínseco ante los ojos del Diseñador divino."
+                    "Operar como un diagnostico espiritual critico que expone la ruina absoluta del hombre, revelando su urgente necesidad de un Salvador.",
+                    "Codificar un manual etico normativo con el proposito de regular la conducta humana y evitar mecanicamente la condenacion.",
+                    "Evidenciar que la raza humana carece por completo de dignidad o valor intrinseco ante los ojos del Disenador divino."
                 ],
-                "r": "Operar como un diagnóstico espiritual crítico que expone la ruina absoluta del hombre, revelando su urgente necesidad de un Salvador."
+                "r": "Operar como un diagnostico espiritual critico que expone la ruina absoluta del hombre, revelando su urgente necesidad de un Salvador."
             }
         ]
     },
@@ -214,99 +215,99 @@ verdades_data = [
         "nivel": 3,
         "titulo": "La Verdad del Substituto",
         "versiculos": [
-            "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros. (Rom. 5:8)",
-            "Jesús le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí. (Jn. 14:6)"
+            "Mas Dios muestra su amor para con nosotros, en que siendo aun pecadores, Cristo murio por nosotros. (Rom. 5:8)",
+            "Jesus le dijo: Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mi. (Jn. 14:6)"
         ],
         "preguntas": [
             {
-                "q": "¿Quién es el único substituto calificado que Dios proveyó legal y espiritualmente para redimir al hombre?",
+                "q": "Quien es el unico substituto calificado que Dios proveyo legal y espiritualmente para redimir al hombre?",
                 "op": [
-                    "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiación perfecta.",
-                    "El sistema sacrificial levítico, cuyos ritos y ofrendas de sangre poseían eficacia intrínseca y permanente para quitar el pecado.",
-                    "La intercesión sumaria de los arcángeles y huestes celestiales, operando como mediadores cósmicos ante el trono de Dios."
+                    "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiacion perfecta.",
+                    "El sistema sacrificial levitico, cuyos ritos y ofrendas de sangre poseian eficacia intrinseca y permanente para quitar el pecado.",
+                    "La intercesion sumaria de los arcangeles y huestes celestiales, operando como mediadores cosmicos ante el trono de Dios."
                 ],
-                "r": "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiación perfecta."
+                "r": "Jesucristo, quien en Su doble naturaleza divina y humana posee los atributos necesarios para efectuar una expiacion perfecta."
             },
             {
-                "q": "¿De qué manera objetiva demostró Dios la máxima expresión de Su amor por nosotros mientras nuestra condición era de hostilidad y rebelión activa?",
+                "q": "De que manera objetiva demostro Dios la maxima expresion de Su amor por nosotros mientras nuestra condicion era de hostilidad y rebelion activa?",
                 "op": [
-                    "En que siendo aún pecadores, Cristo murió por nosotros, asumiendo el veredicto judicial que nos correspondía.",
-                    "Un perdón condicional y mutable, sujeto a auditorías periódicas basadas en el rendimiento moral del creyente.",
-                    "La exención soberana e inmunidad civil ante cualquier tipo de tribulación, padecimiento físico o crisis terrenal."
+                    "En que siendo aun pecadores, Cristo murio por nosotros, asumiendo el veredicto judicial que nos correspondia.",
+                    "Un perdon condicional y mutable, sujeto a auditorias periodicas basadas en el rendimiento moral del creyente.",
+                    "La exencion soberana e inmunidad civil ante cualquier tipo de tribulacion, padecimiento fisico o crisis terrenal."
                 ],
-                "r": "En que siendo aún pecadores, Cristo murió por nosotros, asumiendo el veredicto judicial que nos correspondía."
+                "r": "En que siendo aun pecadores, Cristo murio por nosotros, asumiendo el veredicto judicial que nos correspondia."
             },
             {
-                "q": "¿Qué alcance y validez jurídica posee el pago efectuado por Jesús en la cruz del Calvario?",
+                "q": "Que alcance y validez juridica posee el pago efectuado por Jesus en la cruz del Calvario?",
                 "op": [
-                    "El precio completo de nuestra salvación, cancelando de manera absoluta la deuda y satisfaciendo plenamente la justicia de Dios.",
-                    "La cobertura exclusiva de los pecados cometidos con anterioridad a la conversión, dejando el futuro a expensas de la fidelidad del creyente.",
-                    "La remisión única de la culpa heredada de Adán, requiriendo que el individuo pague por sus transgresiones personales voluntarias."
+                    "El precio completo de nuestra salvacion, cancelando de manera absoluta la deuda y satisfaciendo plenamente la justicia de Dios.",
+                    "La cobertura exclusiva de los pecados cometidos con anterioridad a la conversion, dejando el futuro a expensas de la fidelidad del creyente.",
+                    "La remision unica de la culpa heredada de Adan, requiriendo que el individuo pague por sus transgresiones personales voluntarias."
                 ],
-                "r": "El precio completo de nuestra salvación, cancelando de manera absoluta la deuda y satisfaciendo plenamente la justicia de Dios."
+                "r": "El precio completo de nuestra salvacion, cancelando de manera absoluta la deuda y satisfaciendo plenamente la justicia de Dios."
             },
             {
-                "q": "Al analizar la autoproclamación de Jesús en Juan 14:6, ¿qué exclusividad se adjudica respecto a la dimensión espiritual?",
+                "q": "Al analizar la autoproclamacion de Jesus en Juan 14:6, que exclusividad se adjudica respecto a la dimension espiritual?",
                 "op": [
-                    "Que Él es el camino, y la verdad, y la vida; constituyéndose como la única vía ontológica de acceso al Padre.",
-                    "Que se erige como el ejemplo moral supremo e ideal arquetípico que el hombre debe imitar para autogenerar su salvación.",
-                    "Que representa una de las múltiples avenidas o puertas válidas de iluminación dentro del amplio espectro revelatorio de la Deidad."
+                    "Que El es el camino, y la verdad, y la vida; constituyendose como la unica via ontologica de acceso al Padre.",
+                    "Que se erige como el ejemplo moral supremo e ideal arquetipico que el hombre debe imitar para autogenerar su salvacion.",
+                    "Que representa una de las multiples avenidas o puertas validas de iluminacion dentro del amplio espectro revelatorio de la Deidad."
                 ],
-                "r": "Que Él es el camino, y la verdad, y la vida; constituyéndose como la única vía ontológica de acceso al Padre."
+                "r": "Que El es el camino, y la verdad, y la vida; constituyendose como la unica via ontologica de acceso al Padre."
             },
             {
-                "q": "De acuerdo con el absoluto establecido por Cristo en Juan 14:6, ¿existe alguna vía alternativa para acceder a la comunión con el Padre?",
+                "q": "De acuerdo con el absoluto establecido por Cristo en Juan 14:6, existe alguna via alternativa para acceder a la comunion con el Padre?",
                 "op": [
-                    "No, puesto que el texto dictamina categóricamente que nadie viene al Padre sino estrictamente por medio de Su persona.",
-                    "Sí, siempre y cuando se sinteticen y sigan con rigurosidad las directrices éticas de los antiguos códigos proféticos de Oriente.",
-                    "Sí, a través de una ascesis mística y una vida contemplativa que logre purificar el alma de las pasiones terrenales."
+                    "No, puesto que el texto dictamina categoricamente que nadie viene al Padre sino estrictamente por medio de Su persona.",
+                    "Sí, siempre y cuando se sinteticen y sigan con rigurosidad las directrices eticas de los antiguos codigos profeticos de Oriente.",
+                    "Sí, a traves de una ascesis mistica y una vida contemplativa que logre purificar el alma de las pasiones terrenales."
                 ],
-                "r": "No, puesto que el texto dictamina categóricamente que nadie viene al Padre sino estrictamente por medio de Su persona."
+                "r": "No, puesto que el texto dictamina categoricamente que nadie viene al Padre sino estrictamente por medio de Su persona."
             },
             {
-                "q": "¿Por qué la teología bíblica de esta tercera verdad le otorga a Jesús el título de 'Substituto'?",
+                "q": "Por que la teologia biblica de esta tercera verdad le otorga a Jesus el titulo de 'Substituto'?",
                 "op": [
-                    "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar.",
-                    "Porque reemplazó la figura temporal del sumo sacerdote de la orden de Aarón para instaurar un modelo de liderazgo puramente administrativo.",
-                    "Porque actuó como un embajador político en representación de las autoridades terrenales ante los tribunales del cosmos."
+                    "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo mas preciado con el proposito directo de salvar.",
+                    "Porque reemplazo la figura temporal del sumo sacerdote de la orden de Aaron para instaurar un modelo de liderazgo puramente administrativo.",
+                    "Porque actuo como un embajador politico en representacion de las autoridades terrenales ante los tribunales del cosmos."
                 ],
-                "r": "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar."
+                "r": "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo mas preciado con el proposito directo de salvar."
             },
             {
-                "q": En la arquitectura sistemática de las cinco verdades, ¿qué representa formalmente la muerte de Cristo?",
+                "q": "En la arquitectura sistematica de las cinco verdades, que representa formalmente la muerte de Cristo?",
                 "op": [
-                    "La provisión y solución legal divina al problema de la separación y la destitución humana causadas por el pecado.",
-                    "El desenlace trágico y circunstancial de un reformador social cuya doctrina fue incomprendida por los poderes de su época.",
-                    "Una escenificación simbólica diseñada para ilustrar de forma pedagógica la fragilidad de la condición humana ante la historia."
+                    "La provision y solucion legal divina al problema de la separacion y la destitucion humana causadas por el pecado.",
+                    "El desenlace tragico y circunstancial de un reformador social cuya doctrina fue incomprendida por los poderes de su epoca.",
+                    "Una escenificacion simbolica disenada para ilustrar de forma pedagogica la fragilidad de la condicion humana ante la historia."
                 ],
-                "r": "La provisión y solución legal divina al problema de la separación y la destitución humana causadas por el pecado."
+                "r": "La provision y solucion legal divina al problema de la separacion y la destitución humana causadas por el pecado."
             },
             {
-                "q": "¿Qué criterio teológico e intrínseco garantiza que el sacrificio de Jesús en la cruz posee una suficiencia absoluta?",
+                "q": "Que criterio teologico e intrinseco garantiza que el sacrificio de Jesus en la cruz posee una suficiencia absoluta?",
                 "op": [
-                    "El hecho de que Él pagó el precio completo, consumando la redención sin necesidad de añadiduras o contribuciones humanas.",
-                    "La validación legal, el consenso y el respaldo académico otorgado por las autoridades eclesiásticas y el sanedrín de la época.",
+                    "El hecho de que El pago el precio completo, consumando la redencion sin necesidad de anadiduras o contribuciones humanas.",
+                    "La validacion legal, el consenso y el respaldo academico otorgado por las autoridades eclesiasticas y el sanedrin de la epoca.",
                     "Que el valor de la cruz queda ratificado y activado de manera retroactiva conforme la iglesia acumula buenas obras en la historia."
                 ],
-                "r": "El hecho de que Él pagó el precio completo, consumando la redención sin necesidad de añadiduras o contribuciones humanas."
+                "r": "El hecho de que El pago el precio completo, consumando la redencion sin necesidad de anadiduras o contribuciones humanas."
             },
             {
-                "q": "¿Cómo se articula orgánicamente la verdad del Substituto con la verdad del Amor explicada previamente?",
+                "q": "Como se articula organicamente la verdad del Substituto con la verdad del Amor explicada previamente?",
                 "op": [
-                    "La cruz constituye la demostración histórica e irrefutable del amor de Dios, donde Su justicia y Su misericordia se juntan.",
-                    "Evidencia que el amor divino estaba condicionado y requería de un pago punitivo para poder continuar sintiendo afecto por la creación.",
+                    "La cruz constituye la demostracion historica e irrefutable del amor de Dios, donde Su justicia y Su misericordia se juntan.",
+                    "Evidencia que el amor divino estaba condicionado y requeria de un pago punitivo para poder continuar sintiendo afecto por la creacion.",
                     "Muestra que el afecto del Creador es una variable inestable que depende directamente del sufrimiento del Justo."
                 ],
-                "r": "La cruz constituye la demostración histórica e irrefutable del amor de Dios, donde Su justicia y Su misericordia se juntan."
+                "r": "La cruz constituye la demostracion historica e irrefutable del amor de Dios, donde Su justicia y Su misericordia se juntan."
             },
             {
-                "q": "¿Cuál constituye la función mediadora exclusiva que ejerce Jesucristo entre la santidad del Dios trino y la condición del hombre caído?",
+                "q": "Cual constituye la funcion mediadora exclusiva que ejerce Jesucristo entre la santidad del Dios trino y la condicion del hombre caido?",
                 "op": [
-                    "El papel de único puente viable y eterno, quien reconcilia ambas partes eliminando la barrera de la culpabilidad.",
-                    "El de un observador neutral y testigo imparcial que registra el progreso ético de las civilizaciones a lo largo de las eras.",
-                    "El de un juez ejecutor inmediato cuya única misión en Su primera venida era aplicar la sentencia punitiva sobre el cosmos."
+                    "El papel de unico puente viable y eterno, quien reconcilia ambas partes eliminando la barrera de la culpabilidad.",
+                    "El de un observador neutral y testigo imparcial que registra el progreso etico de las civilizaciones a lo largo de las eras.",
+                    "El de un juez ejecutor inmediato cuya unica mision en Su primera venida era aplicar la sentencia punitiva sobre el cosmos."
                 ],
-                "r": "El papel de único puente viable y eterno, quien reconcilia ambas partes eliminando la barrera de la culpabilidad."
+                "r": "El papel de unico puente viable y eterno, quien reconcilia ambas partes eliminando la barrera de la culpabilidad."
             }
         ]
     },
@@ -314,96 +315,96 @@ verdades_data = [
         "nivel": 4,
         "titulo": "La Verdad del Arrepentimiento",
         "versiculos": [
-            "Así que, arrepentíos y convertíos, para que sean borrados vuestros pecados; para que vengan de la presencia del Señor tiempos de refrigerio, (Hechos 3:19)"
+            "Asi que, arrepentios y convertios, para que sean borrados vuestros pecados; para que vengan de la presencia del Señor tiempos de refrigerio, (Hechos 3:19)"
         ],
         "preguntas": [
             {
-                "q": "¿Cuál es el imperativo doble dictaminado en Hechos 3:19 para que el ser humano sea admitido en el proceso de remisión de faltas?",
+                "q": "Cual es el imperativo doble dictaminado en Hechos 3:19 para que el ser humano sea admitido en el proceso de remision de faltas?",
                 "op": [
-                    "Arrepentirse y convertirse, demandando una transformación interior unida a un cambio radical de dirección y lealtad espiritual.",
-                    "Someterse a una confesión pública y pormenorizada de cada transgresión cometida ante un tribunal o asamblea eclesiástica.",
-                    "Ejecutar un programa de restituciones materiales y compensaciones civiles equivalentes al daño provocado a terceros."
+                    "Arrepentirse y convertirse, demandando una transformacion interior unida a un cambio radical de direccion y lealtad espiritual.",
+                    "Someterse a una confesion publica y pormenorizada de cada transgresion cometida ante un tribunal o asamblea eclesiastica.",
+                    "Ejecutar un programa de restituciones materiales y compensaciones civiles equivalentes al dano provocado a terceros."
                 ],
-                "r": "Arrepentirse y convertirse, demandando una transformación interior unida a un cambio radical de dirección y lealtad espiritual."
+                "r": "Arrepentirse y convertirse, demandando una transformacion interior unida a un cambio radical de direccion y lealtad espiritual."
             },
             {
-                "q": "What constituye el beneficio judicial inmediato que se deriva directamente del arrepentimiento genuino según el texto apostólico?",
+                "q": "What constituye el beneficio judicial inmediato que se deriva directamente del arrepentimiento genuino segun el texto apostolico?",
                 "op": [
                     "Que los pecados sean completamente borrados, eliminando de forma absoluta el registro legal de culpabilidad ante Dios.",
-                    "La concesión de una inmunidad sobrenatural y permanente frente a futuras tentaciones e inclinaciones de la carne.",
-                    "La activación inmediata de un estado de prosperidad material, salud biológica y éxito social en el plano terrenal."
+                    "La concesion de una inmunidad sobrenatural y permanente frente a futuras tentaciones e inclinaciones de la carne.",
+                    "La activacion inmediata de un estado de prosperidad material, salud biologica y exito social en el plano terrenal."
                 ],
                 "r": "Que los pecados sean completamente borrados, eliminando de forma absoluta el registro legal de culpabilidad ante Dios."
             },
             {
-                "q": "En el marco de la conversión consecuente al arrepentimiento, ¿como se define teológicamente este movimiento del alma?",
+                "q": "En el marco de la conversion consecuente al arrepentimiento, como se define teologicamente este movimiento del alma?",
                 "op": [
-                    "Como un cambio ontológico de dirección en la vida, donde el individuo da la espalda al pecado para volverse resueltamente hacia Dios.",
-                    "Como la adopción externa de una nueva identidad institucional, afiliación eclesiástica o asimilación de códigos litúrgicos.",
-                    "Como una modificación de la conducta pública motivada puramente por el temor psicológico al castigo o al juicio venidero."
+                    "Como un cambio ontologico de direccion en la vida, donde el individuo da la espalda al pecado para volverse resueltamente hacia Dios.",
+                    "Como la adopcion externa de una nueva identidad institucional, afiliacion eclesiastica o asimilacion de codigos liturgicos.",
+                    "Como una modificacion de la conducta publica motivada puramente por el temor psicologico al castigo o al juicio venidero."
                 ],
                 "r": "Como un cambio ontológico de dirección en la vida, donde el individuo da la espalda al pecado para volverse resueltamente hacia Dios."
             },
             {
-                "q": "¿Qué providencia escatológica y relacional promete Hechos 3:19 que sobrevendrá tras la conversión del pecador?",
+                "q": "Que providencia escatologica y relacional promete Hechos 3:19 que sobrevendra tras la conversion del pecador?",
                 "op": [
-                    "Que vendrán de la presencia del Señor tiempos de refrigerio, caracterizados por la restauración y vitalidad espiritual otorgada por Dios.",
-                    "La disolución automática e inmediata de cualquier conflicto interpersonal o crisis contextual en el entorno diario del sujeto.",
-                    "La adjudicación de una recompensa de honor, reputación y preeminencia social entre los estamentos de la comunidad humana."
+                    "Que vendran de la presencia del Senor tiempos de refrigerio, caracterizados por la restauracion y vitalidad espiritual otorgada por Dios.",
+                    "La disolucion automatica e inmediata de cualquier conflicto interpersonal o crisis contextual en el entorno diario del sujeto.",
+                    "La adjudicacion de una recompensa de honor, reputacion y preeminencia social entre los estamentos de la comunidad humana."
                 ],
-                "r": "Que vendrán de la presencia del Señor tiempos de refrigerio, caracterizados por la restauración y vitalidad espiritual otorgada por Dios."
+                "r": "Que vendran de la presencia del Senor tiempos de refrigerio, caracterizados por la restauracion y vitalidad espiritual otorgada por Dios."
             },
             {
-                "q": "Desde la perspectiva de esta cuarta verdad, ¿puede reducirse el arrepentimiento bíblico a un mero sentimiento de pesadumbre o remordimiento?",
+                "q": "Desde la perspectiva de esta cuarta verdad, puede reducirse el arrepentimiento biblico a un mero sentimiento de pesadumbre o remordimiento?",
                 "op": [
-                    "No, puesto que el concepto trasciende la emoción e involucra una decisión voluntaria y consciente de volverse activamente a Dios.",
-                    "Sí, es la aflicción emocional y el desgaste psicológico (atrición) que experimenta el sujeto ante las consecuencias adversas de su error.",
-                    "Sí, consiste estrictamente en el llanto sacramental y la demostración ritualizada de dolor requerida para validar la piedad ante los hombres."
+                    "No, puesto que el concepto trasciende la emocion e involucra una decision voluntaria y consciente de volverse activamente a Dios.",
+                    "Sí, es la afliccion emocional y el desgaste psicologico (atricion) que experimenta el sujeto ante las consecuencias adversas de su error.",
+                    "Sí, consiste estrictamente en el llanto sacramental y la demostracion ritualizada de dolor requerida para validar la piedad ante los hombres."
                 ],
-                "r": "No, puesto que el concepto trasciende la emoción e involucra una decisión voluntaria y consciente de volverse activamente a Dios."
+                "r": "No, puesto que el concepto trasciende la emocion e involucra una decision voluntaria y consciente de volverse activamente a Dios."
             },
             {
-                "q": "Porque opera como el mecanismo indispensable para abandonar la condición de pecado y posibilitar la reconciliación con el Creador.",
+                "q": "Porque opera como el mecanismo indispensable para abandonar la condicion de pecado y posibilitar la reconciliacion con el Creador.",
                 "op": [
-                    "Porque opera como el mecanismo indispensable para abandonar la condición de pecado y posibilitar la reconciliación con el Creador.",
+                    "Porque opera como el mecanismo indispensable para abandonar la condicion de pecado y posibilitar la reconciliacion con el Creador.",
                     "Debido a que constituye un formalismo protocolar y una norma estatutaria impuesta de manera arbitraria por la ley eclesial.",
-                    "Porque cumple la función de convencer al intelecto de sus propios errores lógicos dentro del plano de la filosofía moral."
+                    "Porque cumple la funcion de convencer al intelecto de sus propios errores logicos dentro del plano de la filosofia moral."
                 ],
-                "r": "Porque opera como el mecanismo indispensable para abandonar la condición de pecado y posibilitar la reconciliación con el Creador."
+                "r": "Porque opera como el mecanismo indispensable para abandonar la condicion de pecado y posibilitar la reconciliacion con el Creador."
             },
             {
-                "q": "Atendiendo a la arquitectura teológica de Hechos 3:19, ¿cuál es la fuente soberana de donde emana la remisión y la paz una vez que ocurre la conversión?",
+                "q": "Atendiendo a la arquitectura teologica de Hechos 3:19, cual es la fuente soberana de donde emana la remision y la paz una vez que ocurre la conversion?",
                 "op": [
-                    "Del Señor, siendo una prerrogativa exclusiva de la gracia divina y de la presencia activa del Todopoderoso.",
-                    "Del esfuerzo interior y de la capacidad de auto-renovación ética autogestionada por las facultades del individuo.",
-                    "De la absolución sumaria otorgada por la aceptación y el consenso comunitario del entorno social que rodea al sujeto."
+                    "Del Senor, siendo una prerrogativa exclusiva de la gracia divina y de la presencia activa del Todopoderoso.",
+                    "Del esfuerzo interior y de la capacidad de auto-renovacion etica autogestionada por las facultades del individuo.",
+                    "De la absolucion sumaria otorgada por la aceptacion y el consenso comunitario del entorno social que rodea al sujeto."
                 ],
-                "r": "Del Señor, siendo una prerrogativa exclusiva de la gracia divina y de la presencia activa del Todopoderoso."
+                "r": "Del Senor, siendo una prerrogativa exclusiva de la gracia divina y de la presencia activa del Todopoderoso."
             },
             {
-                "q": "¿Qué destino sufre la barrera judicial del pecado cuando el ser humano ejerce un arrepentimiento genuino?",
+                "q": "Que destino sufre la barrera judicial del pecado cuando el ser humano ejerce un arrepentimiento genuino?",
                 "op": [
-                    "Las transgresiones son erradicadas o 'borradas', invalidando de raíz el muro de separación que privaba al hombre de la vida abundante.",
-                    "Sufre un debilitamiento paulatino y gradual que depende estrictamente del transcurso cronológico del tiempo.",
-                    "Queda suspendida y archivada provisionalmente en un registro cósmico a la espera de ser evaluada en el juicio final."
+                    "Las transgresiones son erradicadas o 'borradas', invalidando de raiz el muro de separacion que privaba al hombre de la vida abundante.",
+                    "Sufre un debilitamiento paulatino y gradual que depende estrictamente del transcurso cronologico del tiempo.",
+                    "Queda suspendida y archivada provisionalmente en un registro cosmico a la espera de ser evaluada en el juicio final."
                 ],
-                "r": "Las transgresiones son erradicadas o 'borradas', invalidando de raíz el muro de separación que privaba al hombre de la vida abundante."
+                "r": "Las transgresiones son erradicadas o 'borradas', invalidando de raiz el muro de separación que privaba al hombre de la vida abundante."
             },
             {
-                "q": "¿Cómo debe conceptualizarse el 'refrigerio' espiritual mencionado en el texto apostólico en relación con el creyente?",
+                "q": "Como debe conceptualizarse el 'refrigerio' espiritual mencionado en el texto apostolico en relacion con el creyente?",
                 "op": [
-                    "Como el alivio, la restauración ontológica y la paz sobrenatural que Dios infunde en el alma al liberarla de la carga de la culpa.",
-                    "Como la adquisición de una nueva estructura cognitiva o de un conocimiento gnóstico de alta complejidad teológica.",
-                    "Como un arrebato emocional de carácter místico que suspende momentáneamente las capacidades racionales del individuo."
+                    "Como el alivio, la restauracion ontologica y la paz sobrenatural que Dios infunde en el alma al liberarla de la carga de la culpa.",
+                    "Como la adquisicion de una nueva estructura cognitiva o de un conocimiento gnostico de alta complejidad teologica.",
+                    "Como un arrebato emocional de caracter mistico que suspende momentaneamente las capacidades racionales del individuo."
                 ],
-                "r": "Como el alivio, la restauración ontológica y la paz sobrenatural que Dios infunde en el alma al liberarla de la carga de la culpa."
+                "r": "Como el alivio, la restauracion ontologica y la paz sobrenatural que Dios infunde en el alma al liberarla de la carga de la culpa."
             },
             {
-                "q": "¿Es teológicamente viable que un ser humano sea partícipe de la salvación prescindiendo de la experiencia del arrepentimiento?",
+                "q": "Es teologicamente viable que un ser humano sea participe de la salvacion prescindiendo de la experiencia del arrepentimiento?",
                 "op": [
                     "No, dado que las fuentes reveladas establecen el arrepentimiento como el paso condicional indispensable para que los pecados sean borrados.",
-                    "Sí, siempre y cuando la persona mantenga un asentimiento meramente intelectual respecto a los dogmas e hitos históricos de la fe.",
-                    "Sí, en virtud de que el amor incondicional del Creador anula cualquier demanda de transformación moral o cambio de dirección en el hombre."
+                    "Sí, siempre y cuando la persona mantenga un asentimiento meramente intelectual respecto a los dogmas e hitos historicos de la fe.",
+                    "Sí, en virtud de que el amor incondicional del Creador anula cualquier demanda de transformacion moral o cambio de direccion en el hombre."
                 ],
                 "r": "No, dado que las fuentes reveladas establecen el arrepentimiento como el paso condicional indispensable para que los pecados sean borrados."
             }
@@ -413,183 +414,183 @@ verdades_data = [
         "nivel": 5,
         "titulo": "La Verdad de la Fe",
         "versiculos": [
-            "Porque la paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro. (Rom. 6:23)",
-            "Más a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios (Jn. 1:12)",
-            "De cierto, de cierto os digo: El que oye mi palabra, y cree al que me envió, tiene vida eterna; y no vendrá a condenación, mas ha pasado de muerte a vida. (Jn. 5:24)"
+            "Porque la paga del pecado es muerte, mas la dadiva de Dios es vida eterna en Cristo Jesus Senor nuestro. (Rom. 6:23)",
+            "Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios (Jn. 1:12)",
+            "De cierto, de cierto os digo: El que oye mi palabra, y cree al que me envio, tiene vida eterna; y no vendra a condenacion, mas ha pasado de muerte a vida. (Jn. 5:24)"
         ],
         "preguntas": [
             {
-                "q": "Tomando como referencia el contraste judicial establecido en Romanos 6:23, ¿cuál es la ontología jurídica de la vida eterna en relación con el hombre?",
+                "q": "Tomando como referencia el contraste judicial establecido en Romanos 6:23, cual es la ontologia juridica de la vida eterna en relacion con el hombre?",
                 "op": [
-                    "Se define formalmente como una dádiva (regalo) de Dios, operando de manera enteramente gratuita y asimétrica respecto al mérito humano.",
-                    "Se configura como un premio y recompensa al esfuerzo acumulativo y a la fidelidad ética mostrada por el creyente.",
-                    "Constituye una herencia natural, inherente e intrínseca a la raza humana por el simple hecho de su condición de criatura."
+                    "Se define formalmente como una dadiva (regalo) de Dios, operando de manera enteramente gratuita y asimetrica respecto al merito humano.",
+                    "Se configura como un premio y recompensa al esfuerzo acumulativo y a la fidelidad etica mostrada por el creyente.",
+                    "Constituye una herencia natural, inherente e intrinseca a la raza humana por el simple hecho de su condicion de criatura."
                 ],
-                "r": "Se define formalmente como una dádiva (regalo) de Dios, operando de manera enteramente gratuita y asimétrica respecto al mérito humano."
+                "r": "Se define formalmente como una dadiva (regalo) de Dios, operando de manera enteramente gratuita y asimetrica respecto al merito humano."
             },
             {
-                "q": "¿Bajo qué término relacional y soteriológico define el Evangelio la acción consciente de aceptar activamente a Cristo por medio de la fe?",
+                "q": "Bajo que termino relacional y soteriologico define el Evangelio la accion consciente de aceptar activamente a Cristo por medio de la fe?",
                 "op": [
-                    "Recibirlo, implicando un acto voluntario de acogida, apropiación personal y sumisión a Su soberanía.",
-                    "Comprenderlo teológicamente, limitando el encuentro al asentimiento intelectual y a la asimilación del dogma eclesiástico.",
+                    "Recibirlo, implicando un acto voluntario de acogida, apropiacion personal y sumision a Su soberania.",
+                    "Comprenderlo teologicamente, limitando el encuentro al asentimiento intelectual y a la asimilacion del dogma eclesiastico.",
                     "Imitar de manera exacta sus obras, pretendiendo reproducir de forma autónoma Su conducta sin antes experimentar la regeneración."
                 ],
                 "r": "Recibirlo, implicando un acto voluntario de acogida, apropiación personal y sumisión a Su soberanía."
             },
             {
-                "q": "De acuerdo con las cláusulas de adopción espiritual plasmadas en Juan 1:12, ¿qué derecho legal y estatus adquieren aquellos que creen en Su nombre?",
+                "q": "De acuerdo con las clausulas de adopcion espiritual plasmadas en Juan 1:12, que derecho legal y estatus adquieren aquellos que creen en Su nombre?",
                 "op": [
-                    "La potestad (autoridad legal) de ser hechos hijos de Dios, integrándose formalmente en la familia celestial mediante el nuevo nacimiento.",
-                    "La garantía inmediata de infalibilidad espiritual, inhabilitando sus almas para cometer cualquier falta en el plano terenal.",
-                    "El señorío inmediato y directo sobre las estructuras políticas y las potestades de los reinos terrenales."
+                    "La potestad (autoridad legal) de ser hechos hijos de Dios, integrandose formalmente en la familia celestial mediante el nuevo nacimiento.",
+                    "La garantia inmediata de infalibilidad espiritual, inhabilitando sus almas para cometer cualquier falta en el plano terenal.",
+                    "El senorio inmediato y directo sobre las estructuras politicas y las potestades de los reinos terrenales."
                 ],
-                "r": "La potestad (autoridad legal) de ser hechos hijos de Dios, integrándose formalmente en la familia celestial mediante el nuevo nacimiento."
+                "r": "La potestad (autoridad legal) de ser hechos hijos de Dios, integrandose formalmente en la familia celestial mediante el nuevo nacimiento."
             },
             {
-                "q": "¿Cuál es el triple veredicto y la garantía inmediata que Jesús asegura en Juan 5:24 a aquel que atiende a Su palabra y confía en Quien lo envió?",
+                "q": "Cual es el triple veredicto y la garantia inmediata que Jesus asegura en Juan 5:24 a aquel que atiende a Su palabra y confia en Quien lo envio?",
                 "op": [
-                    "Que tiene vida eterna, no vendrá a condenación judicial, y ha efectuado el paso inmediato e irreversible de muerte a vida.",
-                    "Que será librado de forma absoluta de toda tentación carnal y de padecer cualquier tipo de aflicción biológica o existencial.",
-                    "Que sus méritos éticos y aciertos morales del pasado quedan validados y homologados ante los tribunales del cielo."
+                    "Que tiene vida eterna, no vendra a condenacion judicial, y ha efectuado el paso inmediato e irreversible de muerte a vida.",
+                    "Que sera librado de forma absoluta de toda tentacion caral y de padecer cualquier tipo de afliccion biologica o existencial.",
+                    "Que sus meritos eticos y aciertos morales del pasado quedan validados y homologados ante los tribunales del cielo."
                 ],
-                "r": "Que tiene vida eterna, no vendrá a condenación judicial, y ha efectuado el paso inmediato e irreversible de muerte a vida."
+                "r": "Que tiene vida eterna, no vendra a condenacion judicial, y ha efectuado el paso inmediato e irreversible de muerte a vida."
             },
             {
-                "q": "En el contexto de la invitación relacional que se expone en Apocalipsis 3:20 para concretar la salvación, ¿cuál es el paso final que Cristo solicita?",
+                "q": "En el contexto de la invitacion relacional que se expone en Apocalipsis 3:20 para concretar la salvacion, cual es el paso final que Cristo solicita?",
                 "op": [
                     "Que el individuo escuche Su voz y abra de par en par la puerta de su vida, permitiendo el ingreso soberano del Creador.",
                     "Que se cumplimente de forma exhaustiva una confesión eclesiástica formal ante un ministro ordenado.",
-                    "Que se ejecute un ciclo riguroso de oraciones rituales y letanías sacramentales validadas por la tradición."
+                    "Que se ejecute un ciclo riguroso de oraciones rituales y letanias sacramentales validadas por la tradicion."
                 ],
                 "r": "Que el individuo escuche Su voz y abra de par en par la puerta de su vida, permitiendo el ingreso soberano del Creador."
             },
             {
-                "q": "¿Cuál es el resultado inmediato e íntimo prometido por Jesús en Apocalipsis 3:20 para quien decide abrir la puerta a Su llamado?",
+                "q": "Cual es el resultado inmediato e intimo prometido por Jesus en Apocalipsis 3:20 para quien decide abrir la puerta a Su llamado?",
                 "op": [
-                    "Entrará a él, y cenará con él, y él conmigo; inaugurando una comunión, intimidad y mutua comunión eterna en el espíritu.",
-                    "Comisionará de manera expedita una hueste o espíritu guardián encargado de custodiar los bienes materiales del hogar terrenal.",
-                    "Reescribirá los marcos del destino temporal del individuo, suprimiendo de su historia cualquier libre albedrío posterior."
+                    "Entrara a el, y cenara con el, y el conmigo; inaugurando una comunion, intimidad y mutua comunion eterna en el espiritu.",
+                    "Comisionara de manera expedita una hueste o espiritu guardian encargado de custodiar los bienes materiales del hogar terrenal.",
+                    "Reescribira los marcos del destino temporal del individuo, suprimiendo de su historia cualquier libre albedrio posterior."
                 ],
-                "r": "Entrará a él, y cenará con él, y él conmigo; inaugurando una comunión, intimidad y mutua comunión eterna en el espíritu."
+                "r": "Entrara a el, y cenara con el, y el conmigo; inaugurando una comunion, intimidad y mutua comunion eterna en el espiritu."
             },
             {
-                "q": "Al examinar la mecánica operativa de la fe salvífica planteada en esta quinta ley, ¿cuál es su verdadera naturaleza?",
+                "q": "Al examinar la mecanica operativa de la fe salvifica planteada en esta quinta ley, cual es su verdadera naturaleza?",
                 "op": [
-                    "Una decisión personal e integral de la voluntad que consiste en creer en la veracidad de Dios y recibir a Cristo como Señor y Salvador.",
-                    "Un estado emocional transitorio y de efervescencia psicológica estimulado de forma exclusiva por el ambiente litúrgico.",
-                    "Una convicción abstracta, puramente racional y especulativa que prescinde del compromiso práctico de la existencia."
+                    "Una decision personal e integral de la voluntad que consiste en creer en la veracidad de Dios y recibir a Cristo como Senor y Salvador.",
+                    "Un estado emocional transitorio y de efervescencia psicologica estimulado de forma exclusiva por el ambiente liturgico.",
+                    "Una conviccion abstracta, puramente racional y especulativa que prescinde del compromiso practico de la existencia."
                 ],
-                "r": "Una decisión personal e integral de la voluntad que consiste en creer en la veracidad de Dios y recibir a Cristo como Señor y Salvador."
+                "r": "Una decision personal e integral de la voluntad que consiste en creer en la veracidad de Dios y recibir a Cristo como Senor y Salvador."
             },
             {
-                "q": "Atendiendo a la afirmación explícita de Juan 5:24, ¿qué seguridad jurídica e histórica recibe el creyente respecto a su condición espiritual anterior?",
+                "q": "Atendiendo a la afirmacion explicita de Juan 5:24, que seguridad juridica e historica recibe el creyente respecto a su condicion espiritual anterior?",
                 "op": [
-                    "Que ha pasado de muerte a vida, sufriendo una traslación de estado legal donde el pasado de condenación queda cancelado ante Dios.",
-                    "Que las consecuencias civiles, penales y físicas en la Tierra quedan completamente anuladas por intervención mágica.",
-                    "Que sus obras pasadas serán pesadas rigurosamente en una balanza cósmica al final de los tiempos para determinar su estatus."
+                    "Que ha pasado de muerte a vida, sufriendo una traslacion de estado legal donde el pasado de condenacion queda cancelado ante Dios.",
+                    "Que las consecuencias civiles, penales y fisicas en la Tierra quedan completamente anuladas por intervencion magica.",
+                    "Que sus obras pasadas seran pesadas rigurosamente en una balanza cosmica al final de los tiempos para determinar su estatus."
                 ],
-                "r": "Que ha pasado de muerte a vida, sufriendo una traslación de estado legal donde el pasado de condenación queda cancelado ante Dios."
+                "r": "Que ha pasado de muerte a vida, sufriendo una traslacion de estado legal donde el pasado de condenacion queda cancelado ante Dios."
             },
             {
-                "q": "¿Por qué la teología de esta quinta verdad insiste en catalogar categóricamente a la salvación bajo la rúbrica de una 'dádiva'?",
+                "q": "Por que la teologia de esta quinta verdad insiste en catalogar categoricamente a la salvacion bajo la rubrica de una 'dadiva'?",
                 "op": [
-                    "Porque representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesús.",
+                    "Porque representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesus.",
                     "Debido a que constituye una oferta comercial temporal y revocable sujeta a las fluctuaciones del mercado espiritual.",
-                    "Porque exige del ser humano un intercambio perfectamente simétrico de devoción y sacrificios equivalentes al valor del regalo."
+                    "Porque exige del ser humano un intercambio perfectamente simetrico de devocion y sacrificios equivalentes al valor del regalo."
                 ],
-                "r": "Porque representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesús."
+                "r": "Porque representa un don inmeritado provisto por el amor de Dios, el cual solo puede ser apropiado mediante la fe en la persona de Cristo Jesus."
             },
             {
-                "q": "¿Qué implicación ontológica y relacional conlleva el ser constituido 'hijo de Dios' a través de la instrumentalidad de la fe según Juan 1:12?",
+                "q": "Que implicacion ontologica y relacional conlleva el ser constituido 'hijo de Dios' a traves de la instrumentalidad de la fe segun Juan 1:12?",
                 "op": [
-                    "Entrar en una nueva identidad y en un vínculo de paternidad familiar inquebrantable y eterno con el Creador.",
-                    "Adquirir inmunidad civil frente a los códigos legislativos y las autoridades jurídicas del plano de la Tierra.",
-                    "Lograr una metamorfosis metafísica hacia una condición angelical o espectral superior a la naturaleza humana."
+                    "Entrar en una nueva identidad y en un vinculo de paternidad familiar inquebrantable y eterno con el Creador.",
+                    "Adquirir inmunidad civil frente a los codigos legislativos y las autoridades juridicas del plano de la Tierra.",
+                    "Lograr una metamorfosis metafisica hacia una condicion angelical o espectral superior a la naturaleza humana."
                 ],
-                "r": "Entrar en una nueva identidad y en un vínculo de paternidad familiar inquebrantable y eterno con el Creador."
+                "r": "Entrar en una nueva identidad y en un vinculo de paternidad familiar inquebrantable y eterno con el Creador."
             }
         ]
     }
 ]
 
 preguntas = [
-    {"q": "¿Quién era el sumo sacerdote cuando Jesús fue juzgado?", "op": ["Caifás", "Anás", "Gamaliel", "Nicodemo"], "r": "Caifás", "info": "Fue el sumo sacerdote al momento de la crucifixión."},
-    {"q": "En qué ciudad predicó Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Éfeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visitó una ciudad famosa por su filosofía."},
-    {"q": "¿Cómo se llamaba el esclavo que Pablo envió de regreso a Filemón?", "op": ["Onésimo", "Tíquico", "Epafrodito", "Marcos"], "r": "Onésimo", "info": "Este hombre huyó de su amo pero se encontró con Pablo."},
-    {"q": "¿Cuál es el libro que menciona a 'César' por primera vez?", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Lucas", "info": "Es el mismo libro que detalla el nacimiento de Jesús."},
-    {"q": "¿Quién fue el primer mártir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
-    {"q": "¿A qué iglesia escribió Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Éfeso", "Galacia"], "r": "Éfeso", "info": "Esta carta aborda la lucha espiritual."},
-    {"q": "¿Quién acompañó a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabé", "Timoteo", "Lucas"], "r": "Bernabé", "info": "Conocido como el 'hijo de consolación'."},
-    {"q": "¿Cómo se llamaba la mujer que Pablo resucitó en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
-    {"q": "¿Qué apóstol escribió más libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que más cartas escribió."},
-    {"q": "¿En qué isla naufragó Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterráneo."},
-    {"q": "¿Quién escribió el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabé"], "r": "Desconocido", "info": "Su autoría es uno de los temas más debatidos."},
-    {"q": "¿Qué significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
-    {"q": "A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
-    {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
-    {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
-    {"q": "¿Cuántas personas fueron alimentadas con cinco panes y dos peces?", "op": ["2,000", "5,000", "7,000", "10,000"], "r": "5,000", "info": "El gran milagro de provisión."},
-    {"q": "¿Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
-    {"q": "¿En qué ciudad se llamaron por primera vez 'cristianos'?", "op": ["Jerusalén", "Antioquía", "Roma", "Corinto"], "r": "Antioquía", "info": "Ciudad donde la comunidad se hizo notoria."},
-    {"q": "¿Qué objeto se le cayó a Pablo de los ojos tras su conversión?", "op": ["Escamas", "Polvo", "Sangre", "Velo"], "r": "Escamas", "info": "Una señal física de que su ceguera terminó."},
-    {"q": "Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
-    {"q": "¿En qué valle fue traicionado Sansón por Dalila?", "op": ["Valle de Sorec", "Valle de Elah", "Valle de Ajalón", "Valle de Refaim"], "r": "Valle de Sorec", "info": "Dalila vivía en este valle."},
-    {"q": "¿Cómo se llamaba el padre de Juan el Bautista?", "op": ["Zacarías", "Simeón", "José", "Elías"], "r": "Zacarías", "info": "Era sacerdote del grupo de Abías."},
-    {"q": "¿Qué nombre recibió el lugar donde Jacob soñó con la escalera al cielo?", "op": ["Betel", "Hebrón", "Siquem", "Beerseba"], "r": "Betel", "info": "Significa 'Casa de Dios'."},
-    {"q": "¿Quién fue el rey que pidió sabiduría a Dios para gobernar?", "op": ["Saúl", "David", "Salomón", "Roboam"], "r": "Salomón", "info": "Dios le dio sabiduría y riquezas por no pedir fama."},
-    {"q": "¿Cómo se llamaba la esposa de Isaac?", "op": ["Rebeca", "Raquel", "Lea", "Bilha"], "r": "Rebeca", "info": "Fue elegida mediante una señal junto al pozo."},
-    {"q": "¿Qué profeta fue enviado a Nínive pero huyó a Tarsis?", "op": ["Amós", "Jonás", "Oseas", "Miqueas"], "r": "Jonás", "info": "Su historia nos enseña sobre la obediencia."},
-    {"q": "¿Cuál es el nombre del lugar donde Jesús multiplicó los panes y peces por segunda vez?", "op": ["Galilea", "Decápolis", "Judea", "Samaria"], "r": "Decápolis", "info": "La región de las diez ciudades."},
-    {"q": "¿Cómo se llamaba el oficial etíope que bautizó Felipe?", "op": ["Ebed-melec", "Cus", "Candace", "Eunuco sin nombre"], "r": "Eunuco sin nombre", "info": "La Biblia solo se refiere a él por su cargo y origen."},
-    {"q": "🏠 ¿Qué montaña fue el lugar donde murió Moisés?", "op": ["Sinaí", "Ararat", "Nebo", "Carmelo"], "r": "Nebo", "info": "Desde allí pudo ver la Tierra Prometida."},
-    {"q": "¿Cómo se llamaban los dos hijos de Elí que actuaban mal en el templo?", "op": ["Ofni y Finees", "Jacob y Esaú", "Pedro y Juan", "Caín y Abel"], "r": "Ofni y Finees", "info": "Su mal comportamiento trajo juicio sobre la casa de Elí."}
+    {"q": "Quien era el sumo sacerdote cuando Jesus fue juzgado?", "op": ["Caifas", "Anas", "Gamaliel", "Nicodemo"], "r": "Caifas", "info": "Fue el sumo sacerdote al momento de la crucifixion."},
+    {"q": "En que ciudad predico Pablo sobre el 'Dios desconocido'?", "op": ["Corinto", "Efeso", "Atenas", "Filipos"], "r": "Atenas", "info": "Pablo visito una ciudad famosa por su filosofia."},
+    {"q": "Como se llamaba el esclavo que Pablo envio de regreso a Filemon?", "op": ["Onesimo", "Tiquico", "Epafrodito", "Marcos"], "r": "Onesimo", "info": "Este hombre huyo de su amo pero se encontro con Pablo."},
+    {"q": "Cual es el libro que menciona a 'Cesar' por primera vez?", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Lucas", "info": "Es el mismo libro que detalla el nacimiento de Jesus."},
+    {"q": "Quien fue el primer martir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
+    {"q": "A que iglesia escribio Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Efeso", "Galacia"], "r": "Efeso", "info": "Esta carta aborda la lucha espiritual."},
+    {"q": "Quien acompano a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabe", "Timoteo", "Lucas"], "r": "Bernabe", "info": "Conocido como el 'hijo de consolacion'."},
+    {"q": "Como se llamaba la mujer que Pablo resucito en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
+    {"q": "Que apostol escribio mas libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que mas cartas escribio."},
+    {"q": "En que isla naufrago Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterraneo."},
+    {"q": "Quien escribio el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabe"], "r": "Desconocido", "info": "Su autoria es uno de los temas mas debatidos."},
+    {"q": "Que significa el nombre 'Getsemani'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardin santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
+    {"q": "A que ciudad se dirigia Saulo cuando vio la luz del cielo?", "op": ["Jerico", "Damasco", "Samaria", "Antioquia"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
+    {"q": "Que libro describe la nueva Jerusalen?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profetico que describe el final."},
+    {"q": "Quien bautizo al eunuco etiope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diaconos."},
+    {"q": "Cuantas personas fueron alimentadas con cinco panes y dos peces?", "op": ["2,000", "5,000", "7,000", "10,000"], "r": "5,000", "info": "El gran milagro de provision."},
+    {"q": "Quien nego a Jesus tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomas"], "r": "Pedro", "info": "El discipulo que prometio lealtad absoluta."},
+    {"q": "En que ciudad se llamaron por primera vez 'cristianos'?", "op": ["Jerusalen", "Antioquia", "Roma", "Corinto"], "r": "Antioquia", "info": "Ciudad donde la comunidad se hizo notoria."},
+    {"q": "Que objeto se le cayo a Pablo de los ojos tras su conversion?", "op": ["Escamas", "Polvo", "Sangre", "Velo"], "r": "Escamas", "info": "Una senal fisica de que su ceguera termino."},
+    {"q": "Quién era el rey que mando matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
+    {"q": "En que valle fue traicionado Sanson por Dalila?", "op": ["Valle de Sorec", "Valle de Elah", "Valle de Ajalon", "Valle de Refaim"], "r": "Valle de Sorec", "info": "Dalila vivia en este valle."},
+    {"q": "Como se llamaba el padre de Juan el Bautista?", "op": ["Zacarias", "Simeon", "Jose", "Elias"], "r": "Zacarias", "info": "Era sacerdote del grupo de Abias."},
+    {"q": "Que nombre recibio el lugar donde Jacob sono con la escalera al cielo?", "op": ["Betel", "Hebron", "Siquem", "Beerseba"], "r": "Betel", "info": "Significa 'Casa de Dios'."},
+    {"q": "Quien fue el rey que pidio sabiduria a Dios para gobernar?", "op": ["Saul", "David", "Salomon", "Roboam"], "r": "Salomon", "info": "Dios le dio sabiduria y riquezas por no pedir fama."},
+    {"q": "Como se llamaba la esposa de Isaac?", "op": ["Rebeca", "Raquel", "Lea", "Bilha"], "r": "Rebeca", "info": "Fue elegida mediante una senal junto al pozo."},
+    {"q": "Que profeta fue enviado a Ninive pero huyo a Tarsis?", "op": ["Amos", "Jonas", "Oseas", "Miqueas"], "r": "Jonas", "info": "Su historia nos ensena sobre la obediencia."},
+    {"q": "Cual es el nombre del lugar donde Jesus multiplico los panes y peces por segunda vez?", "op": ["Galilea", "Decapolis", "Judea", "Samaria"], "r": "Decapolis", "info": "La region de las diez ciudades."},
+    {"q": "Como se llamaba el oficial etiope que bautizo Felipe?", "op": ["Ebed-melec", "Cus", "Candace", "Eunuco sin nombre"], "r": "Eunuco sin nombre", "info": "La Biblia solo se refiere a el por su cargo y origen."},
+    {"q": "🏠 Que montana fue el lugar donde murio Moises?", "op": ["Sinai", "Ararat", "Nebo", "Carmelo"], "r": "Nebo", "info": "Desde alli pudo ver la Tierra Prometida."},
+    {"q": "Como se llamaban los dos hijos de Eli que actuaban mal en el templo?", "op": ["Ofni y Finees", "Jacob y Esau", "Pedro y Juan", "Cain y Abel"], "r": "Ofni y Finees", "info": "Su mal comportamiento trajo juicio sobre la casa de Eli."}
 ]
 
 personajes = [
-    {"pista": "Fui arrojado a un foso con leones por orar a mi Dios.", "op": ["Daniel", "Noé", "David", "José"], "r": "Daniel"},
-    {"pista": "Construí un arca gigante por mandato divino antes del diluvio.", "op": ["Moisés", "Noé", "Abraham", "Elías"], "r": "Noé"},
-    {"pista": "Fui vendido por mis hermanos y terminé siendo gobernador en Egipto.", "op": ["José", "Benjamín", "Judá", "Rubén"], "r": "José"},
-    {"pista": "Lideré al pueblo de Israel fuera de la esclavitud en Egipto.", "op": ["Josué", "Moisés", "Aarón", "Caleb"], "r": "Moisés"},
-    {"pista": "Derroté a un gigante filisteo usando solo una honda y una piedra.", "op": ["Sansón", "David", "Saúl", "Gedeón"], "r": "David"},
-    {"pista": "Fui el hombre más fuerte del mundo, pero mi fuerza estaba en mi cabello.", "op": ["Sansón", "Goliat", "Joab", "Nabucodonosor"], "r": "Sansón"},
-    {"pista": "Fui el primer hombre creado por Dios y viví en el Jardín del Edén.", "op": ["Caín", "Abel", "Adán", "Set"], "r": "Adán"},
+    {"pista": "Fui arrojado a un foso con leones por orar a mi Dios.", "op": ["Daniel", "Noe", "David", "Jose"], "r": "Daniel"},
+    {"pista": "Construi un arca gigante por mandato divino antes del diluvio.", "op": ["Moises", "Noe", "Abraham", "Elias"], "r": "Noe"},
+    {"pista": "Fui vendido por mis hermanos y termine siendo gobernador en Egipto.", "op": ["Jose", "Benjamin", "Juda", "Ruben"], "r": "Jose"},
+    {"pista": "Lidere al pueblo de Israel fuera de la esclavitud en Egipto.", "op": ["Josue", "Moises", "Aaron", "Caleb"], "r": "Moises"},
+    {"pista": "Derrote a un gigante filisteo usando solo una honda y una piedra.", "op": ["Sanson", "David", "Saul", "Gedeon"], "r": "David"},
+    {"pista": "Fui el hombre mas fuerte del mundo, pero mi fuerza estaba en mi cabello.", "op": ["Sanson", "Goliat", "Joab", "Nabucodonosor"], "r": "Sanson"},
+    {"pista": "Fui el primer hombre creado por Dios y vivi en el Jardin del Eden.", "op": ["Cain", "Abel", "Adan", "Set"], "r": "Adan"},
     {"pista": "Fui llamado el padre de la fe por obedecer a Dios al dejar mi tierra.", "op": ["Isaac", "Jacob", "Abraham", "Lot"], "r": "Abraham"},
-    {"pista": "Fui tragado por un gran pez por intentar huir de la misión de Dios.", "op": ["Jonás", "Pedro", "Pablo", "Esteban"], "r": "Jonás"},
-    {"pista": "Fui una reina que salvó a mi pueblo judío de la destrucción en Persia.", "op": ["Rut", "Ester", "Sara", "Raquel"], "r": "Ester"},
-    {"pista": "Tuve muchos problemas y enfermedades, pero nunca maldije a Dios.", "op": ["Salomón", "Job", "Isaías", "Jeremías"], "r": "Job"},
-    {"pista": "Fui el sucesor de Moisés y guié al pueblo a conquistar Jericó.", "op": ["Caleb", "Josué", "Aarón", "Samuel"], "r": "Josué"},
-    {"pista": "Conocido por mi gran sabiduría y por construir el primer Templo.", "op": ["David", "Salomón", "Roboam", "Ezequías"], "r": "Salomón"},
-    {"pista": "Fui la mujer que decidió quedarse con su suegra Noemí en Belén.", "op": ["Ester", "Rut", "Débora", "Ana"], "r": "Rut"},
-    {"pista": "Fui el último juez de Israel y ungí a los dos primeros reyes.", "op": ["Elías", "Samuel", "Eliseo", "Natán"], "r": "Samuel"},
-    {"pista": "Profeticé que el Mesías nacería de una virgen siglos antes de que sucediera, y describí su sacrificio como un siervo suficiente.", "op": ["Isaías", "Amós", "Miqueas", "Joel"], "r": "Isaías"},
-    {"pista": "Fui un recaudador de impuestos que dejó todo para seguir a Jesús.", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Mateo"},
-    {"pista": "Fui el discípulo que caminó sobre las aguas hacia Jesús.", "op": ["Juan", "Pedro", "Andrés", "Felipe"], "r": "Pedro"},
-    {"pista": "Fui el apóstol de los gentiles y escribí gran parte del Nuevo Testamento.", "op": ["Bernabé", "Pablo", "Marcos", "Tomás"], "r": "Pablo"},
-    {"pista": "Preparé el camino para Jesús bautizando en el río Jordán.", "op": ["Juan el Bautista", "Elías", "Enoc", "Jeremías"], "r": "Juan el Bautista"},
-    {"pista": "Fui la madre que se alejo a la distancia de un tiro de arcopara no ver morir a su hijo, pero este lloró, y Dios escuchó su voz.", "op": ["Agar", "Sara", "Lea", "Raquel"], "r": "Agar"},
-    {"pista": "Fui el profeta que desafió a los 450 profetas de Baal en el Monte Carmelo.", "op": ["Eliseo", "Elías", "Isaías", "Jeremías"], "r": "Elías"},
-    {"pista": "Fui el único que permaneció fiel al rey David cuando su propio hijo Absalón intentó robarle el trono.", "op": ["Joab", "Itai", "Natán", "Mefiboset"], "r": "Itai"},
-    {"pista": "Fui el personaje que, siendo un niño, escuchó la voz de Dios llamándole en el templo..." , "op": ["Samuel", "David", "José", "Benjamín"], "r": "Samuel"},
-    {"pista": "Fui el rey que ordenó la construcción de un muro alrededor de Jerusalén en tiempo récord.", "op": ["Salomón", "Ezequías", "Nehemías", "Josías"], "r": "Nehemías"},
-    {"pista": "Fui la mujer que escondió a los espías de Israel en Jericó para salvar a mi familia.", "op": ["Rahab", "Rut", "Débora", "Ester"], "r": "Rahab"},
-    {"pista": "Me quedé mudo por no creer el mensaje del ángel que me anunciaba el nacimiento de mi hijo.", "op": ["Simeón", "Zacarías", "José", "Nicodemo"], "r": "Zacarías"},
-    {"pista": "Fui el juez que venció a los madianitas usando solo a 300 hombres con trompetas y cántaros.", "op": ["Sansón", "Gedeón", "Barac", "Josué"], "r": "Gedeón"},
-    {"pista": "Fui el apóstol que tuvo dudas y necesitó tocar las heridas de Jesús para creer que había resucitado.", "op": ["Pedro", "Felipe", "Tomás", "Juan"], "r": "Tomás"},
-    {"pista": "Fui el profeta que tuvo que casarse con una mujer infiel como símbolo del amor de Dios por su pueblo.", "op": ["Amós", "Oseas", "Joel", "Malaquías"], "r": "Oseas"}
+    {"pista": "Fui tragado por un gran pez por intentar huir de la mision de Dios.", "op": ["Jonas", "Pedro", "Pablo", "Esteban"], "r": "Jonas"},
+    {"pista": "Fui una reina que salvo a mi pueblo judio de la destruccion en Persia.", "op": ["Rut", "Ester", "Sara", "Raquel"], "r": "Ester"},
+    {"pista": "Tuve muchos problemas y enfermedades, pero nunca maldije a Dios.", "op": ["Salomon", "Job", "Isaias", "Jeremias"], "r": "Job"},
+    {"pista": "Fui el sucesor de Moises y guie al pueblo a conquistar Jerico.", "op": ["Caleb", "Josue", "Aaron", "Samuel"], "r": "Josue"},
+    {"pista": "Conocido por mi gran sabiduria y por construir el primer Templo.", "op": ["David", "Salomon", "Roboam", "Ezequias"], "r": "Salomon"},
+    {"pista": "Fui la mujer que decidio quedarse con su suegra Noemi en Belen.", "op": ["Ester", "Rut", "Debora", "Ana"], "r": "Rut"},
+    {"pista": "Fui el ultimo juez de Israel y ungi a los dos primeros reyes.", "op": ["Elias", "Samuel", "Eliseo", "Natan"], "r": "Samuel"},
+    {"pista": "Profetice que el Mesias naceria de una virgen siglos antes de que sucediera, y describi su sacrificio como un siervo suficiente.", "op": ["Isaias", "Amos", "Miqueas", "Joel"], "r": "Isaias"},
+    {"pista": "Fui un recaudador de impuestos que dejo todo para seguir a Jesus.", "op": ["Mateo", "Marcos", "Lucas", "Juan"], "r": "Mateo"},
+    {"pista": "Fui el discipulo que camino sobre las aguas hacia Jesus.", "op": ["Juan", "Pedro", "Andres", "Felipe"], "r": "Pedro"},
+    {"pista": "Fui el apostol de los gentiles y escribi gran parte del Nuevo Testamento.", "op": ["Bernabe", "Pablo", "Marcos", "Tomas"], "r": "Pablo"},
+    {"pista": "Prepare el camino para Jesus bautizando en el rio Jordan.", "op": ["Juan el Bautista", "Elias", "Enoc", "Jeremias"], "r": "Juan el Bautista"},
+    {"pista": "Fui la madre que se alejo a la distancia de un tiro de arcopara no ver morir a su hijo, pero este lloro, y Dios escucho su voz.", "op": ["Agar", "Sara", "Lea", "Raquel"], "r": "Agar"},
+    {"pista": "Fui el profeta que desafio a los 450 profetas de Baal en el Monte Carmelo.", "op": ["Eliseo", "Elias", "Isaias", "Jeremias"], "r": "Elías"},
+    {"pista": "Fui el unico que permanecio fiel al rey David cuando su propio hijo Absalon intento robarle el trono.", "op": ["Joab", "Itai", "Natan", "Mefiboset"], "r": "Itai"},
+    {"pista": "Fui el personaje que, siendo un niño, escuchó la voz de Dios llamándole en el templo...", "op": ["Samuel", "David", "José", "Benjamín"], "r": "Samuel"},
+    {"pista": "Fui el rey que ordeno la construccion de un muro alrededor de Jerusalen en tiempo record.", "op": ["Salomon", "Ezequias", "Nehemias", "Josias"], "r": "Nehemias"},
+    {"pista": "Fui la mujer que escondio a los espias de Israel en Jerico para salvar a mi familia.", "op": ["Rahab", "Rut", "Debora", "Ester"], "r": "Rahab"},
+    {"pista": "Me quede mudo por no creer el mensaje del angel que me anunciaba el nacimiento de mi hijo.", "op": ["Simeon", "Zacarias", "Jose", "Nicodemo"], "r": "Zacarias"},
+    {"pista": "Fui el juez que vencio a los madianitas usando solo a 300 hombres con trompetas y cantarros.", "op": ["Sanson", "Gedeon", "Barac", "Josue"], "r": "Gedeon"},
+    {"pista": "Fui el apostol que tuvo dudas y necesito tocar las heridas de Jesus para creer que habia resucitado.", "op": ["Pedro", "Felipe", "Tomas", "Juan"], "r": "Tomas"},
+    {"pista": "Fui el profeta que tuvo que casarse con una mujer infiel como simbolo del amor de Dios por su pueblo.", "op": ["Amos", "Oseas", "Joel", "Malaquias"], "r": "Oseas"}
 ]
 
 # --- BANCO DE VERSÍCULOS RVR1960 PARA EL JUEGO DE MEMORIZAR ---
 versiculos_memoria = [
-    {"cita": "Juan 3:16", "texto": "Porque de tal manera amó Dios al mundo que ha dado a su Hijo unigénito para que todo aquel que en él cree no se pierda mas tenga vida eterna"},
-    {"cita": "Salmos 23:1", "texto": "Jehová es mi pastor nada me faltará"},
+    {"cita": "Juan 3:16", "texto": "Porque de tal manera amo Dios al mundo que ha dado a su Hijo unigenito para que todo aquel que en el cree no se pierda mas tenga vida eterna"},
+    {"cita": "Salmos 23:1", "texto": "Jehova es mi pastor nada me faltara"},
     {"cita": "Filipenses 4:13", "texto": "Todo lo puedo en Cristo que me fortalece"},
     {"cita": "Romanos 8:28", "texto": "Y sabemos que a los que aman a Dios todas las cosas les ayudan a bien"},
-    {"cita": "Proverbios 3:5", "texto": "Fíate de Jehová de todo tu corazón y no te apoyes en tu propia prudencia"},
-    {"cita": "Isaías 41:10", "texto": "No temas porque yo estoy contigo no desmayes porque yo soy tu Dios que te esfuerzo siempre te ayudaré siempre te sustentaré con la diestra de mi justicia"},
-    {"cita": "Josué 1:9", "texto": "Mira que te mando que te esfuerces y seas valiente no temas ni desmayes porque Jehová tu Dios estará contigo en dondequiera que vayas"},
-    {"cita": "Salmos 119:105", "texto": "Lámpara es a mis pies tu palabra y lumbrera a mi camino"},
-    {"cita": "Gálatas 2:20", "texto": "Con Cristo estoy juntamente crucificado y ya no vivo yo mas vive Cristo en mí"},
-    {"cita": "Mateo 6:33", "texto": "Mas buscad primeramente el reino de Dios y su justicia y todas estas cosas os serán añadidas"}
+    {"cita": "Proverbios 3:5", "texto": "Fiate de Jehova de todo tu corazon y no te apoyes en tu propia prudencia"},
+    {"cita": "Isaias 41:10", "texto": "No temas porque yo estoy contigo no desmayes porque yo soy tu Dios que te esfuerzo siempre te ayudare siempre te sustentare con la diestra de mi justicia"},
+    {"cita": "Josue 1:9", "texto": "Mira que te mando que te esfuerces y seas valiente no temas ni desmayes porque Jehova tu Dios estara contigo en dondequiera que vayas"},
+    {"cita": "Salmos 119:105", "texto": "Lampara es a mis pies tu palabra y lumbrera a mi camino"},
+    {"cita": "Galatas 2:20", "texto": "Con Cristo estoy juntamente crucificado y ya no vivo yo mas vive Cristo en mi"},
+    {"cita": "Mateo 6:33", "texto": "Mas buscad primeramente el reino de Dios y su justicia y todas estas cosas os seran anadidas"}
 ]
 
 CSS_STYLE = """
