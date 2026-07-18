@@ -97,7 +97,7 @@ verdades_data = [
                     "Que no experimentará la muerte física ni los efectos biológicos del envejecimiento en el plano terrenal.",
                     "Que quedará completamente inhabilitado para volver a cometer cualquier error o falta moral de manera absoluta."
                 ],
-                "r": "Que no se perderá, guaranteeing la preservación judicial del creyente frente a la ruina y la condenación del alma."
+                "r": "Que no se perderá, garantizando la preservación judicial del creyente frente a la ruina y la condenación del alma."
             },
             {
                 "q": "¿Cuál constituye el cimiento y la base inamovible de toda la relación entre Dios y el hombre propuesto en esta primera verdad?",
