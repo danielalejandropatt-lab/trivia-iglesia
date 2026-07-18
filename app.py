@@ -82,7 +82,7 @@ verdades_data = [
                 "r": "Incluye de manera universal a todo el mundo, rompiendo barreras étnicas, temporales o de mérito previo para el acceso a la gracia."
             },
             {
-                "q": Respecto a la adquisición de la vida eterna, ¿cuál es la dinámica teológica correcta según se desprende de esta ley del amor?",
+                "q": "Respecto a la adquisición de la vida eterna, ¿cuál es la dinámica teológica correcta según se desprende de esta ley del amor?",
                 "op": [
                     "Se recibe gratuitamente como el resultado directo del plan soberano y amoroso de Dios, operando bajo el principio de la gracia.",
                     "Se gana de manera meritoria como retribución justa por el volumen acumulado de obras de piedad, filantropía y sacrificios personales.",
@@ -106,7 +106,7 @@ verdades_data = [
                     "El temor reverente y la sumisión psicológica del ser humano ante la disparidad de poder con el Absoluto.",
                     "El pacto bilateral basado en el cumplimiento riguroso y milimétrico de estatutos, ordenanzas y códigos litúrgicos."
                 ],
-                "r": "El amor incondicional y la iniciativa del Creador, quien define el vínculo desde Su propia esencia y carácter santo."
+                "r": "El amor incondicional and la iniciativa del Creador, quien define el vínculo desde Su propia esencia y carácter santo."
             }
         ]
     },
@@ -164,7 +164,7 @@ verdades_data = [
                 "r": "Porque la santidad de Dios y la naturaleza del pecado son mutuamente excluyentes, levantando una barrera espiritual infranqueable para el ser humano."
             },
             {
-                "q": "¿Posee el ser humano la capacidad inherente para cruzar por su cuenta el abismo generado por el pecado?",
+                "q": "¿Posee el ser humano la capacidad inherente para cruzar por su cuenta el abisco generado por el pecado?",
                 "op": [
                     "No, puesto que el pecado establece una condición de total incapacidad espiritual que anula cualquier esfuerzo autónomo de reconciliación.",
                     "Sí, siempre y cuando aplique un sistema riguroso de compensación moral mediante obras de justicia y caridad que equilibren su balanza ante Dios.",
@@ -231,8 +231,8 @@ verdades_data = [
                 "q": "¿De qué manera objetiva demostró Dios la máxima expresión de Su amor por nosotros mientras nuestra condición era de hostilidad y rebelión activa?",
                 "op": [
                     "En que siendo aún pecadores, Cristo murió por nosotros, asumiendo el veredicto judicial que nos correspondía.",
-                    "Suspendiendo temporalmente las demandas de Su justicia santísima mediante la manifestación de señales portentosas en el templo.",
-                    "Otorgando una amnistía incondicional a la humanidad a través de decretos y proclamas de emisarios celestiales."
+                    "Un perdón condicional y mutable, sujeto a auditorías periódicas basadas en el rendimiento moral del creyente.",
+                    "La exención soberana e inmunidad civil ante cualquier tipo de tribulación, padecimiento físico o crisis terrenal."
                 ],
                 "r": "En que siendo aún pecadores, Cristo murió por nosotros, asumiendo el veredicto judicial que nos correspondía."
             },
@@ -255,7 +255,7 @@ verdades_data = [
                 "r": "Que Él es el camino, y la verdad, y la vida; constituyéndose como la única vía ontológica de acceso al Padre."
             },
             {
-                "q": De acuerdo con el absoluto establecido por Cristo en Juan 14:6, ¿existe alguna vía alternativa para acceder a la comunión con el Padre?",
+                "q": "De acuerdo con el absoluto establecido por Cristo en Juan 14:6, ¿existe alguna vía alternativa para acceder a la comunión con el Padre?",
                 "op": [
                     "No, puesto que el texto dictamina categóricamente que nadie viene al Padre sino estrictamente por medio de Su persona.",
                     "Sí, siempre y cuando se sinteticen y sigan con rigurosidad las directrices éticas de los antiguos códigos proféticos de Oriente.",
@@ -266,11 +266,11 @@ verdades_data = [
             {
                 "q": "¿Por qué la teología bíblica de esta tercera verdad le otorga a Jesús el título de 'Substituto'?",
                 "op": [
-                    "Porque tomó de forma vicaria el lugar del pecador en la cruz, absorbiendo la ira divina y pagando la deuda de muerte que la ley exigía.",
+                    "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar.",
                     "Porque reemplazó la figura temporal del sumo sacerdote de la orden de Aarón para instaurar un modelo de liderazgo puramente administrativo.",
                     "Porque actuó como un embajador político en representación de las autoridades terrenales ante los tribunales del cosmos."
                 ],
-                "r": "Porque tomó de forma vicaria el lugar del pecador en la cruz, absorbiendo la ira divina y pagando la deuda de muerte que la ley exigía."
+                "r": "Refleja un amor sacrificial y proactivo que entrega voluntariamente lo más preciado con el propósito directo de salvar."
             },
             {
                 "q": En la arquitectura sistemática de las cinco verdades, ¿qué representa formalmente la muerte de Cristo?",
@@ -336,7 +336,7 @@ verdades_data = [
                 "r": "Que los pecados sean completamente borrados, eliminando de forma absoluta el registro legal de culpabilidad ante Dios."
             },
             {
-                "q": "En el marco de la conversión consecuente al arrepentimiento, ¿cómo se define teológicamente este movimiento del alma?",
+                "q": "En el marco de la conversión consecuente al arrepentimiento, ¿como se define teológicamente este movimiento del alma?",
                 "op": [
                     "Como un cambio ontológico de dirección en la vida, donde el individuo da la espalda al pecado para volverse resueltamente hacia Dios.",
                     "Como la adopción externa de una nueva identidad institucional, afiliación eclesiástica o asimilación de códigos litúrgicos.",
@@ -363,7 +363,7 @@ verdades_data = [
                 "r": "No, puesto que el concepto trasciende la emoción e involucra una decisión voluntaria y consciente de volverse activamente a Dios."
             },
             {
-                "q": "¿Por qué el arrepentimiento se erige como una condición indispensable y vital en la dinámica de la salvación?",
+                "q": "Porque opera como el mecanismo indispensable para abandonar la condición de pecado y posibilitar la reconciliación con el Creador.",
                 "op": [
                     "Porque opera como el mecanismo indispensable para abandonar la condición de pecado y posibilitar la reconciliación con el Creador.",
                     "Debido a que constituye un formalismo protocolar y una norma estatutaria impuesta de manera arbitraria por la ley eclesial.",
@@ -440,7 +440,7 @@ verdades_data = [
                 "q": "De acuerdo con las cláusulas de adopción espiritual plasmadas en Juan 1:12, ¿qué derecho legal y estatus adquieren aquellos que creen en Su nombre?",
                 "op": [
                     "La potestad (autoridad legal) de ser hechos hijos de Dios, integrándose formalmente en la familia celestial mediante el nuevo nacimiento.",
-                    "La garantía inmediata de infalibilidad espiritual, inhabilitando sus almas para cometer cualquier falta en el plano terrenal.",
+                    "La garantía inmediata de infalibilidad espiritual, inhabilitando sus almas para cometer cualquier falta en el plano terenal.",
                     "El señorío inmediato y directo sobre las estructuras políticas y las potestades de los reinos terrenales."
                 ],
                 "r": "La potestad (autoridad legal) de ser hechos hijos de Dios, integrándose formalmente en la familia celestial mediante el nuevo nacimiento."
@@ -525,14 +525,14 @@ preguntas = [
     {"q": "¿En qué isla naufragó Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterráneo."},
     {"q": "¿Quién escribió el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabé"], "r": "Desconocido", "info": "Su autoría es uno de los temas más debatidos."},
     {"q": "¿Qué significa el nombre 'Getsemaní'?", "op": ["Lugar de llanto", "Prensa de aceite", "Jardín santo", "Lugar de reposo"], "r": "Prensa de aceite", "info": "Hace referencia a la maquinaria de aceite."},
-    {"q": "¿A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
+    {"q": "A qué ciudad se dirigía Saulo cuando vio la luz del cielo?", "op": ["Jericó", "Damasco", "Samaria", "Antioquía"], "r": "Damasco", "info": "Saulo iba con autoridad a esta ciudad antigua."},
     {"q": "¿Qué libro describe la nueva Jerusalén?", "op": ["Hebreos", "Santiago", "Apocalipsis", "Judas"], "r": "Apocalipsis", "info": "El libro profético que describe el final."},
     {"q": "¿Quién bautizó al eunuco etíope?", "op": ["Pedro", "Felipe", "Juan", "Esteban"], "r": "Felipe", "info": "Uno de los siete diáconos."},
     {"q": "¿Cuántas personas fueron alimentadas con cinco panes y dos peces?", "op": ["2,000", "5,000", "7,000", "10,000"], "r": "5,000", "info": "El gran milagro de provisión."},
     {"q": "¿Quién negó a Jesús tres veces antes de que el gallo cantara?", "op": ["Juan", "Judas", "Pedro", "Tomás"], "r": "Pedro", "info": "El discípulo que prometió lealtad absoluta."},
     {"q": "¿En qué ciudad se llamaron por primera vez 'cristianos'?", "op": ["Jerusalén", "Antioquía", "Roma", "Corinto"], "r": "Antioquía", "info": "Ciudad donde la comunidad se hizo notoria."},
     {"q": "¿Qué objeto se le cayó a Pablo de los ojos tras su conversión?", "op": ["Escamas", "Polvo", "Sangre", "Velo"], "r": "Escamas", "info": "Una señal física de que su ceguera terminó."},
-    {"q": "¿Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
+    {"q": "Quién era el rey que mandó matar a los niños en Belén?", "op": ["César", "Herodes", "Pilato", "Agripa"], "r": "Herodes", "info": "Un gobernante celoso de su poder."},
     {"q": "¿En qué valle fue traicionado Sansón por Dalila?", "op": ["Valle de Sorec", "Valle de Elah", "Valle de Ajalón", "Valle de Refaim"], "r": "Valle de Sorec", "info": "Dalila vivía en este valle."},
     {"q": "¿Cómo se llamaba el padre de Juan el Bautista?", "op": ["Zacarías", "Simeón", "José", "Elías"], "r": "Zacarías", "info": "Era sacerdote del grupo de Abías."},
     {"q": "¿Qué nombre recibió el lugar donde Jacob soñó con la escalera al cielo?", "op": ["Betel", "Hebrón", "Siquem", "Beerseba"], "r": "Betel", "info": "Significa 'Casa de Dios'."},
@@ -569,7 +569,7 @@ personajes = [
     {"pista": "Fui la madre que se alejo a la distancia de un tiro de arcopara no ver morir a su hijo, pero este lloró, y Dios escuchó su voz.", "op": ["Agar", "Sara", "Lea", "Raquel"], "r": "Agar"},
     {"pista": "Fui el profeta que desafió a los 450 profetas de Baal en el Monte Carmelo.", "op": ["Eliseo", "Elías", "Isaías", "Jeremías"], "r": "Elías"},
     {"pista": "Fui el único que permaneció fiel al rey David cuando su propio hijo Absalón intentó robarle el trono.", "op": ["Joab", "Itai", "Natán", "Mefiboset"], "r": "Itai"},
-    {"pista": "Fui el personaje que, siendo un niño, escuchó la voz de Dios llamándole en el templo mientras dormía.", "op": ["Samuel", "David", "José", "Benjamín"], "r": "Samuel"},
+    {"pista": "Fui el personaje que, siendo un niño, escuchó la voz de Dios llamándole en el templo..." , "op": ["Samuel", "David", "José", "Benjamín"], "r": "Samuel"},
     {"pista": "Fui el rey que ordenó la construcción de un muro alrededor de Jerusalén en tiempo récord.", "op": ["Salomón", "Ezequías", "Nehemías", "Josías"], "r": "Nehemías"},
     {"pista": "Fui la mujer que escondió a los espías de Israel en Jericó para salvar a mi familia.", "op": ["Rahab", "Rut", "Débora", "Ester"], "r": "Rahab"},
     {"pista": "Me quedé mudo por no creer el mensaje del ángel que me anunciaba el nacimiento de mi hijo.", "op": ["Simeón", "Zacarías", "José", "Nicodemo"], "r": "Zacarías"},
@@ -751,11 +751,9 @@ def verdades_juego():
         q_idx = session.get('v_pregunta_idx', 0)
         p = preguntas_bloque[q_idx]
         
-        # Mezclamos las opciones dinámicamente en este momento preciso
         ops_barajadas = p['op'][:]
         random.shuffle(ops_barajadas)
         
-        # Guardamos en sesión el orden temporal para interpretarlo en /verdades_res
         session['v_opciones_actuales'] = ops_barajadas
         
         btns = "".join([f'<a href="/verdades_res?ans_idx={i}"><button>{o}</button></a>' for i, o in enumerate(ops_barajadas)])
