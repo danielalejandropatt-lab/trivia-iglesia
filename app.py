@@ -521,7 +521,7 @@ preguntas = [
     {"q": "Quien fue el primer martir cristiano?", "op": ["Pedro", "Esteban", "Santiago", "Felipe"], "r": "Esteban", "info": "Un hombre lleno de gracia y poder que fue apedreado."},
     {"q": "A que iglesia escribio Pablo sobre la 'armadura de Dios'?", "op": ["Corinto", "Roma", "Efeso", "Galacia"], "r": "Efeso", "info": "Esta carta aborda la lucha espiritual."},
     {"q": "Quien acompano a Pablo en su primer viaje misionero?", "op": ["Silas", "Bernabe", "Timoteo", "Lucas"], "r": "Bernabe", "info": "Conocido como el 'hijo de consolacion'."},
-    {"q": "Como se llamaba la mujer que Pablo resucito en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
+    {"q": "Como se llamaba la mujer que Pedro resucito en Jope?", "op": ["Lidia", "Dorcas", "Priscila", "Febe"], "r": "Dorcas", "info": "Una mujer admirada por su caridad."},
     {"q": "Que apostol escribio mas libros en el Nuevo Testamento?", "op": ["Juan", "Pedro", "Pablo", "Lucas"], "r": "Pablo", "info": "Es el autor que mas cartas escribio."},
     {"q": "En que isla naufrago Pablo?", "op": ["Patmos", "Creta", "Malta", "Chipre"], "r": "Malta", "info": "Una isla del Mediterraneo."},
     {"q": "Quien escribio el libro de Hebreos?", "op": ["Pablo", "Apolos", "Desconocido", "Bernabe"], "r": "Desconocido", "info": "Su autoria es uno de los temas mas debatidos."},
